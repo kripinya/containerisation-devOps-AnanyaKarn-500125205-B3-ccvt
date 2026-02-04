@@ -1,8 +1,4 @@
-# Experiment-1 & 2: Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
-
-Date: January 21, 2026
-
-## Experiment No. - 1 & 2
+## Experiment file
 
 ### Course Name- Containerisation and DevOps
 
@@ -17,7 +13,8 @@ Date: January 21, 2026
 ### Instructor - Prateek Gautam
 
 ---
-
+# Experiment-1 & 2: Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
+Date: January 21, 2026
 ## Aim/ Objective
 
 <aside>
