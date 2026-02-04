@@ -2,7 +2,7 @@
 
 Date: January 21, 2026
 
-## Experiment No. - 1
+## Experiment No. - 1 & 2
 
 ### Course Name- Containerisation and DevOps
 
