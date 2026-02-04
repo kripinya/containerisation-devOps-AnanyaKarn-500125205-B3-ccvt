@@ -1,4 +1,4 @@
-# Experiment-1: Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
+# Experiment-1 & 2: Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
 
 Date: January 21, 2026
 
