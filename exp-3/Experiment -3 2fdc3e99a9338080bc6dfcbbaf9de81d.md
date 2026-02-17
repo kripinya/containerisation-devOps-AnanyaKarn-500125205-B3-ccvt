@@ -502,7 +502,14 @@ ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine %
 ```
 ---
 
-## PART 5: COMPARISON SUMMARY
+## PART 5: FUNCTIONAL TASK – SERVING CUSTOM HTML USING NGINX
+
+### Step 1: Create Custom HTML File
+
+```bash
+mkdir html
+echo "<h1>Hello from Docker NGINX</h1>" > html/index.html
+## COMPARISON SUMMARY
 
 ### Image Comparison Table
 
@@ -518,7 +525,6 @@ ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine %
 ---
 
 ## PART 6: WHEN TO USE WHICH IMAGE
-
 ### Official NGINX Image
 Recommended for:
 - Production deployments
