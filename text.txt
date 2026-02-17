@@ -1,0 +1,28 @@
+ananyakarn@Ananyas-MacBook-Air-2 sapid-checker % docker build --no-cache -t sapid-checker:500125205 .
+[+] Building 28.8s (9/9) FINISHED                                                               docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                            0.0s
+ => => transferring dockerfile: 136B                                                                            0.0s
+ => [internal] load metadata for docker.io/library/python:3.10-slim                                             2.4s
+ => [internal] load .dockerignore                                                                               0.0s
+ => => transferring context: 2B                                                                                 0.0s
+ => [1/4] FROM docker.io/library/python:3.10-slim@sha256:e508a34e5491225a76fbb9e0f43ebde1f691c6a689d096d7510cf  0.0s
+ => => resolve docker.io/library/python:3.10-slim@sha256:e508a34e5491225a76fbb9e0f43ebde1f691c6a689d096d7510cf  0.0s
+ => [internal] load build context                                                                               0.0s
+ => => transferring context: 207B                                                                               0.0s
+ => CACHED [2/4] WORKDIR /app                                                                                   0.0s
+ => [3/4] COPY app.py .                                                                                         0.0s
+ => [4/4] RUN pip install numpy                                                                                23.3s
+ => exporting to image                                                                                          3.0s 
+ => => exporting layers                                                                                         2.5s 
+ => => exporting manifest sha256:44dd76e6b7ed53dc52c8db785fbb5892cf525603ad94b2f4ed0ccfc04c7ef401               0.0s 
+ => => exporting config sha256:a323bf21bac55afede8ae185f0eff9469d69fade30c2555fb222d355ce525826                 0.0s 
+ => => exporting attestation manifest sha256:192581017a8f8943bc0f4298ecdfcc54a49652f3d3eaa3f7363e3e9f6a4a1a31   0.0s 
+ => => exporting manifest list sha256:c21f1d21727e8578695c8b7a5c47605ecaeeb0032a1dd655eb55407526e77338          0.0s 
+ => => naming to docker.io/library/sapid-checker:500125205                                                      0.0s
+ => => unpacking to docker.io/library/sapid-checker:500125205                                                   0.4s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/njlnldwf8m3ttl6zyehvrenp6
+ananyakarn@Ananyas-MacBook-Air-2 sapid-checker % docker run --rm -it sapid-checker:500125205
+Enter your SAP ID: 500125205
+Matched
+ananyakarn@Ananyas-MacBook-Air-2 sapid-checker % 
