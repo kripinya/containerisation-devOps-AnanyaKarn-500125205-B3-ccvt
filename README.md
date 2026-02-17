@@ -10,7 +10,7 @@
 
 ### Semester - 6th
 
-### Instructor - Prateek Gautam
+### Instructor - Prateek Gautam Sir
 
 ---
 # Experiment-1 & 2: Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
