@@ -500,3 +500,60 @@ IMAGE          CREATED       CREATED BY                                      SIZ
 <missing>      7 days ago    ADD alpine-minirootfs-3.23.3-aarch64.tar.gz …   9.36MB    buildkit.dockerfile.v0
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
+---
+
+## PART 5: COMPARISON SUMMARY
+
+### Image Comparison Table
+
+| Feature | Official NGINX Image | Ubuntu-based Image | Alpine-based Image |
+|---|---|---|---|
+| Image Size | Medium | Large | Very Small |
+| Startup Time | Fast | Slow | Very Fast |
+| Security Surface | Medium | Large | Small |
+| Debugging Tools | Limited | Excellent | Minimal |
+| Ease of Use | Very Easy | Medium | Medium |
+| Production Ready | Yes | Rarely | Yes |
+
+---
+
+## PART 6: WHEN TO USE WHICH IMAGE
+
+### Official NGINX Image
+Recommended for:
+- Production deployments
+- Standard web hosting
+- Reverse proxy or load balancer setup
+
+### Ubuntu-Based Image
+Recommended for:
+- Learning Linux + NGINX internals
+- Debugging environments
+- Custom system-level dependencies
+
+### Alpine-Based Image
+Recommended for:
+- Microservices architectures
+- Cloud-native applications
+- CI/CD pipelines and Kubernetes workloads
+
+---
+
+## PART 7: OBSERVATIONS
+
+- Alpine image showed the smallest size and fewer layers, resulting in faster image pull and startup time.
+- Ubuntu-based image provided more utilities but increased size and attack surface.
+- Official NGINX image offered a balanced approach between optimization and usability.
+- Docker image layers help optimize build caching and storage reuse.
+
+---
+
+## RESULT
+
+NGINX was successfully deployed using Official, Ubuntu-based, and Alpine-based Docker images. Image size and layer analysis demonstrated the impact of base image selection on performance, security, and resource utilization.
+
+---
+
+## CONCLUSION
+
+The experiment demonstrated that base image selection plays a critical role in container performance, security, and portability. Alpine-based images are best suited for lightweight microservices, Ubuntu-based images are useful for debugging and learning, while official NGINX images are preferred for production-ready deployments.
