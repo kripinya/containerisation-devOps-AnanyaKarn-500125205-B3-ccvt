@@ -13,8 +13,26 @@
 ### Instructor - Prateek Gautam Sir
 
 ---
-# Experiment-1 & 2: Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
+# Experiment-0-1 : Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
+
 Date: January 21, 2026
+
+## Experiment No. - 1
+
+### Course Name- Containerisation and DevOps
+
+### Student Name- Ananya Karn
+
+### Sap_ID - 500125205
+
+### Roll No. - R2142231061
+
+### Semester - 6th
+
+### Instructor - Prateek Gautam
+
+---
+
 ## Aim/ Objective
 
 <aside>
@@ -71,6 +89,20 @@ In this experiment, macOS acts as the host operating system. VMware Fusion is us
 
 ---
 
+## Setup:
+
+### **PART A — Experiment 0 (Environment Setup)**
+
+To install and configure required tools (WSL/Ubuntu, Docker, Vagrant, virtualization platform) for performing containerisation experiments.
+
+Include:
+
+- Host OS (macOS Apple Silicon)
+- VMware Fusion
+- Vagrant
+- Docker
+- Ubuntu ARM64
+
 ## Procedure-
 
 ### Step 1 : Installation and verification of Vagrant:
@@ -84,7 +116,7 @@ brew tap hashicorp/tap
 brew install hashicorp/tap/hashicorp-vagrant
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image.png)
 
 First, the installation of Vagrant is verified on the host system using the terminal.
 
@@ -92,7 +124,7 @@ First, the installation of Vagrant is verified on the host system using the term
 vagrant --version
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%201.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%201.png)
 
 **Explanation:**
 
@@ -113,9 +145,9 @@ VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) a
 
 VMware Fusion provides native ARM support on Apple Silicon, making it suitable for running Ubuntu virtual machines efficiently.
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%202.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%202.png)
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%203.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%203.png)
 
 ---
 
@@ -128,7 +160,7 @@ mkdir ubuntu-vagrant
 cd ubuntu-vagrant
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%204.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%204.png)
 
 **Explanation:**
 
@@ -151,7 +183,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%205.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%205.png)
 
 **Explanation:**
 
@@ -167,7 +199,7 @@ The Ubuntu virtual machine is started using the following command:
 vagrant up --provider=vmware_desktop
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%206.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%206.png)
 
 **Explanation:**
 
@@ -175,7 +207,7 @@ This command downloads the required Ubuntu box and boots the virtual machine usi
 
 ---
 
-### **Step 6: Accessing the Virtual Machine**
+## **Step 6: Accessing the Virtual Machine**
 
 Secure shell access to the virtual machine is established using:
 
@@ -183,7 +215,7 @@ Secure shell access to the virtual machine is established using:
 vagrant ssh
 ```
 
-![Screenshot 2026-01-21 at 12.22.12 PM.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/c1cc5658-9d03-4015-8405-d01744ed4c3a.png)
+![Screenshot 2026-01-21 at 12.22.12 PM.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/c1cc5658-9d03-4015-8405-d01744ed4c3a.png)
 
 **Explanation:**
 
@@ -191,7 +223,7 @@ This command allows the user to interact with the Ubuntu virtual machine through
 
 ---
 
-### **Step 7: Installation of Nginx Web Server**
+## **Step 7: Installation of Nginx Web Server**
 
 The Nginx web server is installed inside the Ubuntu virtual machine.
 
@@ -200,9 +232,9 @@ sudo apt update
 sudo apt install -y nginx
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/5198099b-8eb4-4485-84e9-61954600fd0e.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/5198099b-8eb4-4485-84e9-61954600fd0e.png)
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%207.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%207.png)
 
 The Nginx service is started and enabled:
 
@@ -217,11 +249,41 @@ The status of the service is checked using:
 systemctl status nginx
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/2d132b8a-9291-4dcb-a763-423db1af30c2.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/2d132b8a-9291-4dcb-a763-423db1af30c2.png)
 
 **Explanation:**
 
 These commands install and configure Nginx to run as a web server inside the virtual machine.
+
+```powershell
+vagrant@vagrant:~$ curl localhost
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+vagrant@vagrant:~$ 
+```
 
 ---
 
@@ -235,7 +297,7 @@ sudo apt install -y ca-certificates curl gnupg
 sudo apt install -y docker.io
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%208.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%208.png)
 
 Docker repository is added and Docker Engine is installed.
 
@@ -245,7 +307,7 @@ After installation, the Docker service is verified by running:
 docker --version
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%209.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%209.png)
 
 ---
 
@@ -257,7 +319,7 @@ A test container is executed to verify successful installation of Docker.
 docker run hello-world
 ```
 
-![image.png](Experiment-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using/image%2010.png)
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%2010.png)
 
 **Explanation:**
 
@@ -278,6 +340,26 @@ This procedure successfully completes:
 > Ubuntu virtual machine was successfully created using Vagrant and VMware Fusion. Nginx web server and Docker Engine were installed and verified successfully.
 > 
 
+---
+
+## **VM vs Container Comparison**
+
+### VM:
+
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%2011.png)
+
+### Container:
+
+![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%2012.png)
+
+| **Parameter** | **VM** | **Container** |
+| --- | --- | --- |
+| Boot Time | High | Very Low |
+| RAM Usage | High | Low |
+| CPU Overhead | Higher | Minimal |
+| Disk Usage | Large | Small |
+| Isolation | Strong | Moderate |
+
 ## **Observations**
 
 - ARM64 architecture requires compatible virtualization support
@@ -292,6 +374,223 @@ This procedure successfully completes:
 The experiment successfully demonstrated the creation of a DevOps-ready environment using Vagrant and VMware Fusion. The installation of Nginx and Docker validated service deployment and container execution within the virtual machine.
 
 ---
+# EXPERIMENT 2
+
+Date: January 22, 2026
+
+## **Docker Installation, Configuration, and Running Images**
+
+### **Aim / Objective:** To install and configure Docker, pull images from Docker Hub, run containers with port mapping, and perform container lifecycle management operations such as start, stop, remove, and image deletion.
+
+---
+
+### **Software & Hardware Requirements**
+
+| **Component** | **Details** |
+| --- | --- |
+| Host OS | macOS (Apple Silicon – ARM64) |
+| Container Platform | Docker Engine / Docker Desktop |
+| Image Used | nginx |
+| Terminal | macOS Terminal |
+| Internet | Required (for pulling images) |
+
+## **Theory**
+
+### **Docker**
+
+**Docker** is an open-source containerization platform used to build, ship, and run applications inside lightweight, isolated environments called containers. It ensures applications run consistently across different systems by packaging code, dependencies, and runtime together.
+
+---
+
+### **Image**
+
+A **Docker Image** is a **read-only template** that contains the application code, libraries, dependencies, and configuration needed to run a container.
+
+Images are built once and can be reused to create multiple containers.
+
+Example: nginx:latest, ubuntu:24.04
+
+---
+
+### **Container**
+
+A **Container** is a **running instance of a Docker image**.
+
+It is lightweight, isolated, and shares the host operating system kernel while running independently from other containers.
+
+Key points:
+
+- Fast startup
+- Portable across environments
+- Uses fewer resources than virtual machines
+
+---
+
+### **Port Mapping**
+
+**Port mapping** connects a port on the host machine to a port inside the container, allowing external access to services running inside the container.
+
+Example:
+
+```powershell
+docker run -p 8080:80 nginx
+```
+
+- 8080 → Host port
+- 80 → Container port
+
+This allows accessing the containerized application via:
+
+```powershell
+http://localhost:8080
+```
+
+### **Docker Lifecycle**
+
+The typical **container lifecycle** follows these stages:
+
+1. **Create** – Container is created from an image.
+2. **Run** – Container starts executing the application.
+3. **Stop** – Execution is paused or terminated.
+4. **Remove** – Container is deleted when no longer needed.
+
+---
+
+## Procedure
+
+### **Step 1 — Pull Docker Image**
+
+```powershell
+docker pull nginx
+```
+
+![image.png](EXPERIMENT%202/image.png)
+
+Downloads the official nginx image from Docker Hub.
+
+---
+
+### **Step 2 — Run Container with Port Mapping**
+
+```powershell
+docker run -d -p 8080:80 --name nginx-container nginx
+```
+
+![image.png](EXPERIMENT%202/image%201.png)
+
+- d → detached mode
+- p 8080:80 → host port 8080 mapped to container port 80
+- -name → custom container name
+
+---
+
+### **Step 3 — Verify Running Container**
+
+```powershell
+docker ps
+```
+
+![image.png](EXPERIMENT%202/image%202.png)
+
+Then verify Nginx:
+
+```powershell
+curl localhost:8080
+```
+
+![image.png](EXPERIMENT%202/image%203.png)
+
+OR open browser:
+
+```powershell
+http://localhost:8080
+```
+
+![image.png](EXPERIMENT%202/image%204.png)
+
+You should see “Welcome to nginx!”
+
+---
+
+### **Step 4 — Stop Container**
+
+```powershell
+docker stop nginx-container
+```
+
+```powershell
+ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % docker stop nginx-container
+nginx-container
+ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % 
+```
+
+---
+
+### **Step 5 — Remove Container**
+
+```powershell
+docker rm nginx-container
+```
+
+```powershell
+ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % docker rm nginx-container
+nginx-container
+ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % 
+```
+
+---
+
+### **Step 6 — Remove Image**
+
+```powershell
+docker rmi nginx
+```
+
+```powershell
+ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % docker rmi nginx
+Untagged: nginx:latest
+Deleted: sha256:341bf0f3ce6c5277d6002cf6e1fb0319fa4252add24ab6a0e262e0056d313208
+ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % 
+```
+
+If image in use → stop/remove container first.
+
+---
+
+## **Container Lifecycle Summary**
+
+Image → Container Created → Running → Stopped → Removed
+
+---
+
+## **Observations**
+
+Example points:
+
+- Image pulled successfully from Docker Hub
+- Container exposed nginx service on port 8080
+- docker ps shows active containers
+- Containers start quickly with minimal overhead
+
+---
+
+### Result
+
+<aside>
+<img src="https://www.notion.so/icons/code_blue.svg" alt="https://www.notion.so/icons/code_blue.svg" width="40px" />
+
+Docker image was successfully pulled, container executed with port mapping, verified through browser output, and lifecycle operations (stop, remove, image removal) were completed successfully.
+
+</aside>
+
+---
+
+## Conclusion
+
+> The experiment demonstrated Docker fundamentals including image pulling, container execution, and lifecycle management. It shows how containers provide lightweight and efficient application deployment.
+
+-----
+
 # Experiment -3
 
 Date: February 4, 2026
@@ -794,3 +1093,328 @@ IMAGE          CREATED       CREATED BY                                      SIZ
 <missing>      7 days ago    ADD alpine-minirootfs-3.23.3-aarch64.tar.gz …   9.36MB    buildkit.dockerfile.v0
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
+---
+
+## PART 5: FUNCTIONAL TASK – SERVING CUSTOM HTML USING NGINX
+
+### Step 1: Create Custom HTML File
+
+```bash
+mkdir html
+echo "<h1>Hello from Docker NGINX</h1>" > html/index.html
+## COMPARISON SUMMARY
+
+### Image Comparison Table
+
+| Feature | Official NGINX Image | Ubuntu-based Image | Alpine-based Image |
+|---|---|---|---|
+| Image Size | Medium | Large | Very Small |
+| Startup Time | Fast | Slow | Very Fast |
+| Security Surface | Medium | Large | Small |
+| Debugging Tools | Limited | Excellent | Minimal |
+| Ease of Use | Very Easy | Medium | Medium |
+| Production Ready | Yes | Rarely | Yes |
+
+---
+
+## PART 6: WHEN TO USE WHICH IMAGE
+### Official NGINX Image
+Recommended for:
+- Production deployments
+- Standard web hosting
+- Reverse proxy or load balancer setup
+
+### Ubuntu-Based Image
+Recommended for:
+- Learning Linux + NGINX internals
+- Debugging environments
+- Custom system-level dependencies
+
+### Alpine-Based Image
+Recommended for:
+- Microservices architectures
+- Cloud-native applications
+- CI/CD pipelines and Kubernetes workloads
+
+---
+
+## PART 7: OBSERVATIONS
+
+- Alpine image showed the smallest size and fewer layers, resulting in faster image pull and startup time.
+- Ubuntu-based image provided more utilities but increased size and attack surface.
+- Official NGINX image offered a balanced approach between optimization and usability.
+- Docker image layers help optimize build caching and storage reuse.
+
+---
+
+## RESULT
+
+NGINX was successfully deployed using Official, Ubuntu-based, and Alpine-based Docker images. Image size and layer analysis demonstrated the impact of base image selection on performance, security, and resource utilization.
+
+---
+
+## CONCLUSION
+
+The experiment demonstrated that base image selection plays a critical role in container performance, security, and portability. Alpine-based images are best suited for lightweight microservices, Ubuntu-based images are useful for debugging and learning, while official NGINX images are preferred for production-ready deployments.
+
+---
+# EXPERIMENT-4 Docker Essentials
+
+# **Docker Essentials — Dockerfile, .dockerignore, Tagging and Publishing**
+
+### **Aim / Objective**
+
+To containerize a simple application using Dockerfile, optimize the build process using .dockerignore, build and tag Docker images, run and manage containers, and understand the basics of image versioning and publishing workflows.
+
+## **THEORY / BACKGROUND**
+
+### **Dockerfile**
+
+A Dockerfile is a set of instructions used to automate the creation of Docker images. Each instruction creates a layer in the image, making builds reproducible and portable across environments.
+
+---
+
+### **Docker Image**
+
+A Docker image is a lightweight, executable package containing application code, runtime, libraries, and dependencies required to run an application.
+
+---
+
+### **Docker Container**
+
+A container is a running instance of a Docker image. Containers are isolated from the host system but share the host kernel, making them lightweight compared to virtual machines.
+
+---
+
+### **.dockerignore**
+
+The .dockerignore file prevents unnecessary files from being copied into the Docker image during build. This improves:
+
+- Build speed
+- Image size
+- Security
+- Performance
+
+---
+
+### **Image Tagging**
+
+Tagging assigns version labels to images, allowing better version control and deployment management.
+
+Example:
+
+- my-flask-app:latest
+- my-flask-app:1.0
+
+---
+
+### **Container Lifecycle**
+
+Containers usually follow this lifecycle:
+
+Image → Run → Running → Stop → Remove
+
+Understanding this is essential for container management in DevOps workflows.
+
+---
+
+## **Software & Hardware Requirements**
+
+| **Component** | **Details** |
+| --- | --- |
+| Host OS | macOS (Apple Silicon) |
+| Container Platform | Docker Desktop |
+| Language | Python |
+| Framework | Flask |
+| Editor | VS Code / Terminal |
+| Internet | Required |
+
+---
+
+# **PROCEDURE**
+
+### **PART 1 — Creating a Simple Flask Application**
+
+**Step 1: Create Project Folder**
+
+```powershell
+mkdir my-flask-app
+cd my-flask-app
+```
+
+![image.png](EXPERIMENT-4%20Docker%20Essentials/image.png)
+
+**Step 2: Create app.py**
+
+```powershell
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Hello from Docker!"
+
+@app.route('/health')
+def health():
+    return "OK"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
+
+**Step 3: Create requirements.txt**
+
+```powershell
+Flask==2.3.3
+```
+
+## **PART 2 — Creating Dockerfile**
+
+Create a file named **Dockerfile**:
+
+```powershell
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app.py .
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
+```
+
+- Uses lightweight Python base image
+- Sets working directory
+- Installs dependencies
+- Copies application code
+- Exposes app port
+- Defines startup command
+
+## **PART 3 — Creating .dockerignore**
+
+Create file:
+
+```powershell
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv
+.vscode/
+.idea/
+.git/
+.DS_Store
+*.log
+```
+
+This prevents unnecessary files from entering the image, reducing size and improving security.
+
+---
+
+## **PART 4 — Building Docker Image**
+
+Run:
+
+```powershell
+docker build -t my-flask-app .
+```
+
+![image.png](EXPERIMENT-4%20Docker%20Essentials/image%201.png)
+
+Then:
+
+```powershell
+docker images
+```
+
+![image.png](EXPERIMENT-4%20Docker%20Essentials/image%202.png)
+
+## **PART 5 — Running the Container**
+
+Run:
+
+```powershell
+docker run -d -p 5000:5000 --name flask-container my-flask-app
+```
+
+```powershell
+ananyakarn@Ananyas-MacBook-Air-2 my-flask-app % docker run -d -p 5001:5000 --name flask-container my-flask-app
+34f2aef1e0c594d3c24fda88cc61ee855be01591ab49b0f0478e50de37fb9c20
+ananyakarn@Ananyas-MacBook-Air-2 my-flask-app % 
+```
+
+Verifying:
+
+```powershell
+ananyakarn@Ananyas-MacBook-Air-2 my-flask-app % curl http://localhost:5001
+Hello from Docker!%                                                                                                                                        
+ananyakarn@Ananyas-MacBook-Air-2 my-flask-app % 
+```
+
+**Check running containers:**
+
+```powershell
+docker ps
+```
+
+![image.png](EXPERIMENT-4%20Docker%20Essentials/image%203.png)
+
+### **Check container logs**
+
+```powershell
+docker logs flask-container
+```
+
+![image.png](EXPERIMENT-4%20Docker%20Essentials/image%204.png)
+
+### **PART 6 — Container Management**
+
+```powershell
+docker stop flask-container
+docker start flask-container
+docker rm -f flask-container
+```
+
+![image.png](EXPERIMENT-4%20Docker%20Essentials/image%205.png)
+
+### **PART 7 — Image Tagging**
+
+```powershell
+docker build -t my-flask-app:1.0 .
+docker tag my-flask-app:latest my-flask-app:v1.0
+```
+
+![image.png](EXPERIMENT-4%20Docker%20Essentials/image%206.png)
+
+Then:
+
+```powershell
+docker images
+```
+
+![image.png](EXPERIMENT-4%20Docker%20Essentials/image%207.png)
+
+Tagging helps maintain versions for deployment and rollback.
+
+# **Observations**
+
+- Flask app runs successfully inside container.
+- Dockerfile simplifies deployment.
+- .dockerignore reduces unnecessary files.
+- Tagging allows version management.
+- Container logs confirm application execution.
+
+# **Result**
+
+> A Flask application was successfully containerized using Dockerfile. The container was executed, verified, and managed through Docker lifecycle commands. Image tagging and build optimization concepts were demonstrated.
+> 
+
+# **Conclusion**
+
+> This experiment demonstrated essential Docker concepts including application containerization, image creation, .dockerignore optimization, image tagging, and container lifecycle management, forming the foundation for real-world DevOps workflows.
