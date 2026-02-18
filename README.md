@@ -117,7 +117,7 @@ brew tap hashicorp/tap
 brew install hashicorp/tap/hashicorp-vagrant
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image.png)
+![image.png](LAB_1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image.png)
 
 First, the installation of Vagrant is verified on the host system using the terminal.
 
