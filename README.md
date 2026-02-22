@@ -66,6 +66,7 @@ The main difference between virtual machines and containers lies in their archit
 
 ---
 **System Architecture/Setup Description**
+
 In this experiment, macOS acts as the host operating system. VMware Fusion is used as the virtualization provider, while Vagrant automates the creation and management of the Ubuntu 22.04 ARM virtual machine. Inside the virtual machine, Nginx is deployed as a web server and Docker Engine is installed to run containerized applications.
 
 ---
@@ -87,12 +88,12 @@ To install Vagrant, run these command in the local terminal of the host system:
 brew tap hashicorp/tap
 brew install hashicorp/tap/hashicorp-vagrant
 ```
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image.png)
 First, the installation of Vagrant is verified on the host system using the terminal.
 ```java
 vagrant --version
 ```
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 1.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%201.png)
 **Explanation:**
 This command checks whether Vagrant is correctly installed on the macOS system and displays the installed version.
 
@@ -105,8 +106,8 @@ VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) a
 
 **Explanation:**
 VMware Fusion provides native ARM support on Apple Silicon, making it suitable for running Ubuntu virtual machines efficiently.
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 2.png)
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 3.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%202.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%203.png)
 
 
 **Step 3: Creation of Project Directory**
@@ -115,7 +116,7 @@ A dedicated directory is created to store Vagrant configuration files.
 mkdir ubuntu-vagrant
 cd ubuntu-vagrant
 ```
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 4.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%204.png)
 **Explanation:**
 This directory contains the Vagrantfile, which defines the virtual machine configuration.
 
@@ -131,7 +132,7 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 5.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%205.png)
 **Explanation:**
 This configuration specifies the Ubuntu 22.04 box compatible with ARM architecture and assigns CPU and memory resources using VMware Fusion as the provider.
 
@@ -141,7 +142,7 @@ The Ubuntu virtual machine is started using the following command:
 ```powershell
 vagrant up --provider=vmware_desktop
 ```
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 6.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%206.png)
 **Explanation:**
 This command downloads the required Ubuntu box and boots the virtual machine using VMware Fusion.
 
@@ -151,7 +152,7 @@ Secure shell access to the virtual machine is established using:
 ```powershell
 vagrant ssh
 ```
-![Screenshot 2026-01-21 at 12.22.12 PM.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/c1cc5658-9d03-4015-8405-d01744ed4c3a.png)
+![Screenshot 2026-01-21 at 12.22.12 PM.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/c1cc5658-9d03-4015-8405-d01744ed4c3a.png)
 **Explanation:**
 This command allows the user to interact with the Ubuntu virtual machine through the terminal.
 
@@ -162,8 +163,8 @@ The Nginx web server is installed inside the Ubuntu virtual machine.
 sudo apt update
 sudo apt install -y nginx
 ```
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/5198099b-8eb4-4485-84e9-61954600fd0e.png)
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 7.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/5198099b-8eb4-4485-84e9-61954600fd0e.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%207.png)
 The Nginx service is started and enabled:
 ```powershell
 sudo systemctl start nginx
@@ -173,7 +174,7 @@ The status of the service is checked using:
 ```powershell
 systemctl status nginx
 ```
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/2d132b8a-9291-4dcb-a763-423db1af30c2.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/2d132b8a-9291-4dcb-a763-423db1af30c2.png)
 **Explanation:**
 These commands install and configure Nginx to run as a web server inside the virtual machine.
 ```powershell
@@ -214,7 +215,7 @@ sudo apt install -y ca-certificates curl gnupg
 sudo apt install -y docker.io
 ```
 
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 8.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%208.png)
 
 Docker repository is added and Docker Engine is installed.
 
@@ -224,7 +225,7 @@ After installation, the Docker service is verified by running:
 docker --version
 ```
 
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 9.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%209.png)
 
 ---
 
@@ -236,7 +237,7 @@ A test container is executed to verify successful installation of Docker.
 docker run hello-world
 ```
 
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 10.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%2010.png)
 
 **Explanation:**
 
@@ -263,11 +264,11 @@ This procedure successfully completes:
 
 ### VM:
 
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 11.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%2011.png)
 
 ### Container:
 
-![image.png](LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker/image 12.png)
+![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%2012.png)
 
 | **Parameter** | **VM** | **Container** |
 | --- | --- | --- |
