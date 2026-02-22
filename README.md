@@ -93,7 +93,7 @@ First, the installation of Vagrant is verified on the host system using the term
 ```java
 vagrant --version
 ```
-![image.png](./assets/e1_image1.png)
+![image.png](./assets/e1_image6.png)
 **Explanation:**
 This command checks whether Vagrant is correctly installed on the macOS system and displays the installed version.
 
@@ -106,8 +106,8 @@ VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) a
 
 **Explanation:**
 VMware Fusion provides native ARM support on Apple Silicon, making it suitable for running Ubuntu virtual machines efficiently.
-![image.png](./assets/e1_image4.png)
-![](./assets/e1_image5.png)
+![image.png](./assets/e1_image7.png)
+![](./assets/e1_image8.png)
 
 
 **Step 3: Creation of Project Directory**
@@ -116,7 +116,7 @@ A dedicated directory is created to store Vagrant configuration files.
 mkdir ubuntu-vagrant
 cd ubuntu-vagrant
 ```
-![](./assets/e1_image6.png)
+![](./assets/e1_image9.png)
 **Explanation:**
 This directory contains the Vagrantfile, which defines the virtual machine configuration.
 
@@ -132,7 +132,7 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
-![](./assets/e1_image7.png)
+![](./assets/e1_image10.png)
 **Explanation:**
 This configuration specifies the Ubuntu 22.04 box compatible with ARM architecture and assigns CPU and memory resources using VMware Fusion as the provider.
 
@@ -142,7 +142,7 @@ The Ubuntu virtual machine is started using the following command:
 ```powershell
 vagrant up --provider=vmware_desktop
 ```
-![](./assets/e1_image8.png)
+![](./assets/e1_image11.png)
 **Explanation:**
 This command downloads the required Ubuntu box and boots the virtual machine using VMware Fusion.
 
@@ -152,7 +152,7 @@ Secure shell access to the virtual machine is established using:
 ```powershell
 vagrant ssh
 ```
-![](./assets/e1_image9.png)
+![](./assets/e1_image12.png)
 **Explanation:**
 This command allows the user to interact with the Ubuntu virtual machine through the terminal.
 
@@ -163,8 +163,8 @@ The Nginx web server is installed inside the Ubuntu virtual machine.
 sudo apt update
 sudo apt install -y nginx
 ```
-![](./assets/e1_image10.png)
-![](./assets/e1_image11.png)
+![](./assets/e1_image13.png)
+![](./assets/e1_image14.png)
 The Nginx service is started and enabled:
 ```powershell
 sudo systemctl start nginx
@@ -174,7 +174,7 @@ The status of the service is checked using:
 ```powershell
 systemctl status nginx
 ```
-![](./assets/e1_image12.png)
+![](./assets/e1_image15.png)
 **Explanation:**
 These commands install and configure Nginx to run as a web server inside the virtual machine.
 ```powershell
@@ -215,7 +215,7 @@ sudo apt install -y ca-certificates curl gnupg
 sudo apt install -y docker.io
 ```
 
-![](./assets/e1_image13.png)
+![](./assets/e1_image16.png)
 
 Docker repository is added and Docker Engine is installed.
 
@@ -225,7 +225,7 @@ After installation, the Docker service is verified by running:
 docker --version
 ```
 
-![](./assets/e1_image14.png)
+![](./assets/e1_image16.png)
 
 ---
 
