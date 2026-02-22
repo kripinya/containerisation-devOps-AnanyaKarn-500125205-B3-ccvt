@@ -88,7 +88,7 @@ To install Vagrant, run these command in the local terminal of the host system:
 brew tap hashicorp/tap
 brew install hashicorp/tap/hashicorp-vagrant
 ```
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image.png)
+![image.png](assets/e1_image)
 First, the installation of Vagrant is verified on the host system using the terminal.
 ```java
 vagrant --version
