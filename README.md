@@ -15,20 +15,19 @@ github pages : https://kripinya.github.io/containerisation-devOps-AnanyaKarn-500
 
 ---
 
-## Experiment-0-1 : Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
+### Experiment-0-1 : Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
 
 Date: January 21, 2026
 
 Experiment No. - 1
 
----
 Aim/ Objective
 
 The aim of this experiment is to provision an Ubuntu 22.04 virtual machine using Vagrant with VMware Fusion on Apple Silicon architecture, install and configure the Nginx web server, and deploy Docker Engine to validate containerized application execution.
 
 </aside>
 
-### Software and hardware requirements:
+**Software and hardware requirements:**
 | **Component** | **Details** |
 | --- | --- |
 | Host Operating System | macOS (Apple Silicon – ARM64) |
@@ -40,7 +39,7 @@ The aim of this experiment is to provision an Ubuntu 22.04 virtual machine using
 | Code Editor | Visual Studio Code |
 | System Architecture | ARM64 |
 
-## Theory/BackGround
+**Theory/BackGround**
 
 **Virtualization**
 
@@ -66,11 +65,11 @@ Docker is an open-source containerization platform that allows applications to b
 The main difference between virtual machines and containers lies in their architecture and resource usage. Virtual machines include a full operating system along with the application, making them heavier and slower to start. Containers, on the other hand, share the host operating system kernel and only include the application and its dependencies, making them lightweight and faster. While virtual machines provide strong isolation at the hardware level, containers offer efficient and scalable application deployment. Both technologies are essential in modern infrastructure, and this experiment demonstrates their combined usage.
 
 ---
-## System Architecture/Setup Description
+**System Architecture/Setup Description**
 In this experiment, macOS acts as the host operating system. VMware Fusion is used as the virtualization provider, while Vagrant automates the creation and management of the Ubuntu 22.04 ARM virtual machine. Inside the virtual machine, Nginx is deployed as a web server and Docker Engine is installed to run containerized applications.
 
 ---
-## Setup:
+**Setup:**
 **PART A — Experiment 0 (Environment Setup)**
 To install and configure required tools (WSL/Ubuntu, Docker, Vagrant, virtualization platform) for performing containerisation experiments.
 Include:
@@ -80,7 +79,7 @@ Include:
 - Docker
 - Ubuntu ARM64
 
-## Procedure-
+**Procedure-**
 **Step 1 : Installation and verification of Vagrant:**
 Vagrant is used to automate the creation and management of virtual machines.
 To install Vagrant, run these command in the local terminal of the host system:
@@ -97,18 +96,19 @@ vagrant --version
 **Explanation:**
 This command checks whether Vagrant is correctly installed on the macOS system and displays the installed version.
 
----
 **Step 2: Installation and Setup of VMware Fusion**
 VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) architecture.
 1. VMware Fusion is downloaded from the official VMware website.
 2. The application is installed by dragging it into the Applications folder.
 3. VMware Fusion is opened once to allow system permissions.
 4. Required permissions such as system extensions and network access are granted.
+
 **Explanation:**
 VMware Fusion provides native ARM support on Apple Silicon, making it suitable for running Ubuntu virtual machines efficiently.
 ![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%202.png)
 ![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%203.png)
----
+
+
 **Step 3: Creation of Project Directory**
 A dedicated directory is created to store Vagrant configuration files.
 ```powershell
