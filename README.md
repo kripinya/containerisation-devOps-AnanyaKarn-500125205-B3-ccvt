@@ -264,11 +264,11 @@ This procedure successfully completes:
 
 ### VM:
 
-![image.png](./assets/e1_image)
+![image.png](./assets/e1_image1.png)
 
 ### Container:
 
-![image.png](./assets/e2_image)
+![image.png](./assets/e1_image)
 
 | **Parameter** | **VM** | **Container** |
 | --- | --- | --- |
