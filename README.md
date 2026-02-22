@@ -959,9 +959,10 @@ ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine %
 ```bash
 mkdir html
 echo "<h1>Hello from Docker NGINX</h1>" > html/index.html
-## COMPARISON SUMMARY
 
-### Image Comparison Table
+**COMPARISON SUMMARY**
+
+**Image Comparison Table**
 
 | Feature | Official NGINX Image | Ubuntu-based Image | Alpine-based Image |
 |---|---|---|---|
@@ -1015,9 +1016,10 @@ NGINX was successfully deployed using Official, Ubuntu-based, and Alpine-based D
 The experiment demonstrated that base image selection plays a critical role in container performance, security, and portability. Alpine-based images are best suited for lightweight microservices, Ubuntu-based images are useful for debugging and learning, while official NGINX images are preferred for production-ready deployments.
 
 ---
+
 # EXPERIMENT-4 Docker Essentials
 
-# **Docker Essentials — Dockerfile, .dockerignore, Tagging and Publishing**
+**Docker Essentials — Dockerfile, .dockerignore, Tagging and Publishing**
 
 ### **Aim / Objective**
 
