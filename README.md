@@ -291,18 +291,16 @@ This procedure successfully completes:
 The experiment successfully demonstrated the creation of a DevOps-ready environment using Vagrant and VMware Fusion. The installation of Nginx and Docker validated service deployment and container execution within the virtual machine.
 
 ---
-# EXPERIMENT 2
+### EXPERIMENT 2
 
 Date: January 22, 2026
 
-## **Docker Installation, Configuration, and Running Images**
+**Docker Installation, Configuration, and Running Images**
 
-### **Aim / Objective:** To install and configure Docker, pull images from Docker Hub, run containers with port mapping, and perform container lifecycle management operations such as start, stop, remove, and image deletion.
+**Aim / Objective:** To install and configure Docker, pull images from Docker Hub, run containers with port mapping, and perform container lifecycle management operations such as start, stop, remove, and image deletion.
 
 ---
-
-### **Software & Hardware Requirements**
-
+**Software & Hardware Requirements**
 | **Component** | **Details** |
 | --- | --- |
 | Host OS | macOS (Apple Silicon – ARM64) |
@@ -311,25 +309,13 @@ Date: January 22, 2026
 | Terminal | macOS Terminal |
 | Internet | Required (for pulling images) |
 
-## **Theory**
-
-### **Docker**
-
-**Docker** is an open-source containerization platform used to build, ship, and run applications inside lightweight, isolated environments called containers. It ensures applications run consistently across different systems by packaging code, dependencies, and runtime together.
-
----
-
-### **Image**
-
+**Theory**
+**Image**
 A **Docker Image** is a **read-only template** that contains the application code, libraries, dependencies, and configuration needed to run a container.
-
 Images are built once and can be reused to create multiple containers.
-
 Example: nginx:latest, ubuntu:24.04
 
----
-
-### **Container**
+**Container**
 
 A **Container** is a **running instance of a Docker image**.
 
@@ -341,9 +327,7 @@ Key points:
 - Portable across environments
 - Uses fewer resources than virtual machines
 
----
-
-### **Port Mapping**
+**Port Mapping**
 
 **Port mapping** connects a port on the host machine to a port inside the container, allowing external access to services running inside the container.
 
@@ -361,8 +345,7 @@ This allows accessing the containerized application via:
 ```powershell
 http://localhost:8080
 ```
-
-### **Docker Lifecycle**
+**Docker Lifecycle**
 
 The typical **container lifecycle** follows these stages:
 
@@ -373,21 +356,19 @@ The typical **container lifecycle** follows these stages:
 
 ---
 
-## Procedure
+**Procedure**
 
-### **Step 1 — Pull Docker Image**
+**Step 1 — Pull Docker Image**
 
 ```powershell
 docker pull nginx
 ```
-
 ![image.png](EXPERIMENT%202/image.png)
 
 Downloads the official nginx image from Docker Hub.
 
 ---
-
-### **Step 2 — Run Container with Port Mapping**
+**Step 2 — Run Container with Port Mapping**
 
 ```powershell
 docker run -d -p 8080:80 --name nginx-container nginx
