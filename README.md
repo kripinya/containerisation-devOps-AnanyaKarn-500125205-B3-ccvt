@@ -88,12 +88,12 @@ To install Vagrant, run these command in the local terminal of the host system:
 brew tap hashicorp/tap
 brew install hashicorp/tap/hashicorp-vagrant
 ```
-![image.png](./assets/e1_image1.png)
+![image.png](./assets/image.png)
 First, the installation of Vagrant is verified on the host system using the terminal.
 ```java
 vagrant --version
 ```
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%201.png)
+![image.png](./assets/e1_image1.png)
 **Explanation:**
 This command checks whether Vagrant is correctly installed on the macOS system and displays the installed version.
 
@@ -106,7 +106,7 @@ VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) a
 
 **Explanation:**
 VMware Fusion provides native ARM support on Apple Silicon, making it suitable for running Ubuntu virtual machines efficiently.
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%202.png)
+![image.png](./assets/e1_image2.png)
 ![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%203.png)
 
 
