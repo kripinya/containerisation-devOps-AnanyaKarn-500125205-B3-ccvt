@@ -493,19 +493,13 @@ Date: February 4, 2026
 
 Docker is a **containerization platform** that allows applications to be packaged along with their dependencies into lightweight, portable units called containers. It ensures consistency across development, testing, and production environments.
 
----
-
 **2. Container**
 
 A container is a **lightweight, standalone executable unit** that includes the application code, runtime, libraries, and dependencies required to run the application. Containers share the host OS kernel, making them faster and more efficient than virtual machines.
 
----
-
 **3. Docker Image**
 
 A Docker image is a **read-only template** used to create containers. It contains the application, its dependencies, and instructions needed to run the application. Images are built in layers and stored in Docker registries.
-
----
 
 **4. Base Image**
 
@@ -524,8 +518,6 @@ The base image significantly affects:
 - Startup time
 - Performance
 
----
-
 **5. NGINX**
 
 NGINX is a **high-performance web server**, reverse proxy, and load balancer. In containerized environments, NGINX is commonly used to:
@@ -534,15 +526,12 @@ NGINX is a **high-performance web server**, reverse proxy, and load balancer. In
 - Act as a reverse proxy
 - Load balance multiple backend services
 
----
-
 **6. Official Docker Image**
 
 An official Docker image is an image **maintained by the software vendor or Docker**, following best practices for security, updates, and performance.
 
 The nginx:latest image is an official image and is **production-ready**.
 
----
 
 **7. Ubuntu-Based Image**
 
@@ -557,7 +546,6 @@ Characteristics:
 
 Used mainly for **learning and debugging**, not production.
 
----
 
 **8. Alpine Linux**
 
@@ -572,8 +560,6 @@ Characteristics:
 
 Highly preferred in **microservices and cloud environments**.
 
----
-
 **9. Dockerfile**
 
 A Dockerfile is a **text file containing instructions** used to build a Docker image.
@@ -584,8 +570,6 @@ Common instructions used in this experiment:
 - RUN – executes commands during build
 - EXPOSE – documents the container’s listening port
 - CMD – specifies default command to run
-
----
 
 **10. Image Layers**
 
@@ -599,9 +583,7 @@ Benefits of layers:
 
 More layers usually mean a **larger image size**.
 
----
-
-## **11. Docker History**
+**11. Docker History**
 
 docker history is a command used to inspect **individual layers** of an image. It shows:
 
@@ -611,9 +593,7 @@ docker history is a command used to inspect **individual layers** of an image. I
 
 Used in this experiment to compare Ubuntu, Alpine, and official images.
 
----
-
-## **12. Port Mapping**
+**12. Port Mapping**
 
 Port mapping connects a **container port** to a **host machine port** using -p host_port:container_port.
 
@@ -625,17 +605,13 @@ Example:
 
 This allows access to container services via the host browser.
 
----
-
-## **13. Reverse Proxy**
+**13. Reverse Proxy**
 
 A reverse proxy is a server that **forwards client requests to backend servers**.
 
 NGINX commonly acts as a reverse proxy in containerized and microservices architectures.
 
----
-
-## **14. Attack Surface**
+**14. Attack Surface**
 
 Attack surface refers to the **number of potential vulnerabilities** in a system.
 
@@ -647,9 +623,7 @@ Larger images (like Ubuntu-based) have:
 
 Smaller images (like Alpine) reduce security risks.
 
----
-
-## **15. Production-Ready**
+**15. Production-Ready**
 
 An image is considered production-ready if it:
 
@@ -660,9 +634,7 @@ An image is considered production-ready if it:
 
 Official NGINX and Alpine-based images are generally production-ready.
 
----
-
-## **16. Microservices**
+**16. Microservices**
 
 Microservices is an architectural style where applications are built as **small, independent services**.
 
@@ -672,15 +644,11 @@ Alpine-based NGINX images are ideal for microservices due to:
 - Fast startup
 - Low resource usage
 
----
-
-## **17. CI/CD Pipeline**
+**17. CI/CD Pipeline**
 
 CI/CD (Continuous Integration / Continuous Deployment) automates building, testing, and deploying applications. Smaller images like Alpine improve pipeline speed and efficiency.
 
----
-
-## **18. Docker Registry**
+**18. Docker Registry**
 
 A Docker registry is a storage location for Docker images.
 
@@ -691,12 +659,11 @@ Example:
 Images like nginx, ubuntu, and alpine are pulled from Docker Hub.
 
 ---
-
-# Aim
+**Aim**
 
 To deploy NGINX using different Docker base images (Official, Ubuntu, and Alpine), compare their image sizes and layers, and analyze performance, security, and real-world use cases in containerised environments.
 
-### **Objectives**
+**Objectives**
 
 - Deploy NGINX using:
     - Official NGINX image
@@ -721,7 +688,7 @@ Status: Image is up to date for nginx:latest
 docker.io/library/nginx:latest
 ```
 
-## **Step 2: Run container**
+**Step 2: Run container**
 
 ```powershell
 docker run -d --name nginx-official -p 8080:80 nginx
@@ -734,7 +701,7 @@ b803d61c0b08d105b0c2d806258556a4ec44794d59e621ee0aba272497883d55
 ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % 
 ```
 
-## **Step 3: Verify**
+**Step 3: Verify**
 
 ```powershell
 http://localhost:8080
@@ -742,16 +709,16 @@ http://localhost:8080
 
 ![](./assets/e3_image1.png)
 
-## **PART 2: NGINX USING UBUNTU BASE IMAGE**
+**PART 2: NGINX USING UBUNTU BASE IMAGE**
 
-### **Step 1: Create a folder**
+**Step 1: Create a folder**
 
 ```powershell
 mkdir nginx-ubuntu
 cd nginx-ubuntu
 ```
 
-### Creating a Dockerfile
+**Creating a Dockerfile**
 
 ```powershell
 nano Dockerfile
@@ -769,7 +736,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### Build Image
+**Build Image**
 
 ```powershell
 docker build -t nginx-ubuntu .
@@ -800,7 +767,7 @@ View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux
 ananyakarn@Ananyas-MacBook-Air-2 nginx-ubuntu % 
 ```
 
-### **Step 4: Run container**
+**Step 4: Run container**
 
 ```powershell
 docker run -d --name nginx-ubuntu -p 8081:80 nginx-ubuntu
@@ -819,7 +786,7 @@ Open Browser:
 
 ![](./assets/e3_image2.png)
 
-### **Step 5: Check size**
+**Step 5: Check size**
 
 ```powershell
 docker images | grep nginx
@@ -833,7 +800,7 @@ nginx:latest               9dd288848f44        258MB         64.1MB   U
 ananyakarn@Ananyas-MacBook-Air-2 nginx-ubuntu % 
 ```
 
-### **PART 3: NGINX USING ALPINE BASE IMAGE**
+**PART 3: NGINX USING ALPINE BASE IMAGE**
 
 1. Create a folder
 
@@ -847,7 +814,7 @@ cd nginx-alpine
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
 
-### **Step 2: Dockerfile**
+**Step 2: Dockerfile**
 
 ```powershell
 nano Dockerfile
@@ -862,7 +829,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### **Step 3: Build image**
+**Step 3: Build image**
 
 ```powershell
 docker build -t nginx-alpine .
@@ -893,7 +860,7 @@ View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
 
-### **Step 4: Run container**
+**Step 4: Run container**
 
 ```powershell
 docker run -d --name nginx-alpine -p 8082:80 nginx-alpine
@@ -920,7 +887,7 @@ nginx:latest               9dd288848f44        258MB         64.1MB   U
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
 
-## **PART 4: IMAGE LAYERS**
+**PART 4: IMAGE LAYERS**
 
 ```powershell
 docker history nginx
@@ -985,9 +952,9 @@ ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine %
 ```
 ---
 
-## PART 5: FUNCTIONAL TASK – SERVING CUSTOM HTML USING NGINX
+**PART 5: FUNCTIONAL TASK – SERVING CUSTOM HTML USING NGINX**
 
-### Step 1: Create Custom HTML File
+**Step 1: Create Custom HTML File**
 
 ```bash
 mkdir html
@@ -1121,9 +1088,9 @@ Understanding this is essential for container management in DevOps workflows.
 
 ---
 
-# **PROCEDURE**
+**PROCEDURE**
 
-### **PART 1 — Creating a Simple Flask Application**
+**PART 1 — Creating a Simple Flask Application**
 
 **Step 1: Create Project Folder**
 
@@ -1159,7 +1126,7 @@ if __name__ == '__main__':
 Flask==2.3.3
 ```
 
-## **PART 2 — Creating Dockerfile**
+**PART 2 — Creating Dockerfile**
 
 Create a file named **Dockerfile**:
 
@@ -1186,7 +1153,7 @@ CMD ["python", "app.py"]
 - Exposes app port
 - Defines startup command
 
-## **PART 3 — Creating .dockerignore**
+**PART 3 — Creating .dockerignore**
 
 Create file:
 
@@ -1207,7 +1174,7 @@ This prevents unnecessary files from entering the image, reducing size and impro
 
 ---
 
-## **PART 4 — Building Docker Image**
+**PART 4 — Building Docker Image**
 
 Run:
 
@@ -1225,7 +1192,7 @@ docker images
 
 ![](./assets/e4_image3.png)
 
-## **PART 5 — Running the Container**
+**PART 5 — Running the Container**
 
 Run:
 
@@ -1255,7 +1222,7 @@ docker ps
 
 ![](./assets/e4_image4.png)
 
-### **Check container logs**
+**Check container logs**
 
 ```powershell
 docker logs flask-container
@@ -1263,7 +1230,7 @@ docker logs flask-container
 
 ![](./assets/e4_image5.png)
 
-### **PART 6 — Container Management**
+**PART 6 — Container Management**
 
 ```powershell
 docker stop flask-container
@@ -1273,7 +1240,7 @@ docker rm -f flask-container
 
 ![](./assets/e4_image6.png)
 
-### **PART 7 — Image Tagging**
+**PART 7 — Image Tagging**
 
 ```powershell
 docker build -t my-flask-app:1.0 .
@@ -1292,7 +1259,7 @@ docker images
 
 Tagging helps maintain versions for deployment and rollback.
 
-# **Observations**
+**Observations**
 
 - Flask app runs successfully inside container.
 - Dockerfile simplifies deployment.
@@ -1300,11 +1267,11 @@ Tagging helps maintain versions for deployment and rollback.
 - Tagging allows version management.
 - Container logs confirm application execution.
 
-# **Result**
+**Result**
 
 > A Flask application was successfully containerized using Dockerfile. The container was executed, verified, and managed through Docker lifecycle commands. Image tagging and build optimization concepts were demonstrated.
 > 
 
-# **Conclusion**
+**Conclusion**
 
 > This experiment demonstrated essential Docker concepts including application containerization, image creation, .dockerignore optimization, image tagging, and container lifecycle management, forming the foundation for real-world DevOps workflows.
