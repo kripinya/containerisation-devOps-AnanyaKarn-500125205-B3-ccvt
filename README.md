@@ -264,11 +264,11 @@ This procedure successfully completes:
 
 ### VM:
 
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%2011.png)
+![image.png](./assets/e1_image)
 
 ### Container:
 
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%2012.png)
+![image.png](./assets/e2_image)
 
 | **Parameter** | **VM** | **Container** |
 | --- | --- | --- |
