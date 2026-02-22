@@ -489,19 +489,7 @@ Date: February 4, 2026
 
 **Terminologies:**
 
-**1. Docker**
-
-Docker is a **containerization platform** that allows applications to be packaged along with their dependencies into lightweight, portable units called containers. It ensures consistency across development, testing, and production environments.
-
-**2. Container**
-
-A container is a **lightweight, standalone executable unit** that includes the application code, runtime, libraries, and dependencies required to run the application. Containers share the host OS kernel, making them faster and more efficient than virtual machines.
-
-**3. Docker Image**
-
-A Docker image is a **read-only template** used to create containers. It contains the application, its dependencies, and instructions needed to run the application. Images are built in layers and stored in Docker registries.
-
-**4. Base Image**
+**Base Image**
 
 A base image is the **starting image** used in a Dockerfile using the FROM instruction.
 
@@ -518,7 +506,7 @@ The base image significantly affects:
 - Startup time
 - Performance
 
-**5. NGINX**
+**NGINX**
 
 NGINX is a **high-performance web server**, reverse proxy, and load balancer. In containerized environments, NGINX is commonly used to:
 
@@ -526,14 +514,14 @@ NGINX is a **high-performance web server**, reverse proxy, and load balancer. In
 - Act as a reverse proxy
 - Load balance multiple backend services
 
-**6. Official Docker Image**
+**Official Docker Image**
 
 An official Docker image is an image **maintained by the software vendor or Docker**, following best practices for security, updates, and performance.
 
 The nginx:latest image is an official image and is **production-ready**.
 
 
-**7. Ubuntu-Based Image**
+**Ubuntu-Based Image**
 
 An Ubuntu-based image uses the **Ubuntu Linux distribution** as the base OS.
 
@@ -547,7 +535,7 @@ Characteristics:
 Used mainly for **learning and debugging**, not production.
 
 
-**8. Alpine Linux**
+**Alpine Linux**
 
 Alpine Linux is a **minimal, security-focused Linux distribution** designed for containers.
 
@@ -560,40 +548,7 @@ Characteristics:
 
 Highly preferred in **microservices and cloud environments**.
 
-**9. Dockerfile**
-
-A Dockerfile is a **text file containing instructions** used to build a Docker image.
-
-Common instructions used in this experiment:
-
-- FROM – specifies base image
-- RUN – executes commands during build
-- EXPOSE – documents the container’s listening port
-- CMD – specifies default command to run
-
-**10. Image Layers**
-
-Docker images are built in **layers**, where each instruction in a Dockerfile creates a new layer.
-
-Benefits of layers:
-
-- Faster builds
-- Efficient caching
-- Reduced storage usage
-
-More layers usually mean a **larger image size**.
-
-**11. Docker History**
-
-docker history is a command used to inspect **individual layers** of an image. It shows:
-
-- Layer size
-- Commands used to create each layer
-- Image build structure
-
-Used in this experiment to compare Ubuntu, Alpine, and official images.
-
-**12. Port Mapping**
+**Port Mapping**
 
 Port mapping connects a **container port** to a **host machine port** using -p host_port:container_port.
 
@@ -605,13 +560,13 @@ Example:
 
 This allows access to container services via the host browser.
 
-**13. Reverse Proxy**
+**Reverse Proxy**
 
 A reverse proxy is a server that **forwards client requests to backend servers**.
 
 NGINX commonly acts as a reverse proxy in containerized and microservices architectures.
 
-**14. Attack Surface**
+**Attack Surface**
 
 Attack surface refers to the **number of potential vulnerabilities** in a system.
 
@@ -623,18 +578,7 @@ Larger images (like Ubuntu-based) have:
 
 Smaller images (like Alpine) reduce security risks.
 
-**15. Production-Ready**
-
-An image is considered production-ready if it:
-
-- Is optimized for performance
-- Receives regular security updates
-- Has minimal vulnerabilities
-- Follows best container practices
-
-Official NGINX and Alpine-based images are generally production-ready.
-
-**16. Microservices**
+**Microservices**
 
 Microservices is an architectural style where applications are built as **small, independent services**.
 
@@ -644,19 +588,9 @@ Alpine-based NGINX images are ideal for microservices due to:
 - Fast startup
 - Low resource usage
 
-**17. CI/CD Pipeline**
+**CI/CD Pipeline**
 
 CI/CD (Continuous Integration / Continuous Deployment) automates building, testing, and deploying applications. Smaller images like Alpine improve pipeline speed and efficiency.
-
-**18. Docker Registry**
-
-A Docker registry is a storage location for Docker images.
-
-Example:
-
-- Docker Hub (docker.io)
-
-Images like nginx, ubuntu, and alpine are pulled from Docker Hub.
 
 ---
 **Aim**
@@ -950,7 +884,6 @@ IMAGE          CREATED       CREATED BY                                      SIZ
 <missing>      7 days ago    ADD alpine-minirootfs-3.23.3-aarch64.tar.gz …   9.36MB    buildkit.dockerfile.v0
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
----
 
 **PART 5: FUNCTIONAL TASK – SERVING CUSTOM HTML USING NGINX**
 
@@ -959,9 +892,8 @@ ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine %
 ```bash
 mkdir html
 echo "<h1>Hello from Docker NGINX</h1>" > html/index.html
-
-**COMPARISON SUMMARY**
-
+```
+---
 **Image Comparison Table**
 
 | Feature | Official NGINX Image | Ubuntu-based Image | Alpine-based Image |
@@ -975,20 +907,20 @@ echo "<h1>Hello from Docker NGINX</h1>" > html/index.html
 
 ---
 
-## PART 6: WHEN TO USE WHICH IMAGE
-### Official NGINX Image
+**PART 6: WHEN TO USE WHICH IMAGE**
+**Official NGINX Image**
 Recommended for:
 - Production deployments
 - Standard web hosting
 - Reverse proxy or load balancer setup
 
-### Ubuntu-Based Image
+**Ubuntu-Based Image**
 Recommended for:
 - Learning Linux + NGINX internals
 - Debugging environments
 - Custom system-level dependencies
 
-### Alpine-Based Image
+**Alpine-Based Image**
 Recommended for:
 - Microservices architectures
 - Cloud-native applications
@@ -996,7 +928,7 @@ Recommended for:
 
 ---
 
-## PART 7: OBSERVATIONS
+**PART 7: OBSERVATIONS**
 
 - Alpine image showed the smallest size and fewer layers, resulting in faster image pull and startup time.
 - Ubuntu-based image provided more utilities but increased size and attack surface.
@@ -1005,13 +937,13 @@ Recommended for:
 
 ---
 
-## RESULT
+**RESULT**
 
 NGINX was successfully deployed using Official, Ubuntu-based, and Alpine-based Docker images. Image size and layer analysis demonstrated the impact of base image selection on performance, security, and resource utilization.
 
 ---
 
-## CONCLUSION
+**CONCLUSION**
 
 The experiment demonstrated that base image selection plays a critical role in container performance, security, and portability. Alpine-based images are best suited for lightweight microservices, Ubuntu-based images are useful for debugging and learning, while official NGINX images are preferred for production-ready deployments.
 
@@ -1021,31 +953,17 @@ The experiment demonstrated that base image selection plays a critical role in c
 
 **Docker Essentials — Dockerfile, .dockerignore, Tagging and Publishing**
 
-### **Aim / Objective**
+**Aim / Objective**
 
 To containerize a simple application using Dockerfile, optimize the build process using .dockerignore, build and tag Docker images, run and manage containers, and understand the basics of image versioning and publishing workflows.
 
-## **THEORY / BACKGROUND**
+**THEORY / BACKGROUND**
 
-### **Dockerfile**
+**Dockerfile**
 
 A Dockerfile is a set of instructions used to automate the creation of Docker images. Each instruction creates a layer in the image, making builds reproducible and portable across environments.
 
----
-
-### **Docker Image**
-
-A Docker image is a lightweight, executable package containing application code, runtime, libraries, and dependencies required to run an application.
-
----
-
-### **Docker Container**
-
-A container is a running instance of a Docker image. Containers are isolated from the host system but share the host kernel, making them lightweight compared to virtual machines.
-
----
-
-### **.dockerignore**
+**.dockerignore**
 
 The .dockerignore file prevents unnecessary files from being copied into the Docker image during build. This improves:
 
@@ -1054,9 +972,7 @@ The .dockerignore file prevents unnecessary files from being copied into the Doc
 - Security
 - Performance
 
----
-
-### **Image Tagging**
+**Image Tagging**
 
 Tagging assigns version labels to images, allowing better version control and deployment management.
 
@@ -1065,9 +981,7 @@ Example:
 - my-flask-app:latest
 - my-flask-app:1.0
 
----
-
-### **Container Lifecycle**
+**Container Lifecycle**
 
 Containers usually follow this lifecycle:
 
@@ -1075,9 +989,7 @@ Image → Run → Running → Stop → Remove
 
 Understanding this is essential for container management in DevOps workflows.
 
----
-
-## **Software & Hardware Requirements**
+**Software & Hardware Requirements**
 
 | **Component** | **Details** |
 | --- | --- |
@@ -1088,7 +1000,6 @@ Understanding this is essential for container management in DevOps workflows.
 | Editor | VS Code / Terminal |
 | Internet | Required |
 
----
 
 **PROCEDURE**
 
@@ -1173,8 +1084,6 @@ __pycache__/
 ```
 
 This prevents unnecessary files from entering the image, reducing size and improving security.
-
----
 
 **PART 4 — Building Docker Image**
 
@@ -1272,8 +1181,9 @@ Tagging helps maintain versions for deployment and rollback.
 **Result**
 
 > A Flask application was successfully containerized using Dockerfile. The container was executed, verified, and managed through Docker lifecycle commands. Image tagging and build optimization concepts were demonstrated.
-> 
+
 
 **Conclusion**
 
 > This experiment demonstrated essential Docker concepts including application containerization, image creation, .dockerignore optimization, image tagging, and container lifecycle management, forming the foundation for real-world DevOps workflows.
+---
