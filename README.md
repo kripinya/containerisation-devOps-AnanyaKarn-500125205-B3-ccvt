@@ -106,8 +106,8 @@ VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) a
 
 **Explanation:**
 VMware Fusion provides native ARM support on Apple Silicon, making it suitable for running Ubuntu virtual machines efficiently.
-![image.png](./assets/e1_image2.png)
-![](./assets/e1_image3.png)
+![image.png](./assets/e1_image4.png)
+![](./assets/e1_image5.png)
 
 
 **Step 3: Creation of Project Directory**
@@ -116,7 +116,7 @@ A dedicated directory is created to store Vagrant configuration files.
 mkdir ubuntu-vagrant
 cd ubuntu-vagrant
 ```
-![](./assets/e1_image4.png)
+![](./assets/e1_image6.png)
 **Explanation:**
 This directory contains the Vagrantfile, which defines the virtual machine configuration.
 
@@ -132,7 +132,7 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
-![](./assets/e1_image5.png)
+![](./assets/e1_image7.png)
 **Explanation:**
 This configuration specifies the Ubuntu 22.04 box compatible with ARM architecture and assigns CPU and memory resources using VMware Fusion as the provider.
 
@@ -142,7 +142,7 @@ The Ubuntu virtual machine is started using the following command:
 ```powershell
 vagrant up --provider=vmware_desktop
 ```
-![](./assets/e1_image6.png)
+![](./assets/e1_image8.png)
 **Explanation:**
 This command downloads the required Ubuntu box and boots the virtual machine using VMware Fusion.
 
@@ -152,7 +152,7 @@ Secure shell access to the virtual machine is established using:
 ```powershell
 vagrant ssh
 ```
-![](./assets/e1_image7.png)
+![](./assets/e1_image9.png)
 **Explanation:**
 This command allows the user to interact with the Ubuntu virtual machine through the terminal.
 
@@ -163,8 +163,8 @@ The Nginx web server is installed inside the Ubuntu virtual machine.
 sudo apt update
 sudo apt install -y nginx
 ```
-![](./assets/e1_image8.png)
-![](./assets/e1_image9.png)
+![](./assets/e1_image10.png)
+![](./assets/e1_image11.png)
 The Nginx service is started and enabled:
 ```powershell
 sudo systemctl start nginx
@@ -174,7 +174,7 @@ The status of the service is checked using:
 ```powershell
 systemctl status nginx
 ```
-![](./assets/e1_image10.png)
+![](./assets/e1_image12.png)
 **Explanation:**
 These commands install and configure Nginx to run as a web server inside the virtual machine.
 ```powershell
@@ -215,7 +215,7 @@ sudo apt install -y ca-certificates curl gnupg
 sudo apt install -y docker.io
 ```
 
-![](./assets/e1_image11.png)
+![](./assets/e1_image13.png)
 
 Docker repository is added and Docker Engine is installed.
 
@@ -225,11 +225,11 @@ After installation, the Docker service is verified by running:
 docker --version
 ```
 
-![](./assets/e1_image12.png)
+![](./assets/e1_image14.png)
 
 ---
 
-### **Step 9: Verification of Docker Installation**
+**Step 9: Verification of Docker Installation**
 
 A test container is executed to verify successful installation of Docker.
 
@@ -237,14 +237,13 @@ A test container is executed to verify successful installation of Docker.
 docker run hello-world
 ```
 
-![](./assets/e1_image13.png)
+![](./assets/e1_image15.png)
 
 **Explanation:**
 
 This command downloads and runs a test Docker image, confirming that Docker is installed and functioning correctly.
 
 ---
-
 This procedure successfully completes:
 
 - Virtual machine provisioning using Vagrant
@@ -253,22 +252,20 @@ This procedure successfully completes:
 - Installation and verification of Docker Engine
 
 > Result:
-> 
 
 > Ubuntu virtual machine was successfully created using Vagrant and VMware Fusion. Nginx web server and Docker Engine were installed and verified successfully.
-> 
 
 ---
 
-## **VM vs Container Comparison**
+**VM vs Container Comparison**
 
-### VM:
+**VM:**
 
-![](./assets/e1_image14.png)
+![](./assets/e1_image16.png)
 
-### Container:
+**Container:**
 
-![](./assets/e1_image15.png)
+![](./assets/e1_image17.png)
 
 | **Parameter** | **VM** | **Container** |
 | --- | --- | --- |
@@ -278,7 +275,7 @@ This procedure successfully completes:
 | Disk Usage | Large | Small |
 | Isolation | Strong | Moderate |
 
-## **Observations**
+**Observations**
 
 - ARM64 architecture requires compatible virtualization support
 - Vagrant simplifies VM provisioning
@@ -287,7 +284,7 @@ This procedure successfully completes:
 
 ---
 
-## Conclusion
+**Conclusion**
 
 The experiment successfully demonstrated the creation of a DevOps-ready environment using Vagrant and VMware Fusion. The installation of Nginx and Docker validated service deployment and container execution within the virtual machine.
 
@@ -383,7 +380,7 @@ docker run -d -p 8080:80 --name nginx-container nginx
 
 ---
 
-### **Step 3 — Verify Running Container**
+**Step 3 — Verify Running Container**
 
 ```powershell
 docker ps
@@ -411,7 +408,7 @@ You should see “Welcome to nginx!”
 
 ---
 
-### **Step 4 — Stop Container**
+**Step 4 — Stop Container**
 
 ```powershell
 docker stop nginx-container
@@ -425,7 +422,7 @@ ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3
 
 ---
 
-### **Step 5 — Remove Container**
+**Step 5 — Remove Container**
 
 ```powershell
 docker rm nginx-container
@@ -439,7 +436,7 @@ ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3
 
 ---
 
-### **Step 6 — Remove Image**
+**Step 6 — Remove Image**
 
 ```powershell
 docker rmi nginx
@@ -456,13 +453,13 @@ If image in use → stop/remove container first.
 
 ---
 
-## **Container Lifecycle Summary**
+**Container Lifecycle Summary**
 
 Image → Container Created → Running → Stopped → Removed
 
 ---
 
-## **Observations**
+**Observations**
 
 Example points:
 
@@ -473,50 +470,45 @@ Example points:
 
 ---
 
-### Result
-
-<aside>
-<img src="https://www.notion.so/icons/code_blue.svg" alt="https://www.notion.so/icons/code_blue.svg" width="40px" />
+**Result**
 
 Docker image was successfully pulled, container executed with port mapping, verified through browser output, and lifecycle operations (stop, remove, image removal) were completed successfully.
 
-</aside>
-
 ---
 
-## Conclusion
+**Conclusion**
 
 > The experiment demonstrated Docker fundamentals including image pulling, container execution, and lifecycle management. It shows how containers provide lightweight and efficient application deployment.
 
 -----
 
-# Experiment -3
+### Experiment -3
 
 Date: February 4, 2026
 
-## **Ex-3 Deploying NGINX Using Different Base Images and Comparing Image Layers**
+**Ex-3 Deploying NGINX Using Different Base Images and Comparing Image Layers**
 
-# Terminologies:
+**Terminologies:**
 
-## **1. Docker**
+**1. Docker**
 
 Docker is a **containerization platform** that allows applications to be packaged along with their dependencies into lightweight, portable units called containers. It ensures consistency across development, testing, and production environments.
 
 ---
 
-## **2. Container**
+**2. Container**
 
 A container is a **lightweight, standalone executable unit** that includes the application code, runtime, libraries, and dependencies required to run the application. Containers share the host OS kernel, making them faster and more efficient than virtual machines.
 
 ---
 
-## **3. Docker Image**
+**3. Docker Image**
 
 A Docker image is a **read-only template** used to create containers. It contains the application, its dependencies, and instructions needed to run the application. Images are built in layers and stored in Docker registries.
 
 ---
 
-## **4. Base Image**
+**4. Base Image**
 
 A base image is the **starting image** used in a Dockerfile using the FROM instruction.
 
@@ -535,7 +527,7 @@ The base image significantly affects:
 
 ---
 
-## **5. NGINX**
+**5. NGINX**
 
 NGINX is a **high-performance web server**, reverse proxy, and load balancer. In containerized environments, NGINX is commonly used to:
 
@@ -545,7 +537,7 @@ NGINX is a **high-performance web server**, reverse proxy, and load balancer. In
 
 ---
 
-## **6. Official Docker Image**
+**6. Official Docker Image**
 
 An official Docker image is an image **maintained by the software vendor or Docker**, following best practices for security, updates, and performance.
 
@@ -553,7 +545,7 @@ The nginx:latest image is an official image and is **production-ready**.
 
 ---
 
-## **7. Ubuntu-Based Image**
+**7. Ubuntu-Based Image**
 
 An Ubuntu-based image uses the **Ubuntu Linux distribution** as the base OS.
 
@@ -568,7 +560,7 @@ Used mainly for **learning and debugging**, not production.
 
 ---
 
-## **8. Alpine Linux**
+**8. Alpine Linux**
 
 Alpine Linux is a **minimal, security-focused Linux distribution** designed for containers.
 
@@ -583,7 +575,7 @@ Highly preferred in **microservices and cloud environments**.
 
 ---
 
-## **9. Dockerfile**
+**9. Dockerfile**
 
 A Dockerfile is a **text file containing instructions** used to build a Docker image.
 
@@ -596,7 +588,7 @@ Common instructions used in this experiment:
 
 ---
 
-## **10. Image Layers**
+**10. Image Layers**
 
 Docker images are built in **layers**, where each instruction in a Dockerfile creates a new layer.
 
