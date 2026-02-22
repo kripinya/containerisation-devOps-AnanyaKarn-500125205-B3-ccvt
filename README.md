@@ -152,7 +152,7 @@ Secure shell access to the virtual machine is established using:
 ```powershell
 vagrant ssh
 ```
-![](./assets/e1_image12.png)
+![](./assets/e1_image3.png)
 **Explanation:**
 This command allows the user to interact with the Ubuntu virtual machine through the terminal.
 
@@ -163,8 +163,7 @@ The Nginx web server is installed inside the Ubuntu virtual machine.
 sudo apt update
 sudo apt install -y nginx
 ```
-![](./assets/e1_image13.png)
-![](./assets/e1_image14.png)
+![](./assets/e1_image2.png)
 The Nginx service is started and enabled:
 ```powershell
 sudo systemctl start nginx
@@ -174,7 +173,7 @@ The status of the service is checked using:
 ```powershell
 systemctl status nginx
 ```
-![](./assets/e1_image15.png)
+![](./assets/e1_image12.png)
 **Explanation:**
 These commands install and configure Nginx to run as a web server inside the virtual machine.
 ```powershell
@@ -215,7 +214,7 @@ sudo apt install -y ca-certificates curl gnupg
 sudo apt install -y docker.io
 ```
 
-![](./assets/e1_image16.png)
+![](./assets/e1_image13.png)
 
 Docker repository is added and Docker Engine is installed.
 
@@ -225,7 +224,7 @@ After installation, the Docker service is verified by running:
 docker --version
 ```
 
-![](./assets/e1_image16.png)
+![](./assets/e1_image14.png)
 
 ---
 
