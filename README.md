@@ -107,7 +107,7 @@ VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) a
 **Explanation:**
 VMware Fusion provides native ARM support on Apple Silicon, making it suitable for running Ubuntu virtual machines efficiently.
 ![image.png](./assets/e1_image2.png)
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%203.png)
+![](./assets/e1_image3.png)
 
 
 **Step 3: Creation of Project Directory**
@@ -116,7 +116,7 @@ A dedicated directory is created to store Vagrant configuration files.
 mkdir ubuntu-vagrant
 cd ubuntu-vagrant
 ```
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%204.png)
+![](./assets/e1_image4.png)
 **Explanation:**
 This directory contains the Vagrantfile, which defines the virtual machine configuration.
 
@@ -132,7 +132,7 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%205.png)
+![](./assets/e1_image5.png)
 **Explanation:**
 This configuration specifies the Ubuntu 22.04 box compatible with ARM architecture and assigns CPU and memory resources using VMware Fusion as the provider.
 
@@ -142,7 +142,7 @@ The Ubuntu virtual machine is started using the following command:
 ```powershell
 vagrant up --provider=vmware_desktop
 ```
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%206.png)
+![](./assets/e1_image6.png)
 **Explanation:**
 This command downloads the required Ubuntu box and boots the virtual machine using VMware Fusion.
 
@@ -152,7 +152,7 @@ Secure shell access to the virtual machine is established using:
 ```powershell
 vagrant ssh
 ```
-![Screenshot 2026-01-21 at 12.22.12 PM.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/c1cc5658-9d03-4015-8405-d01744ed4c3a.png)
+![](./assets/e1_image7.png)
 **Explanation:**
 This command allows the user to interact with the Ubuntu virtual machine through the terminal.
 
@@ -163,8 +163,8 @@ The Nginx web server is installed inside the Ubuntu virtual machine.
 sudo apt update
 sudo apt install -y nginx
 ```
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/5198099b-8eb4-4485-84e9-61954600fd0e.png)
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%207.png)
+![](./assets/e1_image8.png)
+![](./assets/e1_image9.png)
 The Nginx service is started and enabled:
 ```powershell
 sudo systemctl start nginx
@@ -174,7 +174,7 @@ The status of the service is checked using:
 ```powershell
 systemctl status nginx
 ```
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/2d132b8a-9291-4dcb-a763-423db1af30c2.png)
+![](./assets/e1_image10.png)
 **Explanation:**
 These commands install and configure Nginx to run as a web server inside the virtual machine.
 ```powershell
@@ -215,7 +215,7 @@ sudo apt install -y ca-certificates curl gnupg
 sudo apt install -y docker.io
 ```
 
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%208.png)
+![](./assets/e1_image11.png)
 
 Docker repository is added and Docker Engine is installed.
 
@@ -225,7 +225,7 @@ After installation, the Docker service is verified by running:
 docker --version
 ```
 
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%209.png)
+![](./assets/e1_image12.png)
 
 ---
 
@@ -237,7 +237,7 @@ A test container is executed to verify successful installation of Docker.
 docker run hello-world
 ```
 
-![image.png](LAB-1/Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20using%20Vagrant%20and%20VMware%20Fusion%20and%20Deployment%20of%20Nginx%20%26%20Docker/image%2010.png)
+![](./assets/e1_image13.png)
 
 **Explanation:**
 
@@ -264,11 +264,11 @@ This procedure successfully completes:
 
 ### VM:
 
-![image.png](./assets/e1_image1.png)
+![](./assets/e1_image14.png)
 
 ### Container:
 
-![image.png](./assets/e1_image)
+![](./assets/e1_image15.png)
 
 | **Parameter** | **VM** | **Container** |
 | --- | --- | --- |
@@ -364,7 +364,7 @@ The typical **container lifecycle** follows these stages:
 ```powershell
 docker pull nginx
 ```
-![image.png](EXPERIMENT%202/image.png)
+![](./assets/e2_image1.png)
 
 Downloads the official nginx image from Docker Hub.
 
@@ -375,7 +375,7 @@ Downloads the official nginx image from Docker Hub.
 docker run -d -p 8080:80 --name nginx-container nginx
 ```
 
-![image.png](EXPERIMENT%202/image%201.png)
+![](./assets/e2_image2.png)
 
 - d → detached mode
 - p 8080:80 → host port 8080 mapped to container port 80
@@ -389,7 +389,7 @@ docker run -d -p 8080:80 --name nginx-container nginx
 docker ps
 ```
 
-![image.png](EXPERIMENT%202/image%202.png)
+![](./assets/e2_image3.png)
 
 Then verify Nginx:
 
@@ -397,7 +397,7 @@ Then verify Nginx:
 curl localhost:8080
 ```
 
-![image.png](EXPERIMENT%202/image%203.png)
+![](./assets/e2_image4.png)
 
 OR open browser:
 
@@ -405,7 +405,7 @@ OR open browser:
 http://localhost:8080
 ```
 
-![image.png](EXPERIMENT%202/image%204.png)
+![](./assets/e2_image5.png)
 
 You should see “Welcome to nginx!”
 
@@ -749,7 +749,7 @@ ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3
 http://localhost:8080
 ```
 
-![image.png](Experiment%20-3/image.png)
+![](./assets/e3_image1.png)
 
 ## **PART 2: NGINX USING UBUNTU BASE IMAGE**
 
@@ -826,7 +826,7 @@ Open Browser:
 
 [http://localhost:808](http://localhost:8081/)1
 
-![image.png](Experiment%20-3/image%201.png)
+![](./assets/e3_image2.png)
 
 ### **Step 5: Check size**
 
@@ -1141,7 +1141,7 @@ mkdir my-flask-app
 cd my-flask-app
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image.png)
+![](./assets/e4_image1.png)
 
 **Step 2: Create app.py**
 
@@ -1224,7 +1224,7 @@ Run:
 docker build -t my-flask-app .
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%201.png)
+![](./assets/e4_image2.png)
 
 Then:
 
@@ -1232,7 +1232,7 @@ Then:
 docker images
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%202.png)
+![](./assets/e4_image3.png)
 
 ## **PART 5 — Running the Container**
 
@@ -1262,7 +1262,7 @@ ananyakarn@Ananyas-MacBook-Air-2 my-flask-app %
 docker ps
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%203.png)
+![](./assets/e4_image4.png)
 
 ### **Check container logs**
 
@@ -1270,7 +1270,7 @@ docker ps
 docker logs flask-container
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%204.png)
+![](./assets/e4_image5.png)
 
 ### **PART 6 — Container Management**
 
@@ -1280,7 +1280,7 @@ docker start flask-container
 docker rm -f flask-container
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%205.png)
+![](./assets/e4_image6.png)
 
 ### **PART 7 — Image Tagging**
 
@@ -1289,7 +1289,7 @@ docker build -t my-flask-app:1.0 .
 docker tag my-flask-app:latest my-flask-app:v1.0
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%206.png)
+![](./assets/e4_image7.png)
 
 Then:
 
@@ -1297,7 +1297,7 @@ Then:
 docker images
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%207.png)
+![](./assets/e4_image8.png)
 
 Tagging helps maintain versions for deployment and rollback.
 
