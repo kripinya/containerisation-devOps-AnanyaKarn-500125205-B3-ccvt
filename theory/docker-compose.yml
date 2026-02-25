@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx
+    container_name: my_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    environment:
+      - NGINX_HOST=localhost
+    restart: unless-stopped
+    #docker-compose up -d
+    #docker-compose down
