@@ -1631,8 +1631,6 @@ docker compose up -d
 docker compose down -v
 ```
 
-*(Insert Screenshot: Terminal output showing creation of network, volume, mysql, and wordpress containers)*
-
 ---
 
 ## TASK 3 — Convert Docker Run → Compose
@@ -1734,7 +1732,6 @@ services:
           memory: 256m
           cpus: "0.5"
 ```
-*(Note: deploy works ONLY in Docker Swarm, not normal compose - Viva Trap!)*
 
 ---
 
@@ -1778,7 +1775,6 @@ docker compose up --build -d
 ```
 Verify the output by opening `http://localhost:3000`.
 
-*(Insert Screenshot: Browser output showing "Docker Compose Build Lab")*
 
 ---
 
