@@ -233,11 +233,10 @@ services:
           memory: 256m
           cpus: "0.5"
 ```
-*(Note: `deploy` works ONLY in Docker Swarm, not normal compose - Viva Trap!)*
 
 ---
 
-## TASK 6 — Build Your Own App (Most Practical)
+## TASK 6 — Build Your Own App
 
 Demonstrating the difference between `image:` (prebuilt) and `build:` (custom) in compose.
 
