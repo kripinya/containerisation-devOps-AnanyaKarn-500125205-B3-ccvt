@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Project Assignment 1: Containerized Web Application"
+---
+
 # Project Assignment 1: Containerized Web Application
 
 **Course:** Containerisation & DevOps
