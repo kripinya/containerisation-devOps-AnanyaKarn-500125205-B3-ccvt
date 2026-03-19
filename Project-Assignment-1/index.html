@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Assignment 1 – Containerized Web Application</title>
+  <meta name="description"
+    content="Containerized Web Application with Docker Networking – Project Assignment 1 by Ananya Karn" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    /* Cayman Theme CSS approximation */
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #606c71;
+    }
+
+    a {
+      color: #1e6bb8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-header {
+      padding: 5rem 6rem;
+      color: #fff;
+      text-align: center;
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+    }
+
+    .project-name {
+      margin-top: 0;
+      margin-bottom: 0.1rem;
+      font-size: 3.25rem;
+    }
+
+    .project-tagline {
+      margin-bottom: 2rem;
+      font-size: 1.25rem;
+      opacity: 0.7;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .main-content {
+      max-width: 64rem;
+      padding: 2rem 6rem;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      word-wrap: break-word;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: normal;
+      color: #159957;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    ul,
+    ol {
+      margin-bottom: 1.5rem;
+    }
+
+    pre {
+      padding: 0.8rem;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-family: "Consolas", "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 0.9rem;
+      color: #567482;
+      word-wrap: normal;
+      background-color: #f3f6f8;
+      border: solid 1px #dce6f0;
+      border-radius: 0.3rem;
+      overflow-x: auto;
+    }
+
+    code {
+      padding: 2px 4px;
+      font-family: "Consolas", "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 0.9rem;
+      color: #383e41;
+      background-color: #f3f6f8;
+      border-radius: 0.3rem;
+    }
+
+    table {
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all;
+      margin-bottom: 1.5rem;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    table th {
+      font-weight: bold;
+      background-color: #159957;
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border: 1px solid #e9ebec;
+    }
+
+    table td {
+      padding: 0.5rem 1rem;
+      border: 1px solid #e9ebec;
+    }
+
+    img {
+      max-width: 100%;
+      border: 1px solid #dce6f0;
+      border-radius: 0.3rem;
+    }
+
+    .site-footer {
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: solid 1px #eff0f1;
+      font-size: 1rem;
+      color: #7a8c97;
+    }
+
+    .site-footer-owner {
+      display: block;
+      font-weight: bold;
+    }
+
+    .site-footer-credits {
+      color: #adbac7;
+    }
+
+    /* Mermaid adjustment for light theme */
+    .mermaid-wrap {
+      margin-bottom: 1.5rem;
+      background: #fdfdfd;
+      border: 1px solid #eee;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+
+    @media screen and (max-width: 640px) {
+      .page-header {
+        padding: 2rem 1rem;
+      }
+
+      .project-name {
+        font-size: 2.25rem;
+      }
+
+      .project-tagline {
+        font-size: 1rem;
+      }
+
+      .main-content {
+        padding: 2rem 1rem;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="page-header">
+    <h1 class="project-name">Project Assignment 1</h1>
+    <h2 class="project-tagline">Containerized Web Application with Docker Networking</h2>
+    <a href="https://github.com/kripinya/containerisation-devOps-AnanyaKarn-500125205-B3-ccvt" class="btn">View on
+      GitHub</a>
+    <a href="https://kripinya.github.io/containerisation-devOps-AnanyaKarn-500125205-B3-ccvt/" class="btn">Back to
+      Labs</a>
+  </header>
+
+  <main class="main-content">
+    <p><strong>Course:</strong> Containerisation &amp; DevOps<br>
+      <strong>Submitted By:</strong> Ananya Karn (500125205)<br>
+      <strong>Batch:</strong> B3 - CCVT
+    </p>
+
+    <h2>1. Build Optimization Explanation</h2>
+    <p>The Node.js backend Docker image was built using a <strong>multi-stage build process</strong>. The primary
+      objective of multi-stage builds is to separate the build execution environment from the final runtime environment,
+      thereby significantly reducing the final image size and improving security.</p>
+
+    <h3>Stage 1 (Builder):</h3>
+    <ul>
+      <li>Uses <code>node:20-alpine</code> as the base image.</li>
+      <li>Copies the <code>package.json</code> files and downloads all necessary dependencies using
+        <code>npm install</code>.
+      </li>
+    </ul>
+
+    <h3>Stage 2 (Production):</h3>
+    <ul>
+      <li>Starts fresh from <code>node:20-alpine</code>.</li>
+      <li>Copies only the necessary code (<code>index.js</code>) and the <code>node_modules</code> directory from the
+        builder stage.</li>
+      <li>Sets up a non-root user (<code>appuser</code>) to ensure the container runs with least-privilege principles,
+        improving application security.</li>
+      <li>Avoids including any temporary cache files that npm drops onto the build layer.</li>
+    </ul>
+    <p>This optimization ensures that the final production image contains <strong>only what is strictly
+        necessary</strong> to run the application.</p>
+
+    <hr>
+
+    <h2>2. Image Size Comparison</h2>
+    <p>Using Alpine base images combined with multi-stage builds results in extremely lightweight containers compared to
+      standard Node.js or Ubuntu-based Dockerfiles.</p>
+    <p>Here is the resulting image footprint for our custom builds:</p>
+    <pre><code>$ docker images | grep project-assignment-1
+REPOSITORY                     TAG       IMAGE ID       CREATED         SIZE
+project-assignment-1-backend   latest    a787549a9c14   1 minute ago    145MB
+project-assignment-1-db        latest    8da6d20ebd32   1 minute ago    242MB</code></pre>
+    <p><em>Note: A standard Node.js application built without Alpine/multi-stage configurations often exceeds 1GB in
+        size. Our optimized backend sits at merely <code>145MB</code> effectively minimizing vulnerability surface area
+        and deployment time.</em></p>
+
+    <hr>
+
+    <h2>3. Network Design Diagram</h2>
+    <p>The containers communicate securely over a custom Ipvlan network (<code>app_network</code>). The backend depends
+      on the database initialization before actively accepting traffic, and volume persistence guarantees data stability
+      for the PostgreSQL database.</p>
+
+    <div class="mermaid-wrap">
+      <pre class="mermaid">
+graph TD
+    subgraph Host_OS["Host OS"]
+      eth0["Physical/VM Ethernet Interface eth0"]
+    end
+
+    subgraph Ipvlan_Network["Ipvlan Network: app_network 192.168.1.0/24"]
+        eth0 --- IPV["Ipvlan Gateway 192.168.1.1"]
+        IPV --- Backend["Backend API - Node.js + Express - IP: 192.168.1.3"]
+        IPV --- DB["PostgreSQL DB - postgres:15-alpine - IP: 192.168.1.2"]
+        Backend ==> DB
+    end
+
+    subgraph Host_Storage["Host Storage"]
+       Vol["Docker Volume: assignment1_pgdata"]
+    end
+
+    DB -.-> Vol
+    Client(("External Browser")) -- "HTTP GET :3000" --> Backend
+      </pre>
+    </div>
+
+    <hr>
+
+    <h2>4. Macvlan vs Ipvlan Comparison</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Macvlan</th>
+          <th>Ipvlan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MAC Addresses</strong></td>
+          <td>Assigns a unique MAC address to every container.</td>
+          <td>Shares the host interface's MAC address across all containers.</td>
+        </tr>
+        <tr>
+          <td><strong>Switch Compatibility</strong></td>
+          <td>Requires promiscuous mode. Often blocked in cloud/enterprise.</td>
+          <td>Highly compatible. Works in cloud VPCs.</td>
+        </tr>
+        <tr>
+          <td><strong>Resource Usage</strong></td>
+          <td>Higher overhead (filtering multiple MACs).</td>
+          <td>Lighter overhead; routing done at IP layer.</td>
+        </tr>
+        <tr>
+          <td><strong>Use Case</strong></td>
+          <td>Strict legacy apps requiring unique MACs.</td>
+          <td>Modern clouds and restricted port-security environments.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>For this assignment, <strong>Ipvlan</strong> was chosen explicitly because macOS Docker Desktop operates within a
+      Linux Virtual Machine where parent interface Macvlan routing can be inherently problematic.</p>
+
+    <hr>
+
+    <h2>5. Implementation Proofs</h2>
+    <h3>A. Docker Network Inspect</h3>
+    <p><img src="screenshot_network.png" alt="Docker Network Inspect"></p>
+    <h3>B. Container IPs</h3>
+    <p><img src="screenshot_ips.png" alt="Container IPs"></p>
+    <h3>C. Volume Persistence Test</h3>
+    <p><strong>1. Create Table &amp; Insert Data:</strong></p>
+    <p><img src="screenshot_db_insert.png" alt="Create Table &amp; Insert Data"></p>
+    <p><strong>2. Restart Container &amp; Verify Data Exists:</strong></p>
+    <p><img src="screenshot_db_verify.png" alt="Restart Container &amp; Verify Data Exists"></p>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default'
+      });
+    </script>
+</body>
+
+</html>
