@@ -25,11 +25,14 @@ kubectl describe pod apache-pod
 ```
 *Observation:* Found image `httpd` and port `80`. Events showed scheduling and image pull status.
 
+![Step 2: Pod Created](screenshots/step2_pod_created.png)
+
 **Step 3: Access the App**
 ```bash
 kubectl port-forward pod/apache-pod 8081:80
 ```
 *Verification:* Accessed `http://localhost:8081` and saw the official "It works!" page.
+
 ![Step 3: Web App Access](screenshots/step3_web_app.png)
 
 **Step 4: Delete the Pod**
@@ -48,6 +51,9 @@ kubectl create deployment apache --image=httpd
 ```
 *Result:* Managed pods recreate themselves if they fail or are deleted.
 
+![Step 5: Deployment Created](screenshots/step5_deployment_created.png)
+
+
 **Step 6: Expose the Deployment**
 ```bash
 kubectl expose deployment apache --port=80 --type=NodePort
@@ -59,7 +65,7 @@ kubectl expose deployment apache --port=80 --type=NodePort
 kubectl scale deployment apache --replicas=2
 ```
 *Observation:* Observed two pods running the same app, providing high availability.
-![Step 7: Scaling](screenshots/step7_scaling.png)
+![Step 7: Scaling](screenshots/step6_service_created.png)
 
 ---
 
@@ -72,11 +78,13 @@ kubectl set image deployment/apache httpd=wrongimage
 **Step 10: Diagnose the Issue**
 ```bash
 kubectl get pods
-# STATUS: ImagePullBackOff
-![Step 10: Debugging Error](screenshots/step10_error.png)
+
 kubectl describe pod <pod-name>
 # MESSAGE: Failed to pull image "wrongimage"
 ```
+
+![Step 10: Debugging Error](screenshots/step10_error.png)
+
 **Step 11: Fix the Image**
 ```bash
 kubectl set image deployment/apache httpd=httpd
@@ -100,6 +108,7 @@ kubectl delete pod <one-pod-name>
 kubectl get pods -w
 ```
 *Observation:* As soon as the pod was deleted, the Deployment created a new one to maintain the desired state (2 replicas).
+
 ![Step 13: Self Healing](screenshots/step13_self_healing.png)
 
 **Insight (Crucial):** Any manual changes (like `echo "Hello" > index.html`) made inside a pod are **lost** when the pod is recreated. Deployments ensure the *infrastructure* is restored to its declared state.
