@@ -59,7 +59,7 @@ docker compose down
 
 ---
 
-## TASK 2 — Multi-Container App (IMPORTANT ⭐)
+## TASK 2 — Multi-Container App 
 Demonstrating why Compose is better for multi-container apps (WordPress + MySQL).
 
 ### Using Docker Run (Manual Setup)
@@ -93,7 +93,7 @@ wordpress:latest
 Verify:
 Open `http://localhost:8082`
 
-*(Insert Screenshot: Browser showing WordPress installation page)*
+/*(Screenshot: Browser showing WordPress installation page)*
 
 ### Using Docker Compose (Clean Way)
 Automating the setup cleanly using `docker-compose.yml`:
