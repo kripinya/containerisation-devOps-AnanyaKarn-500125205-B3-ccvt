@@ -2079,3 +2079,26 @@ Proven Concepts:
 - **conversion**: Converted various `docker run` shell scripts into neat declarative YAML code.
 - **volumes + network**: Built a real-world multi-tier architecture using bridge networks and named volumes.
 - **build**: Managed custom application lifecycle (build, deploy) from a Dockerfile using Compose.
+
+## Experiment 7: CI/CD Pipeline using Jenkins, GitHub & Docker Hub
+
+[View Experiment 7 Documentation](LAB-7/Exp-7.md)
+
+### Aim
+To design and implement a CI/CD pipeline using Jenkins, GitHub, and Docker Hub.
+
+### Objectives
+* Understand CI/CD workflow
+* Automate build & deployment
+* Use Jenkins pipeline
+* Push Docker image to Docker Hub
+
+### Tools Used
+* Jenkins
+* Docker & Docker Compose
+* GitHub
+* Docker Hub
+* Flask (Python)
+
+### Conclusion
+CI/CD pipeline was successfully implemented using Jenkins, GitHub, and Docker Hub with automated build and deployment.
