@@ -2,13 +2,13 @@
 
 ## Docker Volumes, Environment Variables, Monitoring and Networks
 
----
+***
 
 ## Aim
 
 To understand Docker data persistence using volumes, configure environment variables in containers, monitor container activity, and establish communication between containers using custom Docker networks.
 
----
+***
 
 ## Objectives
 
@@ -19,7 +19,7 @@ To understand Docker data persistence using volumes, configure environment varia
 - Create and manage Docker networks  
 - Enable container-to-container communication  
 
----
+***
 
 ### Part 1: Understanding Data Persistence
 
@@ -60,7 +60,7 @@ docker exec test-container cat /data/message.txt
 
 The file created earlier is not available after container restart if the container was removed. This shows that container storage is temporary unless a volume is attached.
 
----
+***
 
 ### Part 2: Docker Volumes
 
@@ -73,7 +73,7 @@ docker volume ls
 
 ![Create a Named Volume](./assets/ex5_4.png)
 
----
+***
 
 Step 3: Run Container with Volume Attached
 
@@ -95,7 +95,7 @@ docker inspect web-volume
 
 The volume `mydata` is mounted inside the container at `/app/data`.
 
----
+***
 
 ### Part 3: Bind Mount
 
@@ -132,7 +132,7 @@ Observation
 
 Data created on the host machine is accessible inside the container through bind mount.
 
----
+***
 
 ### Part 4: Environment Variables
 
@@ -154,7 +154,7 @@ docker exec env-test printenv
 
 ![Passing Variables using -e Flag](./assets/ex5_9.png)
 
----
+***
 
 ## Step 6: Using .env File
 
@@ -180,7 +180,7 @@ docker exec env-file-test printenv
 
 ![Verify variables](./assets/ex5_11.png)
 
----
+***
 
 ### Part 5: Monitoring Containers
 
@@ -192,7 +192,7 @@ docker ps
 
 ![view running containers](./assets/ex5_19.png)
 
----
+***
 
 Step 8: Real-time Resource Monitoring
 
@@ -208,7 +208,7 @@ docker stats --no-stream
 
 ![docker stats](./assets/ex5_12.png)
 
----
+***
 
 Step 9: View Processes Inside Container
 
@@ -218,7 +218,7 @@ docker top web-bind
 
 ![view process inside container](./assets/ex5_13.png)
 
----
+***
 
 ## Step 10: View Logs
 
@@ -228,7 +228,7 @@ docker logs web-bind
 
 ![ogs web-bind](./assets/ex5_14.png)
 
----
+***
 
 ### Part 6: Docker Networks
 
@@ -240,7 +240,7 @@ docker network ls
 
 ![network ls](./assets/ex5_15.png)
 
----
+***
 
 Step 12: Create Custom Network
 
@@ -256,7 +256,7 @@ docker network ls
 
 ![docker network ls](./assets/ex5_16.png)
 
----
+***
 Step 13: Run Containers on Custom Network
 
 ```bash
@@ -266,7 +266,7 @@ docker run -d --name web2 --network my-network nginx
 
 ![Run containers on custom network](./assets/ex5_17.png)
 
----
+***
 
 Step 14: Test Container Communication
 
@@ -280,7 +280,7 @@ Observation
 
 Containers connected to the same custom bridge network can communicate using container names as hostnames.
 
----
+***
 
 Step 15: Inspect Network
 
@@ -288,7 +288,7 @@ Step 15: Inspect Network
 docker network inspect my-network
 ```
 
----
+***
 
 ### Result
 
@@ -297,7 +297,7 @@ Environment variables were configured using both command-line flags and env file
 Container monitoring was performed using Docker commands.  
 A custom bridge network was created and container-to-container communication was verified successfully.
 
----
+***
 
 ### Conclusion
 

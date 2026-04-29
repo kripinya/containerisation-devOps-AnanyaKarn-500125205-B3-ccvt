@@ -14,9 +14,9 @@ Instructor - Prateek Gautam Sir
 
 github pages : https://kripinya.github.io/containerisation-devOps-AnanyaKarn-500125205-B3-ccvt/
 
----
+***
 
-[View Experiment 1 Documentation](<LAB_1/Experiment-0-1 Setup of Ubuntu Virtual Machine usi 2efc3e99a9338001ba7fd9d9c1d05396.md>)
+[View Experiment 1 Documentation](<LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine usi 2efc3e99a9338001ba7fd9d9c1d05396.md>)
 
 [View Experiment 2 Documentation](<LAB_2/EXPERIMENT 2 30ac3e99a93380ea968cd9f13407be92.md>)
 
@@ -40,15 +40,13 @@ github pages : https://kripinya.github.io/containerisation-devOps-AnanyaKarn-500
 
 
 
----
+***
 
-## Experiment-0-1 : Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
+### Experiment 1: Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
 
 Date: January 21, 2026
 
-Experiment No. - 1
-
-**Aim/ Objective**
+**Aim/Objective**
 
 The aim of this experiment is to provision an Ubuntu 22.04 virtual machine using Vagrant with VMware Fusion on Apple Silicon architecture, install and configure the Nginx web server, and deploy Docker Engine to validate containerized application execution.
 
@@ -85,11 +83,11 @@ Docker is an open-source containerization platform that allows applications to b
 **Virtual Machines vs Containers**
 The main difference between virtual machines and containers lies in their architecture and resource usage. Virtual machines include a full operating system along with the application, making them heavier and slower to start. Containers, on the other hand, share the host operating system kernel and only include the application and its dependencies, making them lightweight and faster. While virtual machines provide strong isolation at the hardware level, containers offer efficient and scalable application deployment. Both technologies are essential in modern infrastructure, and this experiment demonstrates their combined usage.
 
----
+***
 **System Architecture/Setup Description**
 In this experiment, macOS acts as the host operating system. VMware Fusion is used as the virtualization provider, while Vagrant automates the creation and management of the Ubuntu 22.04 ARM virtual machine. Inside the virtual machine, Nginx is deployed as a web server and Docker Engine is installed to run containerized applications.
 
----
+***
 **Setup:**
 
 **PART A — Experiment 0 (Environment Setup)**
@@ -157,7 +155,7 @@ cd ubuntu-vagrant
 
 This directory contains the Vagrantfile, which defines the virtual machine configuration.
 
----
+***
 
 **Step 4: Configuration of Vagrantfile**
 
@@ -179,7 +177,7 @@ end
 
 This configuration specifies the Ubuntu 22.04 box compatible with ARM architecture and assigns CPU and memory resources using VMware Fusion as the provider.
 
----
+***
 
 **Step 5: Starting the Virtual Machine**
 
@@ -191,7 +189,7 @@ vagrant up --provider=vmware_desktop
 
 ![starting the vm](./assets/e1_image11.png)
 
----
+***
 
 **Step 6: Accessing the Virtual Machine**
 
@@ -206,7 +204,7 @@ vagrant ssh
 **Explanation:**
 This command allows the user to interact with the Ubuntu virtual machine through the terminal.
 
----
+***
 
 **Step 7: Installation of Nginx Web Server**
 The Nginx web server is installed inside the Ubuntu virtual machine.
@@ -265,7 +263,7 @@ Commercial support is available at
 vagrant@vagrant:~$ 
 ```
 
----
+***
 
 **Step 8: Installation of Docker Engine**
 
@@ -289,7 +287,7 @@ docker --version
 
 ![verification of docker running](./assets/e1_image14.png)
 
----
+***
 
 **Step 9: Verification of Docker Installation**
 
@@ -305,7 +303,7 @@ docker run hello-world
 
 This command downloads and runs a test Docker image, confirming that Docker is installed and functioning correctly.
 
----
+***
 This procedure successfully completes:
 
 - Virtual machine provisioning using Vagrant
@@ -316,7 +314,7 @@ This procedure successfully completes:
 > Result:
 > Ubuntu virtual machine was successfully created using Vagrant and VMware Fusion. Nginx web server and Docker Engine were installed and verified successfully.
 
----
+***
 
 VM vs Container Comparison
 
@@ -343,22 +341,22 @@ Observations
 - Docker runs inside the virtual machine
 - Nginx service runs successfully on Ubuntu
 
----
+***
 
 Conclusion
 
 The experiment successfully demonstrated the creation of a DevOps-ready environment using Vagrant and VMware Fusion. The installation of Nginx and Docker validated service deployment and container execution within the virtual machine.
 
----
+***
 
-## EXPERIMENT 2
+### Experiment 2: Docker Installation, Configuration, and Running Images
 
 Date: January 22, 2026
 
-**Docker Installation, Configuration, and Running Images**
-**Aim / Objective:** To install and configure Docker, pull images from Docker Hub, run containers with port mapping, and perform container lifecycle management operations such as start, stop, remove, and image deletion.
+**Aim/Objective**
+To install and configure Docker, pull images from Docker Hub, run containers with port mapping, and perform container lifecycle management operations such as start, stop, remove, and image deletion.
 
----
+***
 
 Software & Hardware Requirements
 
@@ -370,7 +368,7 @@ Software & Hardware Requirements
 | Terminal | macOS Terminal |
 | Internet | Required (for pulling images) |
 
-**Theory**
+**Theory/Background**
 **Image**
 A **Docker Image** is a **read-only template** that contains the application code, libraries, dependencies, and configuration needed to run a container.
 Images are built once and can be reused to create multiple containers.
@@ -413,7 +411,7 @@ The typical **container lifecycle** follows these stages:
 3. **Stop** – Execution is paused or terminated.
 4. **Remove** – Container is deleted when no longer needed.
 
----
+***
 
 **Procedure**
 **Step 1 — Pull Docker Image**
@@ -426,9 +424,9 @@ docker pull nginx
 
 Downloads the official nginx image from Docker Hub.
 
----
+***
 
-Step 2 — Run Container with Port Mapping
+**Step 2 — Run Container with Port Mapping**
 
 ```powershell
 docker run -d -p 8080:80 --name nginx-container nginx
@@ -440,9 +438,9 @@ docker run -d -p 8080:80 --name nginx-container nginx
 - p 8080:80 → host port 8080 mapped to container port 80
 - -name → custom container name
 
----
+***
 
-Step 3 — Verify Running Container
+**Step 3 — Verify Running Container**
 
 ```powershell
 docker ps
@@ -468,7 +466,7 @@ http://localhost:8080
 
 You should see “Welcome to nginx!”
 
----
+***
 
 Step 4 — Stop Container
 
@@ -482,7 +480,7 @@ nginx-container
 ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % 
 ```
 
----
+***
 
 Step 5 — Remove Container
 
@@ -496,7 +494,7 @@ nginx-container
 ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3-ccvt % 
 ```
 
----
+***
 
 Step 6 — Remove Images
 
@@ -513,13 +511,13 @@ ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3
 
 If image in use → stop/remove container first.
 
----
+***
 
 Container Lifecycle Summary
 
 Image → Container Created → Running → Stopped → Removed
 
----
+***
 
 **Observations**
 Image pulled successfully from Docker Hub
@@ -528,25 +526,26 @@ Image pulled successfully from Docker Hub
 - docker ps shows active containers
 - Containers start quickly with minimal overhead
 
----
+***
 
 **Result**
 Docker image was successfully pulled, container executed with port mapping, verified through browser output, and lifecycle operations (stop, remove, image removal) were completed successfully.
 
----
+***
 
 **Conclusion**
 The experiment demonstrated Docker fundamentals including image pulling, container execution, and lifecycle management. It shows how containers provide lightweight and efficient application deployment.
 
----
+***
 
-### Experiment -3
+### Experiment 3: Deploying NGINX Using Different Base Images and Comparing Image Layers
 
 Date: February 4, 2026
 
-Ex-3 Deploying NGINX Using Different Base Images and Comparing Image Layers
+**Aim/Objective**
+To understand the differences between various base images (Official, Ubuntu-based, and Alpine Linux) when deploying an NGINX web server, and to compare image sizes and layer structures.
 
-**Terminologies:**
+**Theory/Background**
 
 **Base Image**
 A base image is the starting image used in a Dockerfile using the FROM instruction.
@@ -639,11 +638,11 @@ Alpine-based NGINX images are ideal for microservices due to:
 **CI/CD Pipeline**
 CI/CD (Continuous Integration / Continuous Deployment) automates building, testing, and deploying applications. Smaller images like Alpine improve pipeline speed and efficiency.
 
----
+***
 **Aim**
 To deploy NGINX using different Docker base images (Official, Ubuntu, and Alpine), compare their image sizes and layers, and analyze performance, security, and real-world use cases in containerised environments.
 
-Objectives
+**Objectives**
 
 - Deploy NGINX using:
 - Official NGINX image
@@ -653,7 +652,7 @@ Objectives
 - Understand the impact of base images on performance and security
 - Identify real-world use cases of each approach
 
-PART 1: OFFICIAL NGINX IMAGE
+**Part 1: Official NGINX Image**
 
 ```powershell
 docker pull nginx:latest
@@ -689,7 +688,7 @@ http://localhost:8080
 
 ![Verify](./assets/e3_image1.png)
 
-PART 2: NGINX USING UBUNTU BASE IMAGE
+**Part 2: NGINX using Ubuntu Base Image**
 
 Step 1: Create a folder
 
@@ -780,7 +779,7 @@ nginx:latest               9dd288848f44        258MB         64.1MB   U
 ananyakarn@Ananyas-MacBook-Air-2 nginx-ubuntu % 
 ```
 
-PART 3: NGINX USING ALPINE BASE IMAGE
+**Part 3: NGINX using Alpine Base Image**
 
 1. Create a folder
 
@@ -867,7 +866,7 @@ nginx:latest               9dd288848f44        258MB         64.1MB   U
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
 
-PART 4: IMAGE LAYERS
+**Part 4: Image Layers**
 
 ```powershell
 docker history nginx
@@ -931,7 +930,7 @@ IMAGE          CREATED       CREATED BY                                      SIZ
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
 
-PART 5: FUNCTIONAL TASK – SERVING CUSTOM HTML USING NGINX
+**Part 5: Functional Task – Serving Custom HTML Using NGINX**
 
 Step 1: Create Custom HTML File
 
@@ -940,7 +939,7 @@ mkdir html
 echo "<h1>Hello from Docker NGINX</h1>" > html/index.html
 ```
 
----
+***
 
 Image Comparison Table
 
@@ -953,7 +952,7 @@ Image Comparison Table
 | Ease of Use | Very Easy | Medium | Medium |
 | Production Ready | Yes | Rarely | Yes |
 
----
+***
 
 **PART 6: WHEN TO USE WHICH IMAGE**
 **Official NGINX Image**
@@ -977,7 +976,7 @@ Recommended for:
 - Cloud-native applications
 - CI/CD pipelines and Kubernetes workloads
 
----
+***
 
 PART 7: OBSERVATIONS
 
@@ -986,26 +985,26 @@ PART 7: OBSERVATIONS
 - Official NGINX image offered a balanced approach between optimization and usability.
 - Docker image layers help optimize build caching and storage reuse.
 
----
+***
 
 **RESULT**
 NGINX was successfully deployed using Official, Ubuntu-based, and Alpine-based Docker images. Image size and layer analysis demonstrated the impact of base image selection on performance, security, and resource utilization.
 
----
+***
 
 **CONCLUSION**
 The experiment demonstrated that base image selection plays a critical role in container performance, security, and portability. Alpine-based images are best suited for lightweight microservices, Ubuntu-based images are useful for debugging and learning, while official NGINX images are preferred for production-ready deployments.
 
----
+***
 
 # EXPERIMENT-4 Docker Essentials
 
-Docker Essentials — Dockerfile, .dockerignore, Tagging and Publishing**
+### Experiment 4: Docker Essentials — Dockerfile, .dockerignore, Tagging and Publishing
 
-**Aim / Objective**
+**Aim/Objective**
 To containerize a simple application using Dockerfile, optimize the build process using .dockerignore, build and tag Docker images, run and manage containers, and understand the basics of image versioning and publishing workflows.
 
-**THEORY / BACKGROUND**
+**Theory/Background**
 
 **Dockerfile**
 A Dockerfile is a set of instructions used to automate the creation of Docker images. Each instruction creates a layer in the image, making builds reproducible and portable across environments.
@@ -1033,7 +1032,7 @@ Image → Run → Running → Stop → Remove
 
 Understanding this is essential for container management in DevOps workflows.
 
-Software & Hardware Requirements
+**Software and hardware requirements:**
 
 | **Component** | **Details** |
 | --- | --- |
@@ -1044,8 +1043,8 @@ Software & Hardware Requirements
 | Editor | VS Code / Terminal |
 | Internet | Required |
 
-**PROCEDURE**
-PART 1 — Creating a Simple Flask Application
+**Procedure**
+**Part 1: Creating a Simple Flask Application**
 
 Step 1: Create Project Folder
 
@@ -1108,7 +1107,7 @@ CMD ["python", "app.py"]
 - Exposes app port
 - Defines startup command
 
-PART 3 — Creating .dockerignore
+**Part 3: Creating .dockerignore**
 
 Create file:
 
@@ -1127,7 +1126,7 @@ __pycache__/
 
 This prevents unnecessary files from entering the image, reducing size and improving security.
 
-PART 4 — Building Docker Image
+**Part 4: Building Docker Image**
 
 Run:
 
@@ -1145,7 +1144,7 @@ docker images
 
 ![docker images](./assets/e4_image3.png)
 
-PART 5 — Running the Container
+**Part 5: Running the Container**
 
 Run:
 
@@ -1183,7 +1182,7 @@ docker logs flask-container
 
 ![flask container](./assets/e4_image5.png)
 
-PART 6 — Container Management
+**Part 6: Container Management**
 
 ```powershell
 docker stop flask-container
@@ -1193,7 +1192,7 @@ docker rm -f flask-container
 
 ![flask container](./assets/e4_image6.png)
 
-PART 7 — Image Tagging
+**Part 7: Image Tagging**
 
 ```powershell
 docker build -t my-flask-app:1.0 .
@@ -1227,21 +1226,19 @@ A Flask application was successfully containerized using Dockerfile. The contain
 **Conclusion**
 This experiment demonstrated essential Docker concepts including application containerization, image creation, .dockerignore optimization, image tagging, and container lifecycle management, forming the foundation for real-world DevOps workflows.
 
----
+***
 
-# Experiment 5
+### Experiment 5: Docker Volumes, Environment Variables, Monitoring and Networks
 
-## Docker Volumes, Environment Variables, Monitoring and Networks
+***
 
----
-
-## Aim
+**Aim**
 
 To understand Docker data persistence using volumes, configure environment variables in containers, monitor container activity, and establish communication between containers using custom Docker networks.
 
----
+***
 
-## Objectives
+**Objectives**
 
 - Study the ephemeral nature of container storage  
 - Implement named volumes and bind mounts  
@@ -1250,9 +1247,9 @@ To understand Docker data persistence using volumes, configure environment varia
 - Create and manage Docker networks  
 - Enable container-to-container communication  
 
----
+***
 
-### Part 1: Understanding Data Persistence
+**Part 1: Understanding Data Persistence**
 
 Step 1: Run Ubuntu Container
 
@@ -1287,13 +1284,13 @@ docker exec test-container cat /data/message.txt
 
 ![Restart the container:](./assets/ex5_3.png)
 
-### Observation
+**Observation**
 
 The file created earlier is not available after container restart if the container was removed. This shows that container storage is temporary unless a volume is attached.
 
----
+***
 
-### Part 2: Docker Volumes
+**Part 2: Docker Volumes**
 
 Step 2: Create a Named Volume
 
@@ -1304,7 +1301,7 @@ docker volume ls
 
 ![Create a Named Volume](./assets/ex5_4.png)
 
----
+***
 
 Step 3: Run Container with Volume Attached
 
@@ -1322,13 +1319,13 @@ docker inspect web-volume
 
 ![Verify volume attachment](./assets/ex5_6.png)
 
-### Observations
+**Observations**
 
 The volume `mydata` is mounted inside the container at `/app/data`.
 
----
+***
 
-### Part 3: Bind Mount
+**Part 3: Bind Mount**
 
 Step 4: Create Directory on Host
 
@@ -1363,9 +1360,9 @@ Observation
 
 Data created on the host machine is accessible inside the container through bind mount.
 
----
+***
 
-### Part 4: Environment Variables
+**Part 4: Environment Variables**
 
 Step 5: Passing Variables using -e Flag
 
@@ -1385,7 +1382,7 @@ docker exec env-test printenv
 
 ![Passing Variables using -e Flag](./assets/ex5_9.png)
 
----
+***
 
 ## Step 6: Using .env File
 
@@ -1411,9 +1408,9 @@ docker exec env-file-test printenv
 
 ![Verify variables](./assets/ex5_11.png)
 
----
+***
 
-### Part 5: Monitoring Containers
+**Part 5: Monitoring Containers**
 
 Step 7: View Running Containers
 
@@ -1423,7 +1420,7 @@ docker ps
 
 ![view running containers](./assets/ex5_19.png)
 
----
+***
 
 Step 8: Real-time Resource Monitoring
 
@@ -1439,7 +1436,7 @@ docker stats --no-stream
 
 ![docker stats](./assets/ex5_12.png)
 
----
+***
 
 Step 9: View Processes Inside Container
 
@@ -1449,7 +1446,7 @@ docker top web-bind
 
 ![view process inside container](./assets/ex5_13.png)
 
----
+***
 
 ## Step 10: View Logs
 
@@ -1459,9 +1456,9 @@ docker logs web-bind
 
 ![ogs web-bind](./assets/ex5_14.png)
 
----
+***
 
-### Part 6: Docker Networks
+**Part 6: Docker Networks**
 
 Step 11: List Existing Networks
 
@@ -1471,7 +1468,7 @@ docker network ls
 
 ![network ls](./assets/ex5_15.png)
 
----
+***
 
 Step 12: Create Custom Network
 
@@ -1487,7 +1484,7 @@ docker network ls
 
 ![docker network ls](./assets/ex5_16.png)
 
----
+***
 Step 13: Run Containers on Custom Network
 
 ```bash
@@ -1497,7 +1494,7 @@ docker run -d --name web2 --network my-network nginx
 
 ![Run containers on custom network](./assets/ex5_17.png)
 
----
+***
 
 Step 14: Test Container Communication
 
@@ -1511,7 +1508,7 @@ Observation
 
 Containers connected to the same custom bridge network can communicate using container names as hostnames.
 
----
+***
 
 Step 15: Inspect Network
 
@@ -1519,29 +1516,29 @@ Step 15: Inspect Network
 docker network inspect my-network
 ```
 
----
+***
 
-### Result
+**Result**
 
 Docker volumes were successfully implemented to persist data.  
 Environment variables were configured using both command-line flags and env files.  
 Container monitoring was performed using Docker commands.  
 A custom bridge network was created and container-to-container communication was verified successfully.
 
----
+***
 
-### Conclusion
+**Conclusion**
 
 This experiment demonstrated Docker storage mechanisms, runtime configuration using environment variables, monitoring techniques, and container networking. These features are essential for building reliable and production-ready containerized applications.
 
----
+***
 
-# Experiment 6: Docker Run vs Docker Compose
+### Experiment 6: Docker Run vs Docker Compose
 
-**Aim/Objective:**
+**Aim/Objective**
 To prove that the same setup can be done using `docker run` (manual) and `docker compose` (automated & clean), demonstrating manual vs automated setup, converting multi-container setups, assigning volumes and networks, setting resource limits, and building custom images.
 
----
+***
 
 **TASK 1 — Single Container**
 
@@ -1573,6 +1570,7 @@ docker rm lab-nginx
 ```
 
 **Part B: Same using Docker Compose**
+
 Create a `docker-compose.yml` file to automate the same:
 
 ```yaml
@@ -1587,7 +1585,7 @@ services:
       - ./html:/usr/share/nginx/html
 ```
 
-Run and verify:
+**Run and verify:**
 ```bash
 docker compose up -d
 docker compose ps
@@ -1595,7 +1593,8 @@ docker compose down
 ```
 
 ![Terminal showing docker compose up -d and docker compose ps](./assets/exp6_3.png)
----
+
+***
 
 **TASK 2 — Multi-Container App**
 Demonstrating why Compose is better for multi-container apps (WordPress + MySQL).
@@ -1667,9 +1666,9 @@ docker compose up -d
 docker compose down -v
 ```
 
----
+***
 
-## TASK 3 — Convert Docker Run → Compose
+**TASK 3 — Convert Docker Run → Compose**
 
 **Given docker run command:**
 ```bash
@@ -1697,7 +1696,7 @@ services:
     restart: unless-stopped
 ```
 
----
+***
 
 **TASK 4 — Volume + Network Conversion**
 
@@ -1739,9 +1738,9 @@ networks:
   custom-network:
 ```
 
----
+***
 
-## TASK 5 — Resource Limits
+**TASK 5 — Resource Limits**
 
 **Given docker run command:**
 ```bash
@@ -1769,13 +1768,14 @@ services:
           cpus: "0.5"
 ```
 
----
+***
 
 **TASK 6 — Build Your Own App**
 
 Demonstrating the difference between `image:` (prebuilt) and `build:` (custom) in compose.
 
 **Step 1:** Create `app.js`
+
 ```javascript
 const http = require('http');
 http.createServer((req, res) => {
@@ -1784,6 +1784,7 @@ http.createServer((req, res) => {
 ```
 
 **Step 2:** Create `Dockerfile`
+
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
@@ -1812,7 +1813,7 @@ docker compose up --build -d
 Verify the output by opening `http://localhost:3000`.
 
 
----
+***
 
 ### FINAL SUMMARY
 Proven Concepts:
@@ -1823,11 +1824,11 @@ Proven Concepts:
 - **volumes + network**: Built a real-world multi-tier architecture using bridge networks and named volumes.
 - **build**: Managed custom application lifecycle (build, deploy) from a Dockerfile using Compose.
 
----
+***
 
 ### Experiment 7: CI/CD Pipeline using Jenkins, GitHub & Docker Hub
 
-**Aim**
+**Aim/Objective**
 To design and implement a CI/CD pipeline using Jenkins, GitHub, and Docker Hub.
 
 **Objectives**
@@ -1859,7 +1860,7 @@ To design and implement a CI/CD pipeline using Jenkins, GitHub, and Docker Hub.
 * Created Dockerfile
 * Built image locally
 
-### 4. Setup Jenkins using Docker
+**4. Setup Jenkins using Docker**
 * Used `docker-compose`
 * Accessed Jenkins on port 8080
 
@@ -1905,7 +1906,7 @@ Successfully implemented CI/CD pipeline where:
 * Docker image is built
 * Image is pushed to Docker Hub automatically
 
-### Questions
+**Questions**
 
 **1. What is Jenkinsfile?**
 → Pipeline as code
@@ -1922,14 +1923,14 @@ Successfully implemented CI/CD pipeline where:
 **5. Why credentials in Jenkins?**
 → Secure storage of secrets
 
-### Conclusion
+**Conclusion**
 CI/CD pipeline was successfully implemented using Jenkins, GitHub, and Docker Hub with automated build and deployment.
 
----
+***
 
 ### Experiment 9: Ansible Automation with Docker
 
-**Aim**
+**Aim/Objective**
 The goal of this experiment is to automate server configuration using Ansible by managing multiple Docker-based servers.
 
 **Objectives**
@@ -1944,7 +1945,7 @@ The goal of this experiment is to automate server configuration using Ansible by
 - Ubuntu
 - SSH
 
-### Steps Performed
+**Steps Performed**
 
 **1. Installed Ansible**
 Ansible was installed on the control node. After installation, the setup was verified using the ping module to ensure it was functional.
@@ -2068,7 +2069,7 @@ nano playbook.yml
 **Playbook content:**
 
 ```yaml
----
+***
 - hosts: all
   tasks:
     - name: Install vim package
@@ -2140,15 +2141,15 @@ Idempotency is a property where an operation can be applied multiple times witho
 
 This experiment demonstrated how Ansible can effectively automate server configuration across multiple Docker containers. The results show that it is a scalable and efficient approach to infrastructure management.
 
----
+***
 
 ### Experiment 10: SonarQube Static Code Analysis
 
-**Aim**
+**Aim/Objective**
 
 To analyze source code using SonarQube and detect bugs, vulnerabilities, and code smells.
 
----
+***
 
 **Tools Used**
 
@@ -2158,7 +2159,7 @@ To analyze source code using SonarQube and detect bugs, vulnerabilities, and cod
 - PostgreSQL
 - Maven
 
----
+***
 
 **Steps Performed**
 
@@ -2172,7 +2173,7 @@ docker-compose up -d
 
 ![running containers](assets/ex10-1.png)
 
----
+***
 
 **2. Accessed Web UI**
 
@@ -2181,7 +2182,7 @@ docker-compose up -d
 
 ![login page](assets/ex10-2.png)
 
----
+***
 
 **3. Generated Authentication Token**
 
@@ -2191,7 +2192,7 @@ docker-compose up -d
 
 ![Token](assets/ex10-4.png)
 
----
+***
 
 **4. Created Java Project**
 
@@ -2205,7 +2206,7 @@ mvn archetype:generate -DgroupId=com.example -DartifactId=sonar-demo -Darchetype
 Screenshot: Project structure
 ![project structure](assets/ex10-5.png)
 
----
+***
 
 **5. Ran Sonar Scanner**
 
@@ -2218,7 +2219,7 @@ mvn sonar:sonar -Dsonar.projectKey=sonar-demo -Dsonar.host.url=http://localhost:
 
 ![sonar execution](assets/ex10-6.png)
 
----
+***
 
 **6. Viewed Results**
 
@@ -2227,7 +2228,7 @@ mvn sonar:sonar -Dsonar.projectKey=sonar-demo -Dsonar.host.url=http://localhost:
 Screenshot: SonarQube dashboard
 ![dashboard](assets/ex10-7.png)
 
----
+***
 
 **Observations**
 
@@ -2236,13 +2237,13 @@ Screenshot: SonarQube dashboard
 - Helps improve code quality
 - Supports multiple languages
 
----
+***
 
 **Result**
 
 Successfully performed static code analysis using SonarQube and identified issues in the sample Java application.
 
----
+***
 
 **Questions**
 
@@ -2261,28 +2262,28 @@ Successfully performed static code analysis using SonarQube and identified issue
 5. Why token is used?
 → Secure authentication
 
----
+***
 
 **Conclusion**
 
 SonarQube provides an efficient way to detect code issues early, improving software quality and maintainability
 
----
+***
 
 ### Experiment 11: Container Orchestration using Docker Swarm
 
-**Aim**
+**Aim/Objective**
 
 To understand and implement container orchestration using Docker Swarm.
 
----
+***
 
 **Tools Used**
 - Docker
 - Docker Compose
 - Docker Swarm
 
----
+***
 
 **Steps Performed**
 
@@ -2295,7 +2296,7 @@ Command:
 docker compose down
 ```
 
----
+***
 
 **2. Initialized Docker Swarm**
 
@@ -2308,7 +2309,7 @@ docker swarm init
 
 ![Docker Swarm initialization](assets/e11-1.png)
 
----
+***
 
 **3. Deployed Stack**
 
@@ -2321,7 +2322,7 @@ docker stack deploy -c docker-compose.yml wordpress_stack
 
 ![deployed stack](assets/e11-2.png)
 
----
+***
 
 **4. Verified Services**
 
@@ -2335,7 +2336,7 @@ docker stack ps wordpress_stack
 
 ![verified services](assets/e11-3.png)
 
----
+***
 
 **5. Accessed Application**
 
@@ -2348,7 +2349,7 @@ http://localhost:8081
 
 ![wordpress website](assets/e11-4.png)
 
----
+***
 
 **6. Scaled Application**
 
@@ -2361,7 +2362,7 @@ docker service scale wordpress_stack_wordpress=3
 
 ![wordpress services scaled](assets/e11-5.png)
 
----
+***
 
 **7. Tested Self-Healing**
 
@@ -2376,7 +2377,7 @@ docker rm -f <container_id>
 
 ![wordpress services scaled](assets/e11-6.png)
 
----
+***
 
 **8. Removed Stack**
 
@@ -2389,7 +2390,7 @@ docker stack rm wordpress_stack
 
 ![wordpress services scaled](assets/e11-7.png)
 
----
+***
 
 **Observations**
 
@@ -2426,22 +2427,22 @@ Successfully implemented container orchestration using Docker Swarm, including s
 
 Docker Swarm provides an efficient and simplified approach to container orchestration, offering essential features like scaling, automated load balancing, and self-healing to maintain application availability.
 
----
+***
 
 ### Experiment 12: Kubernetes Container Orchestration
 
-**Aim**
+**Aim/Objective**
 
 To study and implement container orchestration using Kubernetes.
 
----
+***
 
 **Tools Used**
 - Kubernetes
 - kubectl
 - Minikube
 
----
+***
 
 **Steps Performed**
 
@@ -2454,9 +2455,9 @@ Command:
 minikube start
 ```
 
-![Kubernetes Cluster](assets/exp12-1.png)
+![Kubernetes Cluster](assets/e12-1.png)
 
----
+***
 
 **2. Created Deployment**
 
@@ -2467,9 +2468,9 @@ Command:
 kubectl apply -f wordpress-deployment.yaml
 ```
 
-![Deployment Creation](assets/exp12-2.png)
+![Deployment Creation](assets/e12-2.png)
 
----
+***
 
 **3. Created Service**
 
@@ -2480,9 +2481,9 @@ Command:
 kubectl apply -f wordpress-service.yaml
 ```
 
-![Service Creation](assets/exp12-3.png)
+![Service Creation](assets/e12-3.png)
 
----
+***
 
 **4. Verified Resources**
 
@@ -2494,9 +2495,9 @@ kubectl get pods
 kubectl get svc
 ```
 
-![Kubernetes Cluster](assets/exp12-4.png)
+![Kubernetes Cluster](assets/e12-4.png)
 
----
+***
 
 **5. Accessed Application**
 
@@ -2509,7 +2510,7 @@ minikube service wordpress-service --url
 
 ![ WordPress application](assets/e12-5.png)
 
----
+***
 
 **6. Scaled Deployment**
 
@@ -2523,7 +2524,7 @@ kubectl scale deployment wordpress --replicas=4
 ![scaled deployment](assets/e12-6.png)
 
 
----
+***
 
 **7. Tested Self-Healing**
 
@@ -2536,7 +2537,7 @@ kubectl delete pod <pod_name>
 
 ![self-healing](assets/e12-8.png)
 
----
+***
 
 **Observations**
 
@@ -2545,13 +2546,13 @@ kubectl delete pod <pod_name>
 - Services provide a stable network endpoint for accessing pods even as they are recreated.
 - Self-healing ensures high availability by automatically restarting failed or deleted pods.
 
----
+***
 
 **Result**
 
 Successfully deployed and managed a containerized application using Kubernetes, demonstrating core features such as scaling and self-healing.
 
----
+***
 
 **Questions**
 
@@ -2570,10 +2571,10 @@ Successfully deployed and managed a containerized application using Kubernetes, 
 5. Difference between Swarm and Kubernetes?
 → While Docker Swarm is simpler to set up and integrated into Docker, Kubernetes is more advanced, offering complex scheduling, extensive customization, and is considered the industry standard for orchestration.
 
----
+***
 
 **Conclusion**
 
 Kubernetes provides a powerful and robust framework for container orchestration, offering advanced features for scalability, self-healing, and service discovery that are essential for cloud-native applications.
 
----
+***

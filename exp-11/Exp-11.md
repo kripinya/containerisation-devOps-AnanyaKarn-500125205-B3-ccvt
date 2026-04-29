@@ -3,14 +3,14 @@
 ## Aim
 To understand and implement container orchestration using Docker Swarm.
 
----
+***
 
 ## Tools Used
 - Docker
 - Docker Compose
 - Docker Swarm
 
----
+***
 
 ## Steps Performed
 
@@ -22,7 +22,7 @@ Command:
 docker compose down
 ```
 
----
+***
 
 ### 2. Initialized Docker Swarm
 Docker Swarm mode was enabled on the local machine to act as a manager node.
@@ -34,7 +34,7 @@ docker swarm init
 
 ![Docker Swarm initialization](../assets/e11-1.png)
 
----
+***
 
 ### 3. Deployed Stack
 The application stack (WordPress and MySQL) was deployed using a compose file.
@@ -47,7 +47,7 @@ docker stack deploy -c docker-compose.yml wordpress_stack
 ![deployed stack](../assets/e11-2.png)
 
 
----
+***
 
 ### 4. Verified Services
 The status of the deployed services and containers was verified.
@@ -60,7 +60,7 @@ docker stack ps wordpress_stack
 
 ![verified services](../assets/e11-3.png)
 
----
+***
 
 ### 5. Accessed Application
 The WordPress application was accessed through the browser to verify successful deployment.
@@ -72,7 +72,7 @@ http://localhost:8081
 
 ![wordpress website](../assets/e11-4.png)
 
----
+***
 
 ### 6. Scaled Application
 The WordPress service was scaled to 3 replicas to demonstrate load balancing and high availability.
@@ -84,7 +84,7 @@ docker service scale wordpress_stack_wordpress=3
 
 ![wordpress services scaled](../assets/e11-5.png)
 
----
+***
 
 ### 7. Tested Self-Healing
 A running container was manually removed to observe Docker Swarm's automatic self-healing capability.
@@ -98,7 +98,7 @@ docker rm -f <container_id>
 
 ![wordpress services scaled](../assets/e11-6.png)
 
----
+***
 
 ### 8. Removed Stack
 The stack was removed to clean up resources after the experiment.
@@ -110,7 +110,7 @@ docker stack rm wordpress_stack
 
 ![wordpress services scaled](../assets/e11-7.png)
 
----
+***
 
 ## Observations
 - Docker Swarm manages container lifecycles automatically.
@@ -118,12 +118,12 @@ docker stack rm wordpress_stack
 - Built-in load balancing distributes traffic across replicas.
 - Self-healing ensures application reliability by recreating failed containers.
 
----
+***
 
 ## Result
 Successfully implemented container orchestration using Docker Swarm, including stack deployment, scaling, and self-healing.
 
----
+***
 
 ## Questions
 
@@ -142,7 +142,7 @@ Successfully implemented container orchestration using Docker Swarm, including s
 5. What is load balancing?
 → The distribution of incoming network traffic across multiple containers to ensure no single container is overwhelmed.
 
----
+***
 
 ## Conclusion
 Docker Swarm provides an efficient and simplified approach to container orchestration, offering essential features like scaling, automated load balancing, and self-healing to maintain application availability.

@@ -16,7 +16,7 @@ Date: January 21, 2026
 
 ### Instructor - Prateek Gautam
 
----
+***
 
 ## Aim/ Objective
 
@@ -66,13 +66,13 @@ Docker is an open-source containerization platform that allows applications to b
 
 The main difference between virtual machines and containers lies in their architecture and resource usage. Virtual machines include a full operating system along with the application, making them heavier and slower to start. Containers, on the other hand, share the host operating system kernel and only include the application and its dependencies, making them lightweight and faster. While virtual machines provide strong isolation at the hardware level, containers offer efficient and scalable application deployment. Both technologies are essential in modern infrastructure, and this experiment demonstrates their combined usage.
 
----
+***
 
 ## System Architecture/Setup Description
 
 In this experiment, macOS acts as the host operating system. VMware Fusion is used as the virtualization provider, while Vagrant automates the creation and management of the Ubuntu 22.04 ARM virtual machine. Inside the virtual machine, Nginx is deployed as a web server and Docker Engine is installed to run containerized applications.
 
----
+***
 
 ## Setup:
 
@@ -115,7 +115,7 @@ vagrant --version
 
 This command checks whether Vagrant is correctly installed on the macOS system and displays the installed version.
 
----
+***
 
 ### **Step 2: Installation and Setup of VMware Fusion**
 
@@ -134,7 +134,7 @@ VMware Fusion provides native ARM support on Apple Silicon, making it suitable f
 
 ![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%203.png)
 
----
+***
 
 ### **Step 3: Creation of Project Directory**
 
@@ -151,7 +151,7 @@ cd ubuntu-vagrant
 
 This directory contains the Vagrantfile, which defines the virtual machine configuration.
 
----
+***
 
 ### **Step 4: Configuration of Vagrantfile**
 
@@ -174,7 +174,7 @@ end
 
 This configuration specifies the Ubuntu 22.04 box compatible with ARM architecture and assigns CPU and memory resources using VMware Fusion as the provider.
 
----
+***
 
 ### **Step 5: Starting the Virtual Machine**
 
@@ -190,7 +190,7 @@ vagrant up --provider=vmware_desktop
 
 This command downloads the required Ubuntu box and boots the virtual machine using VMware Fusion.
 
----
+***
 
 ## **Step 6: Accessing the Virtual Machine**
 
@@ -206,7 +206,7 @@ vagrant ssh
 
 This command allows the user to interact with the Ubuntu virtual machine through the terminal.
 
----
+***
 
 ## **Step 7: Installation of Nginx Web Server**
 
@@ -270,7 +270,7 @@ Commercial support is available at
 vagrant@vagrant:~$ 
 ```
 
----
+***
 
 ### **Step 8: Installation of Docker Engine**
 
@@ -294,7 +294,7 @@ docker --version
 
 ![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%209.png)
 
----
+***
 
 ### **Step 9: Verification of Docker Installation**
 
@@ -310,7 +310,7 @@ docker run hello-world
 
 This command downloads and runs a test Docker image, confirming that Docker is installed and functioning correctly.
 
----
+***
 
 This procedure successfully completes:
 
@@ -325,7 +325,7 @@ This procedure successfully completes:
 > Ubuntu virtual machine was successfully created using Vagrant and VMware Fusion. Nginx web server and Docker Engine were installed and verified successfully.
 > 
 
----
+***
 
 ## **VM vs Container Comparison**
 
@@ -352,10 +352,10 @@ This procedure successfully completes:
 - Docker runs inside the virtual machine
 - Nginx service runs successfully on Ubuntu
 
----
+***
 
 ## Conclusion
 
 The experiment successfully demonstrated the creation of a DevOps-ready environment using Vagrant and VMware Fusion. The installation of Nginx and Docker validated service deployment and container execution within the virtual machine.
 
----
+***

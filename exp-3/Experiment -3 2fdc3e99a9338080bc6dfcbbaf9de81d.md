@@ -10,19 +10,19 @@ Date: February 4, 2026
 
 Docker is a **containerization platform** that allows applications to be packaged along with their dependencies into lightweight, portable units called containers. It ensures consistency across development, testing, and production environments.
 
----
+***
 
 ## **2. Container**
 
 A container is a **lightweight, standalone executable unit** that includes the application code, runtime, libraries, and dependencies required to run the application. Containers share the host OS kernel, making them faster and more efficient than virtual machines.
 
----
+***
 
 ## **3. Docker Image**
 
 A Docker image is a **read-only template** used to create containers. It contains the application, its dependencies, and instructions needed to run the application. Images are built in layers and stored in Docker registries.
 
----
+***
 
 ## **4. Base Image**
 
@@ -41,7 +41,7 @@ The base image significantly affects:
 - Startup time
 - Performance
 
----
+***
 
 ## **5. NGINX**
 
@@ -51,7 +51,7 @@ NGINX is a **high-performance web server**, reverse proxy, and load balancer. In
 - Act as a reverse proxy
 - Load balance multiple backend services
 
----
+***
 
 ## **6. Official Docker Image**
 
@@ -59,7 +59,7 @@ An official Docker image is an image **maintained by the software vendor or Dock
 
 The nginx:latest image is an official image and is **production-ready**.
 
----
+***
 
 ## **7. Ubuntu-Based Image**
 
@@ -74,7 +74,7 @@ Characteristics:
 
 Used mainly for **learning and debugging**, not production.
 
----
+***
 
 ## **8. Alpine Linux**
 
@@ -89,7 +89,7 @@ Characteristics:
 
 Highly preferred in **microservices and cloud environments**.
 
----
+***
 
 ## **9. Dockerfile**
 
@@ -102,7 +102,7 @@ Common instructions used in this experiment:
 - EXPOSE – documents the container’s listening port
 - CMD – specifies default command to run
 
----
+***
 
 ## **10. Image Layers**
 
@@ -116,7 +116,7 @@ Benefits of layers:
 
 More layers usually mean a **larger image size**.
 
----
+***
 
 ## **11. Docker History**
 
@@ -128,7 +128,7 @@ docker history is a command used to inspect **individual layers** of an image. I
 
 Used in this experiment to compare Ubuntu, Alpine, and official images.
 
----
+***
 
 ## **12. Port Mapping**
 
@@ -142,7 +142,7 @@ Example:
 
 This allows access to container services via the host browser.
 
----
+***
 
 ## **13. Reverse Proxy**
 
@@ -150,7 +150,7 @@ A reverse proxy is a server that **forwards client requests to backend servers**
 
 NGINX commonly acts as a reverse proxy in containerized and microservices architectures.
 
----
+***
 
 ## **14. Attack Surface**
 
@@ -164,7 +164,7 @@ Larger images (like Ubuntu-based) have:
 
 Smaller images (like Alpine) reduce security risks.
 
----
+***
 
 ## **15. Production-Ready**
 
@@ -177,7 +177,7 @@ An image is considered production-ready if it:
 
 Official NGINX and Alpine-based images are generally production-ready.
 
----
+***
 
 ## **16. Microservices**
 
@@ -189,13 +189,13 @@ Alpine-based NGINX images are ideal for microservices due to:
 - Fast startup
 - Low resource usage
 
----
+***
 
 ## **17. CI/CD Pipeline**
 
 CI/CD (Continuous Integration / Continuous Deployment) automates building, testing, and deploying applications. Smaller images like Alpine improve pipeline speed and efficiency.
 
----
+***
 
 ## **18. Docker Registry**
 
@@ -207,7 +207,7 @@ Example:
 
 Images like nginx, ubuntu, and alpine are pulled from Docker Hub.
 
----
+***
 
 # Aim
 
@@ -500,7 +500,7 @@ IMAGE          CREATED       CREATED BY                                      SIZ
 <missing>      7 days ago    ADD alpine-minirootfs-3.23.3-aarch64.tar.gz …   9.36MB    buildkit.dockerfile.v0
 ananyakarn@Ananyas-MacBook-Air-2 nginx-alpine % 
 ```
----
+***
 
 ## PART 5: FUNCTIONAL TASK – SERVING CUSTOM HTML USING NGINX
 
@@ -522,7 +522,7 @@ echo "<h1>Hello from Docker NGINX</h1>" > html/index.html
 | Ease of Use | Very Easy | Medium | Medium |
 | Production Ready | Yes | Rarely | Yes |
 
----
+***
 
 ## PART 6: WHEN TO USE WHICH IMAGE
 ### Official NGINX Image
@@ -543,7 +543,7 @@ Recommended for:
 - Cloud-native applications
 - CI/CD pipelines and Kubernetes workloads
 
----
+***
 
 ## PART 7: OBSERVATIONS
 
@@ -552,13 +552,13 @@ Recommended for:
 - Official NGINX image offered a balanced approach between optimization and usability.
 - Docker image layers help optimize build caching and storage reuse.
 
----
+***
 
 ## RESULT
 
 NGINX was successfully deployed using Official, Ubuntu-based, and Alpine-based Docker images. Image size and layer analysis demonstrated the impact of base image selection on performance, security, and resource utilization.
 
----
+***
 
 ## CONCLUSION
 

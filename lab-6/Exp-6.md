@@ -3,7 +3,7 @@
 **Aim/Objective:**
 To prove that the same setup can be done using `docker run` (manual) and `docker compose` (automated & clean), demonstrating manual vs automated setup, converting multi-container setups, assigning volumes and networks, setting resource limits, and building custom images.
 
----
+***
 
 ## TASK 1 — Single Container (Easy Start)
 
@@ -57,7 +57,7 @@ docker compose down
 
 ![terminal](./assets/exp_6_1.png)
 
----
+***
 
 ## TASK 2 — Multi-Container App (IMPORTANT)
 Demonstrating why Compose is better for multi-container apps (WordPress + MySQL).
@@ -132,7 +132,7 @@ docker compose down -v
 
 ![terminal stats](./assets/exp6_3.png)
 
----
+***
 
 ## TASK 3 — Convert Docker Run → Compose
 
@@ -162,7 +162,7 @@ services:
     restart: unless-stopped
 ```
 
----
+***
 
 ## TASK 4 — Volume + Network Conversion
 
@@ -204,7 +204,7 @@ networks:
   custom-network:
 ```
 
----
+***
 
 ## TASK 5 — Resource Limits
 
@@ -234,7 +234,7 @@ services:
           cpus: "0.5"
 ```
 
----
+***
 
 ## TASK 6 — Build Your Own App
 
@@ -278,7 +278,7 @@ Verify the output by opening `http://localhost:3000`.
 
 ![docker compose build stats](./assets/exp6-4.png)
 
----
+***
 
 ## FINAL SUMMARY
 Proven Concepts:

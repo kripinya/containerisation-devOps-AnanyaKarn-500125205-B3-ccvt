@@ -7,7 +7,7 @@ Deploy and manage a simple Apache-based web server to master:
 - **Scaling and Load Handling**
 - **Deployment Management and Debugging**
 
----
+***
 
 ## Step-by-Step Implementation
 
@@ -41,7 +41,7 @@ kubectl delete pod apache-pod
 ```
 *Insight:* The pod disappeared permanently. Standalone pods do **not** self-heal.
 
----
+***
 
 ### **Phase 2: Working with Deployments (Self-Healing & Scaling)**
 
@@ -67,7 +67,7 @@ kubectl scale deployment apache --replicas=2
 *Observation:* Observed two pods running the same app, providing high availability.
 ![Step 7: Scaling](screenshots/step6_service_created.png)
 
----
+***
 
 ### **Phase 3: Debugging and Maintenance**
 
@@ -98,7 +98,7 @@ ls /usr/local/apache2/htdocs
 ```
 *Discovery:* Found standard web files in the container filesystem.
 
----
+***
 
 ### **Phase 4: Observing Self-Healing**
 
@@ -113,7 +113,7 @@ kubectl get pods -w
 
 **Insight (Crucial):** Any manual changes (like `echo "Hello" > index.html`) made inside a pod are **lost** when the pod is recreated. Deployments ensure the *infrastructure* is restored to its declared state.
 
----
+***
 
 ## 🧹 Cleanup
 ```bash
@@ -121,5 +121,5 @@ kubectl delete deployment apache
 kubectl delete service apache
 ```
 
----
+***
 **Summary:** This experiment demonstrates why Deployments are preferred over Pods for real applications, showcasing scaling, error recovery, and the separation of container state from persistent configuration.

@@ -127,7 +127,7 @@ nano playbook.yml
 
 **Playbook content:**
 ```yaml
----
+***
 - hosts: all
   tasks:
     - name: Install vim package

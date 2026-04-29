@@ -20,7 +20,7 @@ The Node.js backend Docker image was built using a **multi-stage build process**
 
 This optimization ensures that the final production image contains **only what is strictly necessary** to run the application.
 
----
+***
 
 ## 2. Image Size Comparison
 
@@ -37,7 +37,7 @@ project-assignment-1-db        latest    8da6d20ebd32   1 minute ago    242MB
 
 *Note: A standard Node.js application built without Alpine/multi-stage configurations often exceeds 1GB in size. Our optimized backend sits at merely `145MB` effectively minimizing vulnerability surface area and deployment time.*
 
----
+***
 
 ## 3. Network Design Diagram
 
@@ -66,7 +66,7 @@ graph TD
     Client((External Browser)) -- "HTTP GET :3000" --> Backend
 ```
 
----
+***
 
 ## 4. Macvlan vs Ipvlan Comparison
 
@@ -81,7 +81,7 @@ While both network drivers give containers direct access to the underlying physi
 
 For this assignment, **Ipvlan** was chosen explicitly because macOS Docker Desktop operates within a Linux Virtual Machine where parent interface Macvlan routing can be inherently problematic.
 
----
+***
 
 ## 5. Implementation Proofs
 

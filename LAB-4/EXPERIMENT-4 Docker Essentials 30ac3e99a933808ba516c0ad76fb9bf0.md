@@ -12,19 +12,19 @@ To containerize a simple application using Dockerfile, optimize the build proces
 
 A Dockerfile is a set of instructions used to automate the creation of Docker images. Each instruction creates a layer in the image, making builds reproducible and portable across environments.
 
----
+***
 
 ### **Docker Image**
 
 A Docker image is a lightweight, executable package containing application code, runtime, libraries, and dependencies required to run an application.
 
----
+***
 
 ### **Docker Container**
 
 A container is a running instance of a Docker image. Containers are isolated from the host system but share the host kernel, making them lightweight compared to virtual machines.
 
----
+***
 
 ### **.dockerignore**
 
@@ -35,7 +35,7 @@ The .dockerignore file prevents unnecessary files from being copied into the Doc
 - Security
 - Performance
 
----
+***
 
 ### **Image Tagging**
 
@@ -46,7 +46,7 @@ Example:
 - my-flask-app:latest
 - my-flask-app:1.0
 
----
+***
 
 ### **Container Lifecycle**
 
@@ -56,7 +56,7 @@ Image → Run → Running → Stop → Remove
 
 Understanding this is essential for container management in DevOps workflows.
 
----
+***
 
 ## **Software & Hardware Requirements**
 
@@ -69,7 +69,7 @@ Understanding this is essential for container management in DevOps workflows.
 | Editor | VS Code / Terminal |
 | Internet | Required |
 
----
+***
 
 # **PROCEDURE**
 
@@ -155,7 +155,7 @@ __pycache__/
 
 This prevents unnecessary files from entering the image, reducing size and improving security.
 
----
+***
 
 ## **PART 4 — Building Docker Image**
 

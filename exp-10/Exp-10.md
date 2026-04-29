@@ -3,7 +3,7 @@
 ## Aim
 To analyze source code using SonarQube and detect bugs, vulnerabilities, and code smells.
 
----
+***
 
 ## Tools Used
 - Docker
@@ -12,7 +12,7 @@ To analyze source code using SonarQube and detect bugs, vulnerabilities, and cod
 - PostgreSQL
 - Maven
 
----
+***
 
 ## Steps Performed
 
@@ -26,7 +26,7 @@ docker-compose up -d
 
 ![running containers](../assets/ex10-1.png)
 
----
+***
 
 ### 2. Accessed Web UI
 - Opened http://localhost:9000
@@ -34,7 +34,7 @@ docker-compose up -d
 
 ![login page](../assets/ex10-2.png)
 
----
+***
 
 ### 3. Generated Authentication Token
 - Created token in Security settings
@@ -43,7 +43,7 @@ docker-compose up -d
 
 ![Token](../assets/ex10-4.png)
 
----
+***
 
 ### 4. Created Java Project
 - Built a sample application with intentional issues
@@ -56,7 +56,7 @@ mvn archetype:generate -DgroupId=com.example -DartifactId=sonar-demo -Darchetype
 Screenshot: Project structure
 ![project structure](../assets/ex10-5.png)
 
----
+***
 
 ### 5. Ran Sonar Scanner
 - Used Maven plugin to scan project
@@ -68,7 +68,7 @@ mvn sonar:sonar -Dsonar.projectKey=sonar-demo -Dsonar.host.url=http://localhost:
 
 ![sonar execution](../assets/ex10-6.png)
 
----
+***
 
 ### 6. Viewed Results
 - Observed bugs, vulnerabilities, and code smells in dashboard
@@ -76,7 +76,7 @@ mvn sonar:sonar -Dsonar.projectKey=sonar-demo -Dsonar.host.url=http://localhost:
 Screenshot: SonarQube dashboard
 ![dashboard](../assets/ex10-7.png)
 
----
+***
 
 ## Observations
 - SonarQube detects bugs without running code
@@ -84,12 +84,12 @@ Screenshot: SonarQube dashboard
 - Helps improve code quality
 - Supports multiple languages
 
----
+***
 
 ## Result
 Successfully performed static code analysis using SonarQube and identified issues in the sample Java application.
 
----
+***
 
 ## Questions
 
@@ -108,7 +108,7 @@ Successfully performed static code analysis using SonarQube and identified issue
 5. Why token is used?
 → Secure authentication
 
----
+***
 
 ## Conclusion
 SonarQube provides an efficient way to detect code issues early, improving software quality and maintainability
