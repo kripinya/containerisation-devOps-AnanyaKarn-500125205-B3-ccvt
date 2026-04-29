@@ -1532,9 +1532,9 @@ To prove that the same setup can be done using `docker run` (manual) and `docker
 
 ---
 
-## TASK 1 — Single Container (Easy Start)
+**TASK 1 — Single Container**
 
-### Part A: Using docker run (Manual Setup)
+**Part A: Using docker run (Manual Setup)**
 We run an Nginx container manually, exposing it on port `8081` and mapping a local `html` volume.
 
 ```bash
@@ -1561,7 +1561,7 @@ docker stop lab-nginx
 docker rm lab-nginx
 ```
 
-### Part B: Same using Docker Compose
+**Part B: Same using Docker Compose**
 Create a `docker-compose.yml` file to automate the same:
 
 ```yaml
@@ -1586,10 +1586,11 @@ docker compose down
 ![Terminal showing docker compose up -d and docker compose ps](./assets/exp6_3.png)
 ---
 
-## TASK 2 — Multi-Container App (IMPORTANT ⭐)
+**TASK 2 — Multi-Container App**
 Demonstrating why Compose is better for multi-container apps (WordPress + MySQL).
 
-### Using Docker Run (Manual Setup)
+**Using Docker Run (Manual Setup)**
+
 **Step 1:** Create Custom Network
 ```bash
 docker network create wp-net
@@ -1620,9 +1621,7 @@ wordpress:latest
 Verify:
 Open `http://localhost:8082`
 
-*(Insert Screenshot: Browser showing WordPress installation page)*
-
-### Using Docker Compose (Clean Way)
+**Using Docker Compose**
 Automating the setup cleanly using `docker-compose.yml`:
 
 ```yaml
@@ -1689,7 +1688,7 @@ services:
 
 ---
 
-## TASK 4 — Volume + Network Conversion
+**TASK 4 — Volume + Network Conversion**
 
 Writing **ONE** compose file combining a backend and a postgres DB with a custom network and volume.
 
@@ -1761,7 +1760,7 @@ services:
 
 ---
 
-## TASK 6 — Build Your Own App (Most Practical)
+**TASK 6 — Build Your Own App**
 
 Demonstrating the difference between `image:` (prebuilt) and `build:` (custom) in compose.
 
@@ -1804,7 +1803,7 @@ Verify the output by opening `http://localhost:3000`.
 
 ---
 
-## FINAL SUMMARY
+### FINAL SUMMARY
 Proven Concepts:
 - **docker run**: Demonstrated manual setup configuration.
 - **docker compose**: Demonstrated automated, structured setup handling dependencies seamlessly.
@@ -1815,330 +1814,37 @@ Proven Concepts:
 
 ---
 
-## Experiment 6: Docker Run vs Docker Compose
+### Experiment 7: CI/CD Pipeline using Jenkins, GitHub & Docker Hub
 
-**Aim/Objective:**
-To prove that the same setup can be done using `docker run` (manual) and `docker compose` (automated & clean), demonstrating manual vs automated setup, converting multi-container setups, assigning volumes and networks, setting resource limits, and building custom images.
-
----
-
-### TASK 1 — Single Container (Easy Start)
-
-### Part A: Using docker run (Manual Setup)
-We run an Nginx container manually, exposing it on port `8081` and mapping a local `html` volume.
-
-```bash
-docker run -d \
---name lab-nginx \
--p 8081:80 \
--v $(pwd)/html:/usr/share/nginx/html \
-nginx:alpine
-```
-
-Verify it's running:
-```bash
-docker ps
-curl http://localhost:8081
-```
-
-*(Insert Screenshot: Terminal showing `docker run` execution and `docker ps`)*
-*(Insert Screenshot: Browser showing `http://localhost:8081` output)*
-
-Clean up:
-```bash
-docker stop lab-nginx
-docker rm lab-nginx
-```
-
-### Part B: Same using Docker Compose
-Create a `docker-compose.yml` file to automate the same:
-
-```yaml
-version: '3.8'
-services:
-  nginx:
-    image: nginx:alpine
-    container_name: lab-nginx
-    ports:
-      - "8081:80"
-    volumes:
-      - ./html:/usr/share/nginx/html
-```
-
-Run and verify:
-```bash
-docker compose up -d
-docker compose ps
-docker compose down
-```
-
-![terminal](./assets/exp_6_1.png)
-
----
-
-## TASK 2 — Multi-Container App (IMPORTANT)
-Demonstrating why Compose is better for multi-container apps (WordPress + MySQL).
-
-### Using Docker Run (Manual Setup)
-**Step 1:** Create Custom Network
-```bash
-docker network create wp-net
-```
-
-**Step 2:** Start MySQL Container
-```bash
-docker run -d \
---name mysql \
---network wp-net \
--e MYSQL_ROOT_PASSWORD=secret \
--e MYSQL_DATABASE=wordpress \
-mysql:5.7
-```
-*(Note for Apple Silicon: append `--platform linux/amd64` to mysql:5.7)*
-
-**Step 3:** Start WordPress Container
-```bash
-docker run -d \
---name wordpress \
---network wp-net \
--p 8082:80 \
--e WORDPRESS_DB_HOST=mysql \
--e WORDPRESS_DB_PASSWORD=secret \
-wordpress:latest
-```
-
-Verify:
-Open `http://localhost:8082`
-
-![wordpress](./assets/exp6_2.png)
-
-### Using Docker Compose (Clean Way)
-Automating the setup cleanly using `docker-compose.yml`:
-
-```yaml
-version: '3.8'
-services:
-  mysql:
-    image: mysql:5.7
-    platform: linux/amd64
-    environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: wordpress
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-  wordpress:
-    image: wordpress:latest
-    ports:
-      - "8082:80"
-    environment:
-      WORDPRESS_DB_HOST: mysql
-      WORDPRESS_DB_PASSWORD: secret
-    depends_on:
-      - mysql
-
-volumes:
-  mysql_data:
-```
-
-Run and clean up:
-```bash
-docker compose up -d
-docker compose down -v
-```
-
-![terminal stats](./assets/exp6_3.png)
-
----
-
-## TASK 3 — Convert Docker Run → Compose
-
-**Given `docker run` command:**
-```bash
-docker run -d \
---name webapp \
--p 5000:5000 \
--e APP_ENV=production \
--e DEBUG=false \
---restart unless-stopped \
-node:18-alpine
-```
-
-**Converted `docker-compose.yml`:**
-```yaml
-version: '3.8'
-services:
-  webapp:
-    image: node:18-alpine
-    container_name: webapp
-    ports:
-      - "5000:5000"
-    environment:
-      APP_ENV: production
-      DEBUG: "false"
-    restart: unless-stopped
-```
-
----
-
-## TASK 4 — Volume + Network Conversion
-
-Writing **ONE** compose file combining a backend and a postgres DB with a custom network and volume.
-
-**Converted `docker-compose.yml`:**
-```yaml
-version: '3.8'
-
-services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: appdb
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks:
-      - custom-network
-      
-  backend:
-    image: node:18-alpine
-    environment:
-      DB_HOST: db
-      DB_USER: user
-      DB_PASSWORD: password
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    networks:
-      - custom-network
-
-volumes:
-  pgdata:
-
-networks:
-  custom-network:
-```
-
----
-
-## TASK 5 — Resource Limits
-
-**Given `docker run` command:**
-```bash
-docker run -d \
---name limited-app \
--p 9000:9000 \
---memory="256m" \
---cpus="0.5" \
---restart always \
-nginx:alpine
-```
-
-**Converted `docker-compose.yml`:**
-```yaml
-services:
-  limited-app:
-    image: nginx:alpine
-    ports:
-      - "9000:9000"
-    restart: always
-    deploy:
-      resources:
-        limits:
-          memory: 256m
-          cpus: "0.5"
-```
-
----
-
-## TASK 6 — Build Your Own App
-
-Demonstrating the difference between `image:` (prebuilt) and `build:` (custom) in compose.
-
-**Step 1:** Create `app.js`
-```javascript
-const http = require('http');
-http.createServer((req, res) => {
- res.end("Docker Compose Build Lab");
-}).listen(3000);
-```
-
-**Step 2:** Create `Dockerfile`
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY app.js .
-EXPOSE 3000
-CMD ["node", "app.js"]
-```
-
-**Step 3:** Create `docker-compose.yml`
-```yaml
-version: '3.8'
-services:
-  nodeapp:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: custom-node-app
-    ports:
-      - "3000:3000"
-```
-
-**Run the custom build:**
-```bash
-docker compose up --build -d
-```
-Verify the output by opening `http://localhost:3000`.
-
-![docker compose build stats](./assets/exp6-4.png)
-
----
-
-## FINAL SUMMARY
-Proven Concepts:
-- **docker run**: Demonstrated manual setup configuration.
-- **docker compose**: Demonstrated automated, structured setup handling dependencies seamlessly.
-- **multi-container**: Successfully deployed WordPress connected to a MySQL backend.
-- **conversion**: Converted various `docker run` shell scripts into neat declarative YAML code.
-- **volumes + network**: Built a real-world multi-tier architecture using bridge networks and named volumes.
-- **build**: Managed custom application lifecycle (build, deploy) from a Dockerfile using Compose.
-
----
-
-# Experiment 7: CI/CD Pipeline using Jenkins, GitHub & Docker Hub
-
-## Aim
+**Aim**
 To design and implement a CI/CD pipeline using Jenkins, GitHub, and Docker Hub.
 
-## Objectives
+**Objectives**
 * Understand CI/CD workflow
 * Automate build & deployment
 * Use Jenkins pipeline
 * Push Docker image to Docker Hub
 
-## Tools Used
+**Tools Used**
 * Jenkins
 * Docker & Docker Compose
 * GitHub
 * Docker Hub
 * Flask (Python)
 
-## Steps Performed
+**Steps Performed**
 
-### 1. Created GitHub Repository
+**1. Created GitHub Repository**
 * Repository: `my-app`
 * Added source code and pipeline files
 
 
-### 2. Created Flask Application
+**2. Created Flask Application**
 * Simple web app returning message
 
-![flask app](../assets/ex7_1.png)
+![flask app](assets/ex7_1.png)
 
-### 3. Dockerized Application
+**3. Dockerized Application**
 * Created Dockerfile
 * Built image locally
 
@@ -2146,49 +1852,50 @@ To design and implement a CI/CD pipeline using Jenkins, GitHub, and Docker Hub.
 * Used `docker-compose`
 * Accessed Jenkins on port 8080
 
-![jenkins setup](../assets/ex7_2.png)
+![jenkins setup](assets/ex7_2.png)
 
-### 5. Configured Jenkins
+**5. Configured Jenkins**
 * Installed plugins
 * Added Docker Hub credentials
 
-![Credentials setup](../assets/ex7_4.png)
+![Credentials setup](assets/ex7_4.png)
 
-### 6. Created Pipeline Job
+**6. Created Pipeline Job**
 * Used Jenkinsfile from GitHub
 
-![Pipeline Configuration](../assets/ex7_3.png)
+![Pipeline Configuration](assets/ex7_3.png)
 
-### 7. Configured Webhook
+**7. Configured Webhook**
 * GitHub triggers Jenkins automatically
 
-![webhook settings](../assets/ex7_5.png)
+![webhook settings](assets/ex7_5.png)
 
-### 8. Executed CI/CD Pipeline
+**8. Executed CI/CD Pipeline**
 Pipeline stages:
 * Clone
 * Build Docker image
 * Login to Docker Hub
 * Push image
 
-![Pipeline Configuration](../assets/ex7_6.png)
+![Pipeline Configuration](assets/ex7_6.png)
 
-## Workflow
+**Workflow**
 Developer → GitHub → Webhook → Jenkins → Docker Build → Docker Hub
 
-## Observations
+**Observations**
 * Jenkins automates CI/CD process
 * Docker ensures consistent builds
 * Webhooks enable automation
 * Credentials improve security
 
-## Result
+**Result**
 Successfully implemented CI/CD pipeline where:
 * Code is fetched from GitHub
 * Docker image is built
 * Image is pushed to Docker Hub automatically
 
-## Questions
+### Questions
+
 **1. What is Jenkinsfile?**
 → Pipeline as code
 
@@ -2204,35 +1911,34 @@ Successfully implemented CI/CD pipeline where:
 **5. Why credentials in Jenkins?**
 → Secure storage of secrets
 
-## Conclusion
+### Conclusion
 CI/CD pipeline was successfully implemented using Jenkins, GitHub, and Docker Hub with automated build and deployment.
-
 
 ---
 
-# Experiment 9: Ansible Automation with Docker
+### Experiment 9: Ansible Automation with Docker
 
-## Aim
+**Aim**
 The goal of this experiment is to automate server configuration using Ansible by managing multiple Docker-based servers.
 
-## Objectives
+**Objectives**
 - Understand Ansible architecture
 - Use SSH-based automation
 - Create inventory and playbooks
 - Configure multiple servers automatically
 
-## Tools Used
+**Tools Used**
 - Ansible
 - Docker
 - Ubuntu
 - SSH
 
-## Steps Performed
+### Steps Performed
 
-### 1. Installed Ansible
+**1. Installed Ansible**
 Ansible was installed on the control node. After installation, the setup was verified using the ping module to ensure it was functional.
 
-![ansible installation](../assets/e9_2.png)
+![ansible installation](assets/e9_2.png)
 
 **Commands used:**
 ```bash
@@ -2241,9 +1947,9 @@ sudo apt install ansible -y
 ansible localhost -m ping
 ```
 
-![ansible localhost ping output](../assets/e9_3.png)
+![ansible localhost ping output](assets/e9_3.png)
 
-### 2. Generated SSH Key Pair
+**2. Generated SSH Key Pair**
 An SSH key pair was generated to allow the Ansible control node to communicate securely with the managed nodes without requiring passwords.
 
 **Commands used:**
@@ -2251,12 +1957,13 @@ An SSH key pair was generated to allow the Ansible control node to communicate s
 ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ""
 ```
 
-![ssh key files](../assets/e9_4.png)
+![ssh key files](assets/e9_4.png)
 
-### 3. Created Docker Image
+**3. Created Docker Image**
 A custom Docker image was created using a Dockerfile. This image is based on Ubuntu and includes an SSH server, allowing it to be managed by Ansible.
 
 **Dockerfile content:**
+
 ```dockerfile
 FROM ubuntu:latest
 RUN apt update && apt install openssh-server -y
@@ -2269,17 +1976,20 @@ CMD ["/usr/sbin/sshd", "-D"]
 ```
 
 **Commands used:**
+
 ```bash
 docker build -t ansible-node .
 ```
 
 (Screenshot: Dockerfile)
-![docker build](../assets/e9_5.png)
+![docker build](assets/e9_5.png)
 
-### 4. Launched Multiple Containers
+**4. Launched Multiple Containers**
+
 Four containers were launched from the custom image to act as managed servers.
 
 **Commands used:**
+
 ```bash
 docker run -d --name server1 ansible-node
 docker run -d --name server2 ansible-node
@@ -2287,12 +1997,14 @@ docker run -d --name server3 ansible-node
 docker run -d --name server4 ansible-node
 ```
 
-![Launched Multiple Containers](../assets/e9_10.png)
+![Launched Multiple Containers](assets/e9_10.png)
 
-### 5. Created Inventory File
+**5. Created Inventory File**
+
 An inventory file was created to define the target servers and their connection details.
 
 **Commands used:**
+
 ```bash
 # Get container IP addresses
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' server1
@@ -2305,6 +2017,7 @@ nano inventory.ini
 ```
 
 **Inventory file content (example):**
+
 ```ini
 [servers]
 server1 ansible_host=172.17.0.2
@@ -2317,27 +2030,32 @@ ansible_user=root
 ansible_password=root
 ```
 
-![Inventory File](../assets/e9_11.png)
+![Inventory File](assets/e9_11.png)
 
-### 6. Tested Connectivity
+**6. Tested Connectivity**
+
 The Ansible ping module was used to test the connection to all the managed nodes defined in the inventory.
 
 **Commands used:**
+
 ```bash
 ansible all -i inventory.ini -m ping
 ```
 
-![Ansible ping output](../assets/e9_12.png)
+![Ansible ping output](assets/e9_12.png)
 
-### 7. Created Playbook
+**7. Created Playbook**
+
 A YAML playbook was created to define the tasks that need to be performed on the servers, such as installing packages and creating files.
 
 **Commands used:**
+
 ```bash
 nano playbook.yml
 ```
 
 **Playbook content:**
+
 ```yaml
 ---
 - hosts: all
@@ -2352,17 +2070,20 @@ nano playbook.yml
         dest: /root/ansible_test.txt
 ```
 
-### 8. Executed Playbook
+**8. Executed Playbook**
+
 The playbook was executed to apply the defined configuration across all four servers simultaneously.
 
 **Commands used:**
+
 ```bash
 ansible-playbook -i inventory.ini playbook.yml
 ```
 
-![executed playbook](../assets/e9_13.png)
+![executed playbook](assets/e9_13.png)
 
-### 9. Verified Results
+**9. Verified Results**
+
 The results were verified by checking for the existence and content of the test file on all servers.
 
 **Commands used:**
@@ -2370,21 +2091,24 @@ The results were verified by checking for the existence and content of the test 
 ansible all -i inventory.ini -a "cat /root/ansible_test.txt"
 ```
 
-![ansible.txt](../assets/e9_14.png)
+![ansible.txt](assets/e9_14.png)
 
-## Workflow
+**Workflow**
+
 Control Node (Ansible) -> Inventory -> Playbook -> Managed Nodes (Docker Containers)
 
-## Observations
+**Observations**
+
 - Ansible significantly simplifies the management of multiple servers.
 - The agentless architecture reduces the need for software installation on the managed nodes.
 - YAML playbooks provide a readable and easy-to-understand format for defining tasks.
 - Automation reduces manual effort and minimizes the risk of configuration errors.
 
-## Result
+**Result**
+
 Successfully automated the configuration of multiple servers using Ansible playbooks and Docker containers.
 
-## Questions
+**Questions**
 
 1. What is Ansible?
 Ansible is an open-source automation tool used for configuration management, application deployment, and task automation.
@@ -2401,20 +2125,22 @@ Ansible is agentless because it uses standard SSH for communication, meaning no 
 5. What is idempotency?
 Idempotency is a property where an operation can be applied multiple times without changing the result beyond the initial application.
 
-## Conclusion
-This experiment demonstrated how Ansible can effectively automate server configuration across multiple Docker containers. The results show that it is a scalable and efficient approach to infrastructure management.
+**Conclusion**
 
+This experiment demonstrated how Ansible can effectively automate server configuration across multiple Docker containers. The results show that it is a scalable and efficient approach to infrastructure management.
 
 ---
 
-# Experiment 10: SonarQube Static Code Analysis
+### Experiment 10: SonarQube Static Code Analysis
 
-## Aim
+**Aim**
+
 To analyze source code using SonarQube and detect bugs, vulnerabilities, and code smells.
 
 ---
 
-## Tools Used
+**Tools Used**
+
 - Docker
 - Docker Compose
 - SonarQube
@@ -2423,9 +2149,9 @@ To analyze source code using SonarQube and detect bugs, vulnerabilities, and cod
 
 ---
 
-## Steps Performed
+**Steps Performed**
 
-### 1. Started SonarQube Server
+**1. Started SonarQube Server**
 - Used Docker Compose to run SonarQube and PostgreSQL
 
 Command:
@@ -2433,28 +2159,31 @@ Command:
 docker-compose up -d
 ```
 
-![running containers](../assets/ex10-1.png)
+![running containers](assets/ex10-1.png)
 
 ---
 
-### 2. Accessed Web UI
+**2. Accessed Web UI**
+
 - Opened http://localhost:9000
 - Logged in using admin/admin
 
-![login page](../assets/ex10-2.png)
+![login page](assets/ex10-2.png)
 
 ---
 
-### 3. Generated Authentication Token
+**3. Generated Authentication Token**
+
 - Created token in Security settings
 
-![Token generation](../assets/ex10-3.png)
+![Token generation](assets/ex10-3.png)
 
-![Token](../assets/ex10-4.png)
+![Token](assets/ex10-4.png)
 
 ---
 
-### 4. Created Java Project
+**4. Created Java Project**
+
 - Built a sample application with intentional issues
 
 Command:
@@ -2463,11 +2192,12 @@ mvn archetype:generate -DgroupId=com.example -DartifactId=sonar-demo -Darchetype
 ```
 
 Screenshot: Project structure
-![project structure](../assets/ex10-5.png)
+![project structure](assets/ex10-5.png)
 
 ---
 
-### 5. Ran Sonar Scanner
+**5. Ran Sonar Scanner**
+
 - Used Maven plugin to scan project
 
 Command:
@@ -2475,19 +2205,21 @@ Command:
 mvn sonar:sonar -Dsonar.projectKey=sonar-demo -Dsonar.host.url=http://localhost:9000 -Dsonar.login=<token>
 ```
 
-![sonar execution](../assets/ex10-6.png)
+![sonar execution](assets/ex10-6.png)
 
 ---
 
-### 6. Viewed Results
+**6. Viewed Results**
+
 - Observed bugs, vulnerabilities, and code smells in dashboard
 
 Screenshot: SonarQube dashboard
-![dashboard](../assets/ex10-7.png)
+![dashboard](assets/ex10-7.png)
 
 ---
 
-## Observations
+**Observations**
+
 - SonarQube detects bugs without running code
 - Provides maintainability insights
 - Helps improve code quality
@@ -2495,12 +2227,13 @@ Screenshot: SonarQube dashboard
 
 ---
 
-## Result
+**Result**
+
 Successfully performed static code analysis using SonarQube and identified issues in the sample Java application.
 
 ---
 
-## Questions
+**Questions**
 
 1. What is SonarQube?
 → Tool for static code analysis
@@ -2519,28 +2252,31 @@ Successfully performed static code analysis using SonarQube and identified issue
 
 ---
 
-## Conclusion
+**Conclusion**
+
 SonarQube provides an efficient way to detect code issues early, improving software quality and maintainability
 
 ---
 
-# Experiment 11: Container Orchestration using Docker Swarm
+### Experiment 11: Container Orchestration using Docker Swarm
 
-## Aim
+**Aim**
+
 To understand and implement container orchestration using Docker Swarm.
 
 ---
 
-## Tools Used
+**Tools Used**
 - Docker
 - Docker Compose
 - Docker Swarm
 
 ---
 
-## Steps Performed
+**Steps Performed**
 
-### 1. Stopped Existing Containers
+**1. Stopped Existing Containers**
+
 Before starting the experiment, existing containers were stopped to clean the environment.
 
 Command:
@@ -2550,7 +2286,8 @@ docker compose down
 
 ---
 
-### 2. Initialized Docker Swarm
+**2. Initialized Docker Swarm**
+
 Docker Swarm mode was enabled on the local machine to act as a manager node.
 
 Command:
@@ -2558,11 +2295,12 @@ Command:
 docker swarm init
 ```
 
-![Docker Swarm initialization](../assets/e11-1.png)
+![Docker Swarm initialization](assets/e11-1.png)
 
 ---
 
-### 3. Deployed Stack
+**3. Deployed Stack**
+
 The application stack (WordPress and MySQL) was deployed using a compose file.
 
 Command:
@@ -2570,12 +2308,12 @@ Command:
 docker stack deploy -c docker-compose.yml wordpress_stack
 ```
 
-![deployed stack](../assets/e11-2.png)
-
+![deployed stack](assets/e11-2.png)
 
 ---
 
-### 4. Verified Services
+**4. Verified Services**
+
 The status of the deployed services and containers was verified.
 
 Commands:
@@ -2584,11 +2322,12 @@ docker service ls
 docker stack ps wordpress_stack
 ```
 
-![verified services](../assets/e11-3.png)
+![verified services](assets/e11-3.png)
 
 ---
 
-### 5. Accessed Application
+**5. Accessed Application**
+
 The WordPress application was accessed through the browser to verify successful deployment.
 
 URL:
@@ -2596,11 +2335,12 @@ URL:
 http://localhost:8081
 ```
 
-![wordpress website](../assets/e11-4.png)
+![wordpress website](assets/e11-4.png)
 
 ---
 
-### 6. Scaled Application
+**6. Scaled Application**
+
 The WordPress service was scaled to 3 replicas to demonstrate load balancing and high availability.
 
 Command:
@@ -2608,11 +2348,12 @@ Command:
 docker service scale wordpress_stack_wordpress=3
 ```
 
-![wordpress services scaled](../assets/e11-5.png)
+![wordpress services scaled](assets/e11-5.png)
 
 ---
 
-### 7. Tested Self-Healing
+**7. Tested Self-Healing**
+
 A running container was manually removed to observe Docker Swarm's automatic self-healing capability.
 
 Command:
@@ -2622,11 +2363,12 @@ docker rm -f <container_id>
 *Observation: Swarm immediately detected the failure and provisioned a new container to maintain the desired state.*
 
 
-![wordpress services scaled](../assets/e11-6.png)
+![wordpress services scaled](assets/e11-6.png)
 
 ---
 
-### 8. Removed Stack
+**8. Removed Stack**
+
 The stack was removed to clean up resources after the experiment.
 
 Command:
@@ -2634,22 +2376,24 @@ Command:
 docker stack rm wordpress_stack
 ```
 
-![wordpress services scaled](../assets/e11-7.png)
+![wordpress services scaled](assets/e11-7.png)
 
 ---
 
-## Observations
+**Observations**
+
 - Docker Swarm manages container lifecycles automatically.
 - Scaling services is efficient and requires only a single command.
 - Built-in load balancing distributes traffic across replicas.
 - Self-healing ensures application reliability by recreating failed containers.
 
 
-## Result
+**Result**
+
 Successfully implemented container orchestration using Docker Swarm, including stack deployment, scaling, and self-healing.
 
 
-## Questions
+**Questions**
 
 1. What is orchestration?
 → Automatic management of container lifecycles, including deployment, scaling, and networking.
@@ -2667,28 +2411,31 @@ Successfully implemented container orchestration using Docker Swarm, including s
 → The distribution of incoming network traffic across multiple containers to ensure no single container is overwhelmed.
 
 
-## Conclusion
+**Conclusion**
+
 Docker Swarm provides an efficient and simplified approach to container orchestration, offering essential features like scaling, automated load balancing, and self-healing to maintain application availability.
 
 ---
 
-# Experiment 12: Kubernetes Container Orchestration
+### Experiment 12: Kubernetes Container Orchestration
 
-## Aim
+**Aim**
+
 To study and implement container orchestration using Kubernetes.
 
 ---
 
-## Tools Used
+**Tools Used**
 - Kubernetes
 - kubectl
 - Minikube
 
 ---
 
-## Steps Performed
+**Steps Performed**
 
-### 1. Started Kubernetes Cluster
+**1. Started Kubernetes Cluster**
+
 The local Kubernetes cluster was initialized using Minikube.
 
 Command:
@@ -2696,11 +2443,12 @@ Command:
 minikube start
 ```
 
-![Kubernetes Cluster](../assets/exp12-1.png)
+![Kubernetes Cluster](assets/exp12-1.png)
 
 ---
 
-### 2. Created Deployment
+**2. Created Deployment**
+
 A WordPress deployment was defined and applied to the cluster with an initial configuration of 2 replicas.
 
 Command:
@@ -2708,11 +2456,12 @@ Command:
 kubectl apply -f wordpress-deployment.yaml
 ```
 
-![Deployment Creation](../assets/exp12-2.png)
+![Deployment Creation](assets/exp12-2.png)
 
 ---
 
-### 3. Created Service
+**3. Created Service**
+
 The deployment was exposed externally using a NodePort service to allow access to the application.
 
 Command:
@@ -2720,11 +2469,12 @@ Command:
 kubectl apply -f wordpress-service.yaml
 ```
 
-![Service Creation](../assets/exp12-3.png)
+![Service Creation](assets/exp12-3.png)
 
 ---
 
-### 4. Verified Resources
+**4. Verified Resources**
+
 The status of the pods and services was checked to ensure everything was running correctly.
 
 Commands:
@@ -2733,12 +2483,12 @@ kubectl get pods
 kubectl get svc
 ```
 
-![Kubernetes Cluster](../assets/exp12-4.png)
-
+![Kubernetes Cluster](assets/exp12-4.png)
 
 ---
 
-### 5. Accessed Application
+**5. Accessed Application**
+
 The WordPress application was accessed using the URL provided by Minikube service tunnel.
 
 Command to get URL:
@@ -2746,11 +2496,12 @@ Command to get URL:
 minikube service wordpress-service --url
 ```
 
-![ WordPress application](../assets/e12-5.png)
+![ WordPress application](assets/e12-5.png)
 
 ---
 
-### 6. Scaled Deployment
+**6. Scaled Deployment**
+
 The number of replicas in the deployment was increased from 2 to 4 to demonstrate dynamic scaling.
 
 Command:
@@ -2758,12 +2509,13 @@ Command:
 kubectl scale deployment wordpress --replicas=4
 ```
 
-![scaled deployment](../assets/e12-6.png)
+![scaled deployment](assets/e12-6.png)
 
 
 ---
 
-### 7. Tested Self-Healing
+**7. Tested Self-Healing**
+
 A pod was manually deleted to observe Kubernetes' automatic self-healing capability as it recreates the pod to maintain the desired state.
 
 Command:
@@ -2771,11 +2523,12 @@ Command:
 kubectl delete pod <pod_name>
 ```
 
-![self-healing](../assets/e12-8.png)
+![self-healing](assets/e12-8.png)
 
 ---
 
-## Observations
+**Observations**
+
 - Kubernetes automates the management and scheduling of pods across the cluster.
 - Scaling is dynamic and can be performed with a single command without downtime.
 - Services provide a stable network endpoint for accessing pods even as they are recreated.
@@ -2783,12 +2536,13 @@ kubectl delete pod <pod_name>
 
 ---
 
-## Result
+**Result**
+
 Successfully deployed and managed a containerized application using Kubernetes, demonstrating core features such as scaling and self-healing.
 
 ---
 
-## Questions
+**Questions**
 
 1. What is a Pod?
 → The smallest and simplest unit in the Kubernetes object model that represents a single instance of a running process in your cluster.
@@ -2807,7 +2561,8 @@ Successfully deployed and managed a containerized application using Kubernetes, 
 
 ---
 
-## Conclusion
+**Conclusion**
+
 Kubernetes provides a powerful and robust framework for container orchestration, offering advanced features for scalability, self-healing, and service discovery that are essential for cloud-native applications.
 
 ---
