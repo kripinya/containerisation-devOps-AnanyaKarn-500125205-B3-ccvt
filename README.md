@@ -93,7 +93,9 @@ In this experiment, macOS acts as the host operating system. VMware Fusion is us
 
 ---
 **Setup:**
+
 **PART A — Experiment 0 (Environment Setup)**
+
 To install and configure required tools (WSL/Ubuntu, Docker, Vagrant, virtualization platform) for performing containerisation experiments.
 Include:
 
@@ -104,7 +106,9 @@ Include:
 - Ubuntu ARM64
 
 **Procedure-**
+
 **Step 1 : Installation and verification of Vagrant:**
+
 Vagrant is used to automate the creation and management of virtual machines.
 To install Vagrant, run these command in the local terminal of the host system:
 
@@ -113,7 +117,6 @@ brew tap hashicorp/tap
 brew install hashicorp/tap/hashicorp-vagrant
 ```
 
-![image.png](./assets/image.png)
 First, the installation of Vagrant is verified on the host system using the terminal.
 
 ```java
@@ -121,6 +124,7 @@ vagrant --version
 ```
 
 ![image.png](./assets/e1_image6.png)
+
 **Explanation:**
 This command checks whether Vagrant is correctly installed on the macOS system and displays the installed version.
 
@@ -150,10 +154,13 @@ cd ubuntu-vagrant
 ![Creation of Project Directory](./assets/e1_image9.png)
 
 **Explanation:**
+
 This directory contains the Vagrantfile, which defines the virtual machine configuration.
 
 ---
+
 **Step 4: Configuration of Vagrantfile**
+
 The virtual machine configuration is defined using a Vagrantfile.
 
 ```powershell
@@ -174,7 +181,8 @@ This configuration specifies the Ubuntu 22.04 box compatible with ARM architectu
 
 ---
 
-Step 5: Starting the Virtual Machine
+**Step 5: Starting the Virtual Machine**
+
 The Ubuntu virtual machine is started using the following command:
 
 ```powershell
@@ -186,6 +194,7 @@ vagrant up --provider=vmware_desktop
 ---
 
 **Step 6: Accessing the Virtual Machine**
+
 Secure shell access to the virtual machine is established using:
 
 ```powershell
@@ -198,6 +207,7 @@ vagrant ssh
 This command allows the user to interact with the Ubuntu virtual machine through the terminal.
 
 ---
+
 **Step 7: Installation of Nginx Web Server**
 The Nginx web server is installed inside the Ubuntu virtual machine.
 
@@ -224,6 +234,7 @@ systemctl status nginx
 ![status of the service](./assets/e1_image12.png)
 
 **Explanation:**
+
 These commands install and configure Nginx to run as a web server inside the virtual machine.
 
 ```powershell
@@ -256,7 +267,7 @@ vagrant@vagrant:~$
 
 ---
 
-Step 8: Installation of Docker Engine
+**Step 8: Installation of Docker Engine**
 
 Docker Engine is installed inside the Ubuntu virtual machine to enable containerization.
 
@@ -280,7 +291,7 @@ docker --version
 
 ---
 
-Step 9: Verification of Docker Installation
+**Step 9: Verification of Docker Installation**
 
 A test container is executed to verify successful installation of Docker.
 
