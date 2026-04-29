@@ -20,6 +20,8 @@ The goal of this experiment is to automate server configuration using Ansible by
 ### 1. Installed Ansible
 Ansible was installed on the control node. After installation, the setup was verified using the ping module to ensure it was functional.
 
+![ansible installation](../assets/e9_2.png)
+
 **Commands used:**
 ```bash
 sudo apt update
@@ -27,7 +29,7 @@ sudo apt install ansible -y
 ansible localhost -m ping
 ```
 
-(Screenshot: ansible localhost ping output)
+![ansible localhost ping output](../assets/e9_3.png)
 
 ### 2. Generated SSH Key Pair
 An SSH key pair was generated to allow the Ansible control node to communicate securely with the managed nodes without requiring passwords.
@@ -37,7 +39,7 @@ An SSH key pair was generated to allow the Ansible control node to communicate s
 ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ""
 ```
 
-(Screenshot: SSH key files)
+![ssh key files](../assets/e9_4.png)
 
 ### 3. Created Docker Image
 A custom Docker image was created using a Dockerfile. This image is based on Ubuntu and includes an SSH server, allowing it to be managed by Ansible.
@@ -60,6 +62,7 @@ docker build -t ansible-node .
 ```
 
 (Screenshot: Dockerfile)
+![docker build](../assets/e9_5.png)
 
 ### 4. Launched Multiple Containers
 Four containers were launched from the custom image to act as managed servers.
@@ -72,7 +75,7 @@ docker run -d --name server3 ansible-node
 docker run -d --name server4 ansible-node
 ```
 
-(Screenshot: docker ps output)
+![Launched Multiple Containers](../assets/e9_10.png)
 
 ### 5. Created Inventory File
 An inventory file was created to define the target servers and their connection details.
@@ -102,7 +105,7 @@ ansible_user=root
 ansible_password=root
 ```
 
-(Screenshot: inventory.ini)
+![Inventory File](../assets/e9_11.png)
 
 ### 6. Tested Connectivity
 The Ansible ping module was used to test the connection to all the managed nodes defined in the inventory.
@@ -112,7 +115,7 @@ The Ansible ping module was used to test the connection to all the managed nodes
 ansible all -i inventory.ini -m ping
 ```
 
-(Screenshot: ansible ping output)
+![Ansible ping output](../assets/e9_12.png)
 
 ### 7. Created Playbook
 A YAML playbook was created to define the tasks that need to be performed on the servers, such as installing packages and creating files.
@@ -137,8 +140,6 @@ nano playbook.yml
         dest: /root/ansible_test.txt
 ```
 
-(Screenshot: playbook.yml)
-
 ### 8. Executed Playbook
 The playbook was executed to apply the defined configuration across all four servers simultaneously.
 
@@ -147,7 +148,7 @@ The playbook was executed to apply the defined configuration across all four ser
 ansible-playbook -i inventory.ini playbook.yml
 ```
 
-(Screenshot: playbook execution logs)
+![executed playbook](../assets/e9_13.png)
 
 ### 9. Verified Results
 The results were verified by checking for the existence and content of the test file on all servers.
@@ -157,7 +158,7 @@ The results were verified by checking for the existence and content of the test 
 ansible all -i inventory.ini -a "cat /root/ansible_test.txt"
 ```
 
-(Screenshot: output of ansible_test.txt)
+![ansible.txt](../assets/e9_14.png)
 
 ## Workflow
 Control Node (Ansible) -> Inventory -> Playbook -> Managed Nodes (Docker Containers)
