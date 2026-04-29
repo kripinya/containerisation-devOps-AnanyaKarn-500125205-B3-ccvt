@@ -8,7 +8,6 @@ public class Calculator {
 
     public int add(int a, int b) {
         int result = a + b;
-        int unused = 100; // code smell
         return result;
     }
 
