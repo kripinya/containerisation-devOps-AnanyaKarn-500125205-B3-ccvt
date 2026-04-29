@@ -9,62 +9,50 @@ To design and implement a CI/CD pipeline using Jenkins, GitHub, and Docker Hub.
 * Use Jenkins pipeline
 * Push Docker image to Docker Hub
 
-## 🛠️ Tools Used
+## Tools Used
 * Jenkins
 * Docker & Docker Compose
 * GitHub
 * Docker Hub
 * Flask (Python)
 
-## 📁 Project Structure
-```text
-my-app/
-│── app.py
-│── requirements.txt
-│── Dockerfile
-│── Jenkinsfile
-```
-
-## ⚙️ Steps Performed
+## Steps Performed
 
 ### 1. Created GitHub Repository
 * Repository: `my-app`
 * Added source code and pipeline files
 
-*(📸 Screenshot: GitHub repository structure)*
 
 ### 2. Created Flask Application
 * Simple web app returning message
 
-*(📸 Screenshot: app.py)*
+![flask app](./assets/exp7_1.png)
 
 ### 3. Dockerized Application
 * Created Dockerfile
 * Built image locally
 
-*(📸 Screenshot: Docker build output)*
-
 ### 4. Setup Jenkins using Docker
 * Used `docker-compose`
 * Accessed Jenkins on port 8080
 
-*(📸 Screenshot: Jenkins dashboard)*
+![jenkins setup](./assets/ex7_2.png)
 
 ### 5. Configured Jenkins
 * Installed plugins
 * Added Docker Hub credentials
 
-*(📸 Screenshot: Credentials setup)*
+![Credentials setup](./assets/ex7_4.png)
 
 ### 6. Created Pipeline Job
 * Used Jenkinsfile from GitHub
 
-*(📸 Screenshot: Pipeline configuration)*
+![Pipeline Configuration](./assets/ex7_3.png)
 
 ### 7. Configured Webhook
 * GitHub triggers Jenkins automatically
 
-*(📸 Screenshot: Webhook settings)*
+![webhook settings](./assets/ex7_5.png)
 
 ### 8. Executed CI/CD Pipeline
 Pipeline stages:
@@ -73,7 +61,7 @@ Pipeline stages:
 * Login to Docker Hub
 * Push image
 
-*(📸 Screenshot: Successful pipeline execution)*
+![Pipeline Configuration](./assets/ex7_6.png)
 
 ## Workflow
 Developer → GitHub → Webhook → Jenkins → Docker Build → Docker Hub
