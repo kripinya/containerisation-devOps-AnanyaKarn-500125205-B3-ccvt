@@ -48,11 +48,9 @@ Date: January 21, 2026
 
 Experiment No. - 1
 
-Aim/ Objective
+**Aim/ Objective**
 
 The aim of this experiment is to provision an Ubuntu 22.04 virtual machine using Vagrant with VMware Fusion on Apple Silicon architecture, install and configure the Nginx web server, and deploy Docker Engine to validate containerized application execution.
-
-</aside>
 
 **Software and hardware requirements:**
 
@@ -67,7 +65,7 @@ The aim of this experiment is to provision an Ubuntu 22.04 virtual machine using
 | Code Editor | Visual Studio Code |
 | System Architecture | ARM64 |
 
-### **Theory/BackGround**
+**Theory/BackGround**
 
 **Virtualization**
 Virtualization is a technology that allows multiple operating systems to run on a single physical machine by abstracting the underlying hardware resources. Instead of dedicating one physical system to one operating system, virtualization enables efficient utilization of CPU, memory, and storage by creating isolated virtual environments known as virtual machines. Each virtual machine behaves like a real computer with its own operating system and applications, while sharing the same physical hardware.
@@ -126,9 +124,11 @@ vagrant --version
 ![image.png](./assets/e1_image6.png)
 
 **Explanation:**
+
 This command checks whether Vagrant is correctly installed on the macOS system and displays the installed version.
 
 **Step 2: Installation and Setup of VMware Fusion**
+
 VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) architecture.
 
 1. VMware Fusion is downloaded from the official VMware website.
