@@ -2376,7 +2376,7 @@ Control Node (Ansible) -> Inventory -> Playbook -> Managed Nodes (Docker Contain
 ## Result
 Successfully automated the configuration of multiple servers using Ansible playbooks and Docker containers.
 
-## Viva Questions
+## Questions
 
 1. What is Ansible?
 Ansible is an open-source automation tool used for configuration management, application deployment, and task automation.
