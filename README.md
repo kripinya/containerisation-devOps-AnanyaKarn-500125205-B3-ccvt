@@ -30,6 +30,8 @@ github pages : https://kripinya.github.io/containerisation-devOps-AnanyaKarn-500
 
 [View Experiment 7 Documentation](LAB-7/Exp-7.md)
 
+[View Experiment 9 Documentation](exp-9/Exp-9.md)
+
 ---
 
 ## Experiment-0-1 : Setup of Ubuntu Virtual Machine using Vagrant and VMware Fusion and Deployment of Nginx & Docker
