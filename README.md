@@ -16,19 +16,19 @@ github pages : https://kripinya.github.io/containerisation-devOps-AnanyaKarn-500
 
 ***
 
-[View Experiment 1 Documentation](<LAB-1/Experiment-0-1 Setup of Ubuntu Virtual Machine usi 2efc3e99a9338001ba7fd9d9c1d05396.md>)
+[View Experiment 1 Documentation](exp-1/Exp-1.md)
 
-[View Experiment 2 Documentation](<LAB_2/EXPERIMENT 2 30ac3e99a93380ea968cd9f13407be92.md>)
+[View Experiment 2 Documentation](exp-2/Exp-2.md)
 
-[View Experiment 3 Documentation](<exp-3/Experiment -3 2fdc3e99a9338080bc6dfcbbaf9de81d.md>)
+[View Experiment 3 Documentation](exp-3/Exp-3.md)
 
-[View Experiment 4 Documentation](<LAB-4/EXPERIMENT-4 Docker Essentials 30ac3e99a933808ba516c0ad76fb9bf0.md>)
+[View Experiment 4 Documentation](exp-4/Exp-4.md)
 
-[View Experiment 5 Documentation](lab-5/exp_5.md)
+[View Experiment 5 Documentation](exp-5/exp_5.md)
 
-[View Experiment 6 Documentation](lab-6/Exp-6.md)
+[View Experiment 6 Documentation](exp-6/Exp-6.md)
 
-[View Experiment 7 Documentation](LAB-7/Exp-7.md)
+[View Experiment 7 Documentation](exp-7/Exp-7.md)
 
 [View Experiment 9 Documentation](exp-9/Exp-9.md)
 

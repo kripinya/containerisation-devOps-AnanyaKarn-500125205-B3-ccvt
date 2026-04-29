@@ -88,7 +88,7 @@ The typical **container lifecycle** follows these stages:
 docker pull nginx
 ```
 
-![image.png](EXPERIMENT%202/image.png)
+![image.png](./assets/image.png)
 
 Downloads the official nginx image from Docker Hub.
 
@@ -100,7 +100,7 @@ Downloads the official nginx image from Docker Hub.
 docker run -d -p 8080:80 --name nginx-container nginx
 ```
 
-![image.png](EXPERIMENT%202/image%201.png)
+![image.png](./assets/image%201.png)
 
 - d → detached mode
 - p 8080:80 → host port 8080 mapped to container port 80
@@ -114,7 +114,7 @@ docker run -d -p 8080:80 --name nginx-container nginx
 docker ps
 ```
 
-![image.png](EXPERIMENT%202/image%202.png)
+![image.png](./assets/image%202.png)
 
 Then verify Nginx:
 
@@ -122,7 +122,7 @@ Then verify Nginx:
 curl localhost:8080
 ```
 
-![image.png](EXPERIMENT%202/image%203.png)
+![image.png](./assets/image%203.png)
 
 OR open browser:
 
@@ -130,7 +130,7 @@ OR open browser:
 http://localhost:8080
 ```
 
-![image.png](EXPERIMENT%202/image%204.png)
+![image.png](./assets/image%204.png)
 
 You should see “Welcome to nginx!”
 

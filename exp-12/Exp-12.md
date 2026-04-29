@@ -22,7 +22,7 @@ Command:
 minikube start
 ```
 
-![Kubernetes Cluster](/assets/e12-1.png)
+![Kubernetes Cluster](../assets/e12-1.png)
 
 ***
 

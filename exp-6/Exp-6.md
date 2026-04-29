@@ -55,7 +55,7 @@ docker compose ps
 docker compose down
 ```
 
-![terminal](./assets/exp_6_1.png)
+![terminal](../assets/exp_6_1.png)
 
 ***
 
@@ -93,7 +93,7 @@ wordpress:latest
 Verify:
 Open `http://localhost:8082`
 
-![wordpress](./assets/exp6_2.png)
+![wordpress](../assets/exp6_2.png)
 
 ### Using Docker Compose (Clean Way)
 Automating the setup cleanly using `docker-compose.yml`:
@@ -130,7 +130,7 @@ docker compose up -d
 docker compose down -v
 ```
 
-![terminal stats](./assets/exp6_3.png)
+![terminal stats](../assets/exp6_3.png)
 
 ***
 
@@ -276,7 +276,7 @@ docker compose up --build -d
 ```
 Verify the output by opening `http://localhost:3000`.
 
-![docker compose build stats](./assets/exp6-4.png)
+![docker compose build stats](../assets/exp6-4.png)
 
 ***
 

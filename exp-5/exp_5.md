@@ -29,7 +29,7 @@ Step 1: Run Ubuntu Container
 docker run -it --name test-container ubuntu /bin/bash
 ```
 
-![Step 1: Run Ubuntu Container](./assets/ex5_1.png)
+![Step 1: Run Ubuntu Container](../assets/ex5_1.png)
 
 Inside the container:
 
@@ -39,7 +39,7 @@ echo "Hello World" > /data/message.txt
 cat /data/message.txt
 ```
 
-![Inside the container:](./assets/ex5_2.png)
+![Inside the container:](../assets/ex5_2.png)
 
 Exit the container:
 
@@ -54,7 +54,7 @@ docker start test-container
 docker exec test-container cat /data/message.txt
 ```
 
-![Restart the container:](./assets/ex5_3.png)
+![Restart the container:](../assets/ex5_3.png)
 
 ### Observation
 
@@ -71,7 +71,7 @@ docker volume create mydata
 docker volume ls
 ```
 
-![Create a Named Volume](./assets/ex5_4.png)
+![Create a Named Volume](../assets/ex5_4.png)
 
 ***
 
@@ -81,7 +81,7 @@ Step 3: Run Container with Volume Attached
 docker run -d -v mydata:/app/data --name web-volume nginx
 ```
 
-![Run Container with Volume Attached](./assets/ex5_5.png)
+![Run Container with Volume Attached](../assets/ex5_5.png)
 
 Verify volume attachment:
 
@@ -89,7 +89,7 @@ Verify volume attachment:
 docker inspect web-volume
 ```
 
-![Verify volume attachment](./assets/ex5_6.png)
+![Verify volume attachment](../assets/ex5_6.png)
 
 ### Observations
 
@@ -105,7 +105,7 @@ Step 4: Create Directory on Host
 mkdir ~/myapp-data
 ```
 
-![Create Directory on Host](./assets/ex5_7.png)
+![Create Directory on Host](../assets/ex5_7.png)
 
 Run container with bind mount:
 
@@ -126,7 +126,7 @@ Verify inside container:
 docker exec web-bind cat /app/data/host-file.txt
 ```
 
-![Bind Mount](./assets/ex5_8.png)
+![Bind Mount](../assets/ex5_8.png)
 
 Observation
 
@@ -152,7 +152,7 @@ Inspect environment variables:
 docker exec env-test printenv
 ```
 
-![Passing Variables using -e Flag](./assets/ex5_9.png)
+![Passing Variables using -e Flag](../assets/ex5_9.png)
 
 ***
 
@@ -170,7 +170,7 @@ Run container using env file:
 docker run -d --env-file .env --name env-file-test nginx
 ```
 
-![Run container using env file](./assets/ex5_10.png)
+![Run container using env file](../assets/ex5_10.png)
 
 Verify variables:
 
@@ -178,7 +178,7 @@ Verify variables:
 docker exec env-file-test printenv
 ```
 
-![Verify variables](./assets/ex5_11.png)
+![Verify variables](../assets/ex5_11.png)
 
 ***
 
@@ -190,7 +190,7 @@ Step 7: View Running Containers
 docker ps
 ```
 
-![view running containers](./assets/ex5_19.png)
+![view running containers](../assets/ex5_19.png)
 
 ***
 
@@ -206,7 +206,7 @@ Single snapshot:
 docker stats --no-stream
 ```
 
-![docker stats](./assets/ex5_12.png)
+![docker stats](../assets/ex5_12.png)
 
 ***
 
@@ -216,7 +216,7 @@ Step 9: View Processes Inside Container
 docker top web-bind
 ```
 
-![view process inside container](./assets/ex5_13.png)
+![view process inside container](../assets/ex5_13.png)
 
 ***
 
@@ -226,7 +226,7 @@ docker top web-bind
 docker logs web-bind
 ```
 
-![ogs web-bind](./assets/ex5_14.png)
+![ogs web-bind](../assets/ex5_14.png)
 
 ***
 
@@ -238,7 +238,7 @@ Step 11: List Existing Networks
 docker network ls
 ```
 
-![network ls](./assets/ex5_15.png)
+![network ls](../assets/ex5_15.png)
 
 ***
 
@@ -254,7 +254,7 @@ Verify network:
 docker network ls
 ```
 
-![docker network ls](./assets/ex5_16.png)
+![docker network ls](../assets/ex5_16.png)
 
 ***
 Step 13: Run Containers on Custom Network
@@ -264,7 +264,7 @@ docker run -d --name web1 --network my-network nginx
 docker run -d --name web2 --network my-network nginx
 ```
 
-![Run containers on custom network](./assets/ex5_17.png)
+![Run containers on custom network](../assets/ex5_17.png)
 
 ***
 
@@ -274,7 +274,7 @@ Step 14: Test Container Communication
 docker exec web1 curl http://web2
 ```
 
-![test container communication](./assets/ex5_18.png)
+![test container communication](../assets/ex5_18.png)
 
 Observation
 

@@ -82,7 +82,7 @@ mkdir my-flask-app
 cd my-flask-app
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image.png)
+![image.png](./assets/image.png)
 
 **Step 2: Create app.py**
 
@@ -165,7 +165,7 @@ Run:
 docker build -t my-flask-app .
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%201.png)
+![image.png](./assets/image%201.png)
 
 Then:
 
@@ -173,7 +173,7 @@ Then:
 docker images
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%202.png)
+![image.png](./assets/image%202.png)
 
 ## **PART 5 — Running the Container**
 
@@ -203,7 +203,7 @@ ananyakarn@Ananyas-MacBook-Air-2 my-flask-app %
 docker ps
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%203.png)
+![image.png](./assets/image%203.png)
 
 ### **Check container logs**
 
@@ -211,7 +211,7 @@ docker ps
 docker logs flask-container
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%204.png)
+![image.png](./assets/image%204.png)
 
 ### **PART 6 — Container Management**
 
@@ -221,7 +221,7 @@ docker start flask-container
 docker rm -f flask-container
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%205.png)
+![image.png](./assets/image%205.png)
 
 ### **PART 7 — Image Tagging**
 
@@ -230,7 +230,7 @@ docker build -t my-flask-app:1.0 .
 docker tag my-flask-app:latest my-flask-app:v1.0
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%206.png)
+![image.png](./assets/image%206.png)
 
 Then:
 
@@ -238,7 +238,7 @@ Then:
 docker images
 ```
 
-![image.png](EXPERIMENT-4%20Docker%20Essentials/image%207.png)
+![image.png](./assets/image%207.png)
 
 Tagging helps maintain versions for deployment and rollback.
 

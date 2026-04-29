@@ -257,7 +257,7 @@ ananyakarn@Ananyas-MacBook-Air-2 containerisation-devOps-AnanyaKarn-500125205-B3
 http://localhost:8080
 ```
 
-![image.png](Experiment%20-3/image.png)
+![image.png](./assets/image.png)
 
 ## **PART 2: NGINX USING UBUNTU BASE IMAGE**
 
@@ -334,7 +334,7 @@ Open Browser:
 
 [http://localhost:808](http://localhost:8081/)1
 
-![image.png](Experiment%20-3/image%201.png)
+![image.png](./assets/image%201.png)
 
 ### **Step 5: Check size**
 

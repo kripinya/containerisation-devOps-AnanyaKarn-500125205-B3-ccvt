@@ -101,7 +101,7 @@ brew tap hashicorp/tap
 brew install hashicorp/tap/hashicorp-vagrant
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image.png)
+![image.png](./assets/image.png)
 
 First, the installation of Vagrant is verified on the host system using the terminal.
 
@@ -109,7 +109,7 @@ First, the installation of Vagrant is verified on the host system using the term
 vagrant --version
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%201.png)
+![image.png](./assets/image%201.png)
 
 **Explanation:**
 
@@ -130,9 +130,9 @@ VMware Fusion is used as the virtualization provider for Apple Silicon (ARM64) a
 
 VMware Fusion provides native ARM support on Apple Silicon, making it suitable for running Ubuntu virtual machines efficiently.
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%202.png)
+![image.png](./assets/image%202.png)
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%203.png)
+![image.png](./assets/image%203.png)
 
 ***
 
@@ -145,7 +145,7 @@ mkdir ubuntu-vagrant
 cd ubuntu-vagrant
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%204.png)
+![image.png](./assets/image%204.png)
 
 **Explanation:**
 
@@ -168,7 +168,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%205.png)
+![image.png](./assets/image%205.png)
 
 **Explanation:**
 
@@ -184,7 +184,7 @@ The Ubuntu virtual machine is started using the following command:
 vagrant up --provider=vmware_desktop
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%206.png)
+![image.png](./assets/image%206.png)
 
 **Explanation:**
 
@@ -200,7 +200,7 @@ Secure shell access to the virtual machine is established using:
 vagrant ssh
 ```
 
-![Screenshot 2026-01-21 at 12.22.12 PM.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/c1cc5658-9d03-4015-8405-d01744ed4c3a.png)
+![Screenshot 2026-01-21 at 12.22.12 PM.png](./assets/c1cc5658-9d03-4015-8405-d01744ed4c3a.png)
 
 **Explanation:**
 
@@ -217,9 +217,9 @@ sudo apt update
 sudo apt install -y nginx
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/5198099b-8eb4-4485-84e9-61954600fd0e.png)
+![image.png](./assets/5198099b-8eb4-4485-84e9-61954600fd0e.png)
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%207.png)
+![image.png](./assets/image%207.png)
 
 The Nginx service is started and enabled:
 
@@ -234,7 +234,7 @@ The status of the service is checked using:
 systemctl status nginx
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/2d132b8a-9291-4dcb-a763-423db1af30c2.png)
+![image.png](./assets/2d132b8a-9291-4dcb-a763-423db1af30c2.png)
 
 **Explanation:**
 
@@ -282,7 +282,7 @@ sudo apt install -y ca-certificates curl gnupg
 sudo apt install -y docker.io
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%208.png)
+![image.png](./assets/image%208.png)
 
 Docker repository is added and Docker Engine is installed.
 
@@ -292,7 +292,7 @@ After installation, the Docker service is verified by running:
 docker --version
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%209.png)
+![image.png](./assets/image%209.png)
 
 ***
 
@@ -304,7 +304,7 @@ A test container is executed to verify successful installation of Docker.
 docker run hello-world
 ```
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%2010.png)
+![image.png](./assets/image%2010.png)
 
 **Explanation:**
 
@@ -331,11 +331,11 @@ This procedure successfully completes:
 
 ### VM:
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%2011.png)
+![image.png](./assets/image%2011.png)
 
 ### Container:
 
-![image.png](Experiment-0-1%20Setup%20of%20Ubuntu%20Virtual%20Machine%20usi/image%2012.png)
+![image.png](./assets/image%2012.png)
 
 | **Parameter** | **VM** | **Container** |
 | --- | --- | --- |
